@@ -1,12 +1,28 @@
+<script context="module">
+	export async function load({ session }) {
+		const user = session.user;
+		if (user) {
+			return {
+				props: {
+					user
+				}
+			};
+		}
+		return {};
+	}
+</script>
+
 <script>
 	import '../app.css';
 	import Nav from '$lib/comps/Nav.svelte';
+	export let user;
 </script>
 
 <div class="app-wrapper">
 	<header>
-		<Nav />
+		<Nav {user} />
 	</header>
+
 	<main class="main-content">
 		<div class="page">
 			<slot />

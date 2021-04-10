@@ -15,9 +15,8 @@ export async function post(request) {
                 if (result === true) {
                     return {
                 body: {
-                        successMessage: `Login successful`,
+                    fullname:user.fullname,
                         email: user.email,
-                        user_id: user.user_id,
                 }
             }
                 } else {

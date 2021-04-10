@@ -1,11 +1,24 @@
+<script context="module">
+	export async function load({ session }) {
+		if (session.user) {
+			return {
+				status: 302,
+				redirect: '/'
+			};
+		}
+		return {};
+	}
+</script>
+
 <script>
 	import { goto } from '$app/navigation';
+	let fullname;
 	let email;
 	let password;
 	let confirmPassword;
 	let errorMessage = '';
 	async function signup() {
-		if (email && password && confirmPassword) {
+		if (fullname && email && password && confirmPassword) {
 			if (password === confirmPassword) {
 				await fetch('/accounts/signup.json', {
 					method: 'POST',
@@ -13,6 +26,7 @@
 						'Content-Type': 'application/json'
 					},
 					body: JSON.stringify({
+						fullname,
 						email,
 						password,
 						confirmPassword
@@ -49,7 +63,10 @@
 			<p class="error-message">{errorMessage}</p>
 		{/if}
 		<h2>Signup</h2>
+		<p><a href="/accounts/login">Have an account?</a></p>
 		<form on:submit|preventDefault={signup}>
+			<label for="fullname">Full Name</label>
+			<input type="fullname" id="fullname" bind:value={fullname} required />
 			<label for="email">Email</label>
 			<input type="email" id="email" bind:value={email} required />
 			<label for="password">Password </label>
@@ -58,7 +75,6 @@
 			<input type="password" id="confirmPassword" bind:value={confirmPassword} required />
 			<input type="submit" value="SignUp" />
 		</form>
-		<p>Already have an account? Please <a href="/accounts/login">Login</a></p>
 	</div>
 </main>
 

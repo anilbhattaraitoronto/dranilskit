@@ -1,4 +1,17 @@
+<script context="module">
+	export async function load({ session }) {
+		if (session.user) {
+			return {
+				status: 302,
+				redirect: '/'
+			};
+		}
+		return {};
+	}
+</script>
+
 <script>
+	import { session } from '$app/stores';
 	let email;
 	let password;
 	function login() {
@@ -14,7 +27,11 @@
 					return res.json();
 				}
 			})
-			.then((userInfo) => console.log('User info is: ', userInfo))
+			.then((userInfo) => {
+				console.log('User info is: ', userInfo);
+				$session.user = userInfo;
+				console.log($session.user);
+			})
 			.catch((err) => console.log('Error: ', err));
 	}
 </script>
@@ -25,14 +42,15 @@
 
 <main>
 	<h2>Login</h2>
+	<p><a href="/accounts/signup">No account yet?</a></p>
 	<form on:submit|preventDefault={login}>
 		<label for="email">Email</label>
 		<input type="email" id="email" bind:value={email} required />
 		<label for="password">Password </label>
 		<input type="password" id="password" bind:value={password} required />
 		<input type="submit" value="Login" />
+		<p>Forgot Password?<a href="/accounts/forgotpassword">Forgot PW</a></p>
 	</form>
-	<p>No account yet? Please <a href="/accounts/signup">Signup</a></p>
 </main>
 
 <style>

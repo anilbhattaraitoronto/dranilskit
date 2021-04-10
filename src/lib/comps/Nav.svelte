@@ -1,3 +1,7 @@
+<script>
+	export let user;
+</script>
+
 <header>
 	<a href="/">
 		<h2>🏠</h2>
@@ -7,10 +11,16 @@
 		<div class="auth-nav-container">
 			<span class="nav-link">Manage ▾</span>
 			<nav class="auth-nav">
-				<a href="/accounts/login">Login</a>
-				<a href="/accounts/signup">Signup</a>
-				<a href="/addpost">AddPost</a>
-				<a href="/about">About</a>
+				{#if !user}
+					<a href="/accounts/login">Login</a>
+					<a href="/accounts/signup">Signup</a>
+				{:else}
+					<a href="/accounts/resetpassword">Reset PW</a>
+					<a href="/accounts/profile">Profile</a>
+					<a on:click>Logout</a>
+					<a href="/addpost">AddPost</a>
+				{/if}
+				<a href="/cv">CV</a>
 			</nav>
 		</div>
 	</nav>
@@ -59,7 +69,7 @@
 	}
 	.nav-link {
 		display: inline-block;
-		padding: 4px 12px;
+		padding: 2px;
 		border: 1px solid #f5d5cbc4;
 		color: black;
 		border-radius: 20px;
@@ -81,7 +91,7 @@
 	.auth-nav {
 		position: absolute;
 		z-index: 120;
-		top: 28px;
+		top: 24px;
 		right: 0;
 		display: flex;
 		flex-direction: column;
@@ -98,20 +108,19 @@
 	.auth-nav > a {
 		display: inline-block;
 		margin: 8px auto;
-		border: 1px solid #f4d7cd;
+		border-bottom: 1px solid #f0dad2;
 		background: whitel;
 		color: black;
 		width: 80px;
 		padding: 4px 0;
 		text-align: center;
 		transition: 200ms all ease-in-out;
-		border-radius: 20px;
+		/* border-radius: 20px; */
 		font-size: 0.8em;
 		letter-spacing: 1px;
 	}
 	.auth-nav > a:hover {
-		background: white;
-		border-color: #f5d5cbc4;
+		border-color: #f5977bc4;
 		color: #ff3e00;
 	}
 	.auth-nav-container:hover > .auth-nav {

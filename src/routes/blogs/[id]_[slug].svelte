@@ -1,6 +1,6 @@
 <script context="module">
 	export async function load({ page, fetch, session }) {
-		const res = await fetch(`/posts/${page.params.id}-${page.params.slug}.json`);
+		const res = await fetch(`/blogs/${page.params.id}_${page.params.slug}.json`);
 		if (res.ok) {
 			return {
 				props: {
@@ -17,7 +17,6 @@
 
 <script>
 	export let article;
-	console.log(article);
 
 	import { goto } from '$app/navigation';
 	let post = {
@@ -26,7 +25,7 @@
 	function deletePost(id) {
 		console.log('article deleted');
 		goto('/');
-		fetch(`/posts/delete/${id}.json`, {
+		fetch(`/blogs/delete/${id}.json`, {
 			method: `DELETE`
 		})
 			.then((res) => {
@@ -49,10 +48,8 @@
 {#if article.article}
 	<article>
 		<h2>{article.article.title}</h2>
-		<p>
-			<em> <b>Summary: </b> </em>
-			{article.article.summary} .....
-		</p>
+		<img src={article.article.thumbnail_url} alt="" />
+
 		<div class="content">
 			<p>
 				{@html article.article.content}
@@ -63,7 +60,7 @@
 		</div>
 		<details>
 			<summary>Delete the post?</summary>
-			<button on:click={() => deletePost(article.article.id)}>Are you sure?</button>
+			<button on:click={() => deletePost(article.article.blog_id)}>Are you sure?</button>
 		</details>
 	</article>
 {/if}
@@ -72,10 +69,19 @@
 	article {
 		padding: 20px 0;
 		font-family: Arial;
+		width: 100%;
+		max-width: 450px;
+		margin: auto;
 	}
 	h2 {
 		text-align: center;
 		padding: 20px 0;
+	}
+	img {
+		display: block;
+		width: 100%;
+		max-width: 450px;
+		margin: 20px auto;
 	}
 	p {
 		padding-bottom: 16px;

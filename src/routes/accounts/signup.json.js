@@ -6,8 +6,8 @@ const salt = bcrypt.genSaltSync(saltRounds);
 
 
 export async function post(request) {
-    const { email, password, confirmPassword } = request.body;
-    if (email && password && confirmPassword) {
+    const { fullname, email, password, confirmPassword } = request.body;
+    if (fullname && email && password && confirmPassword) {
         if (password === confirmPassword) {
             //check if user with that email already exists
             const user = DB.prepare(`SELECT email FROM users WHERE email =?`).get(email)
@@ -16,10 +16,10 @@ export async function post(request) {
                 //use bcrypt to hash password
                 //insert hashed password
                 const hashedPassword = bcrypt.hashSync(password, salt);
-                DB.prepare(`INSERT INTO users (email, password) VALUES(?,?)`).run(email, hashedPassword)
+                DB.prepare(`INSERT INTO users (fullname, email, password) VALUES(?,?,?)`).run(fullname, email, hashedPassword)
             return {
                 body: {
-                    successMessage:`User with ${email} added.`
+                    successMessage:`User with ${fullname} added.`
                 }
             }
             } else {
