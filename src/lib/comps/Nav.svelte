@@ -52,7 +52,7 @@
 		display: block;
 		content: 'dr-anil.com';
 		font-size: 0.5em;
-		color: #ff3e00;
+		color: green;
 		font-weight: 600;
 	}
 	h2:hover {
@@ -71,7 +71,7 @@
 		display: inline-block;
 		padding: 2px;
 		border: 1px solid #f5d5cbc4;
-		color: black;
+		color: green;
 		border-radius: 20px;
 		text-align: center;
 		transition: 200ms all ease-in-out;
@@ -120,8 +120,8 @@
 		letter-spacing: 1px;
 	}
 	.auth-nav > a:hover {
-		border-color: #f5977bc4;
-		color: #ff3e00;
+		border-color: green;
+		color: green;
 	}
 	.auth-nav-container:hover > .auth-nav {
 		transform: scale(1);

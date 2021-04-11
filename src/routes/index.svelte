@@ -28,24 +28,25 @@
 </svelte:head>
 <main>
 	<div class="cv">
-		<img src="/anilbh.jpg" alt="Anil Bhattarai" title="Anil Bhattarai" />
 		<div class="bio">
-			<h2>Anil Bhattarai</h2>
-			<nav class="links">
-				<a href="https://www.linkedin.com/in/anil-bhattarai-5a699b28/">LinkedIn</a>
-				<a href="https://github.com/anilbhattaraitoronto">GitHub</a>
-			</nav>
+			<img src="/anilbh.jpg" alt="Anil Bhattarai" title="Anil Bhattarai" />
+			<header>
+				<h2>Anil Bhattarai</h2>
+				<nav class="links">
+					<a href="https://www.linkedin.com/in/anil-bhattarai-5a699b28/">LinkedIn</a>
+					<a href="https://github.com/anilbhattaraitoronto">GitHub</a>
+					<a href="/cv">CV</a>
+				</nav>
+			</header>
+
 			<div class="bio-content">
 				<p>
-					A highly diligent, self-motivated, and fast-learning information technology professional
-					who has been designing and building full stack web applications since 2018. Intermediate
-					to advanced level competence in two human languages (French and Spanish) and two computer
-					languages (JavaScript and Python). Key strengths include joyful attitude towards learning,
-					effective communication (written and verbal), and able to deliver projects through timely
-					and efficient processes and effective planning always with consideration of end users.
-					Keen to leverage information technology and critical analytical and communication skills
-					to contribute to sustainable planet with much of social activism, education, and research
-					focused on climate change, ecological food systems, and environmental justice.
+					A highly diligent, and self-motivated information technology professional who has been
+					designing and building full stack web applications since 2018. Intermediate to advanced
+					level competence in two human languages (French and Spanish) and two computer languages
+					(JavaScript and Python). Key strengths include joyful attitude towards learning, effective
+					communication (written and verbal), and able to deliver projects through timely and
+					efficient processes and effective planning always with consideration of end users.
 				</p>
 			</div>
 		</div>
@@ -81,31 +82,52 @@
 		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 		grid-column-gap: 20px;
 	}
+	img {
+		display: block;
+		width: 300px;
+		margin: 8px auto;
+	}
+	header {
+		display: flex;
+		justify-content: space-between;
+		box-shadow: 1px 1px 0 rgb(235, 231, 231);
+		border-bottom-right-radius: 8px;
+	}
 	.links {
 		display: flex;
 		justify-content: flex-end;
 		align-items: center;
-		background: green;
+		padding: 2px 0;
 	}
 	.links > a {
 		display: inline-block;
-		margin: 0 16px;
-		color: white;
+		margin: 0 6px;
+		color: darkgreen;
 	}
 	.bio-content > p {
 		line-height: 1.7;
 		padding: 20px 0;
 	}
+
 	.article {
 		padding: 8px 0;
-		border-bottom: 1px solid rgb(206, 202, 202);
+		border-bottom: 1px solid rgb(238, 232, 232);
+		margin: 16px auto;
 	}
-	h2 {
-		color: rgb(91, 88, 88);
+	header > h2 {
+		color: rgb(79, 82, 79);
 		text-transform: uppercase;
 		font-weight: 200;
-		word-spacing: 12px;
-		padding-bottom: 30px;
+		word-spacing: 6px;
+		padding: 4px 8px;
+		font-size: 1.2em;
+	}
+	.blogs > h2 {
+		color: rgb(92, 90, 90);
+		text-transform: uppercase;
+		word-spacing: 6px;
+		letter-spacing: 1px;
+		font-weight: 300;
 	}
 	h3 {
 		color: rgb(169, 163, 163);
@@ -120,7 +142,7 @@
 	}
 	.read-full-link {
 		color: white;
-		background: red;
+		background: green;
 		padding: 2px 16px;
 		border-radius: 20px;
 		border: 1px solid transparent;
@@ -128,12 +150,12 @@
 	}
 	.read-full-link:hover {
 		background: white;
-		color: red;
+		color: green;
 		border-color: rgba(247, 182, 182, 0.269);
 	}
 	p {
 		max-width: 100vw;
-		margin: 1em auto;
+		margin: 8px auto;
 		line-height: 1.25;
 	}
 	.category-link-container {
@@ -142,5 +164,13 @@
 	}
 	.category-link {
 		color: rgb(89, 124, 89);
+	}
+	@media (max-width: 650px) {
+		.cv {
+			border-bottom: 1px solid rgb(225, 221, 221);
+		}
+		.blogs {
+			padding: 30px 0;
+		}
 	}
 </style>

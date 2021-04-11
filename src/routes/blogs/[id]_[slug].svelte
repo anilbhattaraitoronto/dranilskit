@@ -67,25 +67,23 @@
 
 <style>
 	article {
-		padding: 20px 0;
 		font-family: Arial;
 		width: 100%;
-		max-width: 450px;
+		max-width: 550px;
 		margin: auto;
 	}
 	h2 {
-		text-align: center;
-		padding: 20px 0;
+		padding: 8px 0;
 	}
 	img {
 		display: block;
 		width: 100%;
-		max-width: 450px;
+		max-width: 550px;
 		margin: 20px auto;
 	}
 	p {
 		padding-bottom: 16px;
-		line-height: 1.8;
+		line-height: 1.6;
 	}
 	button {
 		all: unset;

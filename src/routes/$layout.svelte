@@ -40,7 +40,7 @@
 	}
 	header {
 		background: rgb(250, 249, 249);
-		box-shadow: 0 1px 0 rgb(215, 211, 211);
+		box-shadow: 0 1px 0 rgb(242, 236, 236);
 		padding: 0 4px;
 		position: sticky;
 		top: 0;
@@ -51,7 +51,7 @@
 		width: 100%;
 		max-width: 1100px;
 		margin: auto;
-		padding: 2em 1em;
+		padding: 0.7em 1em;
 	}
 	footer {
 		text-align: center;
