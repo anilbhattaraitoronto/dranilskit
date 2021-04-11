@@ -16,9 +16,11 @@
 </script>
 
 <script>
+	import { goto } from '$app/navigation';
+	import { session } from '$app/stores';
+
 	export let article;
 
-	import { goto } from '$app/navigation';
 	let post = {
 		title: 'My first article'
 	};
@@ -58,10 +60,13 @@
 			<p><em>Posted:</em> {article.article.posted_date}</p>
 			<p><em>Updated:</em> {article.article.updated_date}</p>
 		</div>
-		<details>
-			<summary>Delete the post?</summary>
-			<button on:click={() => deletePost(article.article.blog_id)}>Are you sure?</button>
-		</details>
+		{#if $session.user}
+			<details>
+				<summary>Delete the post?</summary>
+
+				<button on:click={() => deletePost(article.article.blog_id)}>Are you sure?</button>
+			</details>
+		{/if}
 	</article>
 {/if}
 
