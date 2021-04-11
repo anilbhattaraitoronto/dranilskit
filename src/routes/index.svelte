@@ -63,7 +63,7 @@
 					</p>
 					<h3><a href="/blogs/{article.blog_id}_{article.slug}">{article.title}</a></h3>
 					<p>
-						{article.summary}...
+						{article.summary.replace(/<[^>]*>/g, '')} ...
 						<a href="/blogs/{article.blog_id}_{article.slug}" class="read-full-link">full</a>
 					</p>
 				</div>
