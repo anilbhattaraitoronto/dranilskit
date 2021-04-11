@@ -28,6 +28,10 @@
 	let content;
 	let category_id;
 	let thumbnail_url;
+	//toolbars
+	let selectedSize;
+	let selectedHeading;
+
 	export let categories;
 	if (categories) {
 		console.log('Categories in addpost are', categories);
@@ -66,31 +70,135 @@
 </svelte:head>
 <main>
 	<h2>Add Post</h2>
-	<form on:submit|preventDefault={addPost}>
-		<label for=""
-			>Category:
-			<select id="" bind:value={category_id}>
-				{#each categories.categories as category}
-					<option value={category.category_id}>{category.name}</option>
-				{/each}
-			</select>
-		</label>
 
-		<label for="title">Title</label>
-		<input type="text" id="title" name="title" bind:value={title} required />
-		<label for="thumbnail_url">Thumbnail Url</label>
-		<input
-			type="text"
-			id="thumbnail_url"
-			name="thumbnail_url"
-			bind:value={thumbnail_url}
-			required
-		/>
-		<label for="content">Content</label>
-		<textarea id="content" cols="30" rows="10" name="content" bind:value={content} required />
-		<input type="submit" value="Add Post" />
-	</form>
-	{category_id}
+	<label for=""
+		>Category:
+		<select id="" bind:value={category_id}>
+			{#each categories.categories as category}
+				<option value={category.category_id}>{category.name}</option>
+			{/each}
+		</select>
+	</label>
+
+	<label for="title">Title</label>
+	<input type="text" id="title" name="title" bind:value={title} required />
+	<label for="thumbnail_url">Thumbnail Url</label>
+	<input type="text" id="thumbnail_url" name="thumbnail_url" bind:value={thumbnail_url} required />
+	<label for="content">Content</label>
+	<!-- Toolbar begins -->
+	<div class="tool-bar">
+		<select
+			bind:value={selectedHeading}
+			on:change={() => {
+				document.execCommand('heading', false, selectedHeading);
+			}}
+		>
+			<option value="H1" selected>h1</option>
+			<option value="H2">h2</option>
+			<option value="H3">h3</option>
+			<option value="H4">h4</option>
+			<option value="H5">h5</option>
+			<option value="H6">h6</option>
+		</select>
+		<select
+			bind:value={selectedSize}
+			on:change={() => {
+				document.execCommand('fontSize', false, selectedSize);
+			}}
+		>
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7" selected>7</option>
+		</select>
+		<button
+			on:click={(e) => {
+				document.execCommand('bold');
+			}}
+			title="bold"
+		>
+			<b>B</b>
+		</button>
+		<button
+			on:click={(e) => {
+				document.execCommand('italic');
+			}}
+			title="italic"
+		>
+			<i>I</i>
+		</button>
+		<button on:click={() => document.execCommand('underline')} title="bold"
+			><i class="fa fa-underline" /></button
+		>
+		<button on:click={() => document.execCommand('strikeThrough')} title="bold"
+			><i class="fa fa-strikethrough" /></button
+		>
+		<button on:click={() => document.execCommand('justifyLeft')} title="justifyLeft"
+			><i class="fa fa-align-left" /></button
+		>
+		<button on:click={() => document.execCommand('justifyCenter')} title="justifyCentre"
+			><i class="fa fa-align-center" /></button
+		>
+		<button on:click={() => document.execCommand('justifyRight')} title="justifyRight"
+			><i class="fa fa-align-right" /></button
+		>
+
+		<button on:click={() => document.execCommand('justifyFull')} title="justifyFull"
+			><i class="fa fa-align-justify" /></button
+		>
+		<button on:click={() => document.execCommand('cut')} title="cut"><i class="fa fa-cut" /></button
+		>
+		<button on:click={() => document.execCommand('copy')} title="copy"
+			><i class="fa fa-copy" /></button
+		>
+		<button on:click={() => document.execCommand('indent')} title="indent"
+			><i class="fa fa-indent" /></button
+		>
+		<button on:click={() => document.execCommand('outdent')} title="outdent"
+			><i class="fa fa-dedent" /></button
+		>
+		<button on:click={() => document.execCommand('subscript')} title="subscript"
+			><i class="fa fa-subscript" /></button
+		>
+		<button on:click={() => document.execCommand('superscript')} title="superscript"
+			><i class="fa fa-superscript" /></button
+		>
+		<button on:click={() => document.execCommand('redo')} title="redo"
+			><i class="fa fa-repeat" /></button
+		>
+		<button on:click={() => document.execCommand('undo')} title="undo"
+			><i class="fa fa-undo" /></button
+		>
+		<button
+			on:click={() => document.execCommand('insertUnorderedList')}
+			title="Insert Unordered List"><i class="fa fa-list-ul" /></button
+		>
+		<button on:click={() => document.execCommand('insertOrderedList')} title="Insert Ordered List"
+			><i class="fa fa-list-ol" /></button
+		>
+		<button on:click={() => document.execCommand('formatBlock', false, 'p')} title="Paragraph"
+			><i class="fa fa-paragraph" /></button
+		>
+		<button on:click={() => document.execCommand('insertHorizontalRule')} title="bold">HR</button>
+		<button
+			on:click={() => document.execCommand('createLink', false, prompt('Enter a URL ', 'https://'))}
+			title="Add Link"><i class="fa fa-link" /></button
+		>
+		<button on:click={() => document.execCommand('unlink')} title="Remove Link"
+			><i class="fa fa-unlink" /></button
+		>
+		<button
+			on:click={() =>
+				document.execCommand('insertImage', false, prompt('Enter the image url: ', 'https://'))}
+			title="image"><i class="fa fa-file-image-o" /></button
+		>
+	</div>
+	<!-- Toolbar ends -->
+	<div contenteditable="true" id="editor" bind:innerHTML={content} />
+	<input type="submit" value="Add Post" on:click|preventDefault={addPost} />
 </main>
 
 <style>
@@ -105,12 +213,13 @@
 		text-transform: uppercase;
 		letter-spacing: 2px;
 	}
-	form {
+	[contenteditable] {
+		border: 1px solid lightgray;
+		min-height: 450px;
 		width: 100%;
-		max-width: 550px;
-		margin: auto;
-		padding: 20px;
-		z-index: 1;
+		margin: 30px auto 20px auto;
+		padding: 8px;
+		background: white;
 	}
 	select {
 		border: unset;
@@ -120,33 +229,18 @@
 		font-size: 1em;
 		color: green;
 		text-align: center;
+		width: 80px;
 	}
 	option {
 		width: 150px;
 	}
-	label,
-	textarea {
+	label {
 		display: block;
 		padding: 3px 0;
 		width: 100%;
 		z-index: 1;
 	}
-	textarea {
-		border: unset;
-		outline: unset;
-		margin-bottom: 16px;
-		background: white;
-		text-align: left;
-		display: block;
-		width: 100%;
-		min-width: 320px;
-		padding: 4px;
-		border-radius: 2px;
-		margin-bottom: 20px;
-		height: 350px;
-		font-family: Arial;
-		line-height: 1.7;
-	}
+
 	input {
 		all: unset;
 		margin-bottom: 16px;
