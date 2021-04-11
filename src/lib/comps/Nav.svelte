@@ -1,4 +1,6 @@
 <script>
+	import { session } from '$app/stores';
+	import { goto } from '$app/navigation';
 	export let user;
 </script>
 
@@ -11,13 +13,18 @@
 		<div class="auth-nav-container">
 			<span class="nav-link">Manage ▾</span>
 			<nav class="auth-nav">
-				{#if !user}
+				{#if !$session.user}
 					<a href="/accounts/login">Login</a>
 					<a href="/accounts/signup">Signup</a>
 				{:else}
 					<a href="/accounts/resetpassword">Reset PW</a>
 					<a href="/accounts/profile">Profile</a>
-					<a on:click>Logout</a>
+					<a
+						on:click={() => {
+							$session.user = null;
+							goto('/');
+						}}>Logout</a
+					>
 					<a href="/addpost">AddPost</a>
 				{/if}
 				<a href="/cv">CV</a>

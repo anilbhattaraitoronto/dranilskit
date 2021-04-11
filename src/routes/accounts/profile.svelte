@@ -10,4 +10,8 @@
 	}
 </script>
 
-<h2>Profile</h2>
+<script>
+	import { session } from '$app/stores';
+</script>
+
+<h2>Welcome {$session.user.fullname}</h2>

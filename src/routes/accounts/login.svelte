@@ -12,6 +12,7 @@
 
 <script>
 	import { session } from '$app/stores';
+	import { goto } from '$app/navigation';
 	let email;
 	let password;
 	function login() {
@@ -30,7 +31,7 @@
 			.then((userInfo) => {
 				console.log('User info is: ', userInfo);
 				$session.user = userInfo;
-				console.log($session.user);
+				goto('/accounts/profile');
 			})
 			.catch((err) => console.log('Error: ', err));
 	}
