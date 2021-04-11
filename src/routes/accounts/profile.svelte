@@ -14,6 +14,6 @@
 	import { session } from '$app/stores';
 </script>
 
-{#if session.user}
+{#if $session.user}
 	<h2>Welcome {$session.user.fullname}</h2>
 {/if}
