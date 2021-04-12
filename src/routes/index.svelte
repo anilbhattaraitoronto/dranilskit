@@ -35,9 +35,9 @@
 				<nav class="links">
 					<a href="/cv" class="cv-link">CV</a>
 					<a rel="external" href="https://www.linkedin.com/in/anil-bhattarai-5a699b28/"
-						>LinkedIn⤤
+						>LinkedIn
 					</a>
-					<a rel="external" href="https://github.com/anilbhattaraitoronto">GitHub ⤤</a>
+					<a rel="external" href="https://github.com/anilbhattaraitoronto">GitHub</a>
 				</nav>
 			</header>
 
@@ -112,6 +112,7 @@
 		background: rgb(92, 126, 92);
 		color: white;
 		padding: 0 6px;
+		font-size: 0.8em;
 	}
 	.links > .cv-link {
 		background: rgb(172, 167, 167);
