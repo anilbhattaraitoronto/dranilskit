@@ -38,6 +38,9 @@
 		min-height: 100vh;
 		position: relative;
 	}
+	.slot {
+		min-height: 80vh;
+	}
 	header {
 		background: rgb(250, 249, 249);
 		box-shadow: 0 1px 0 rgb(242, 236, 236);
@@ -58,13 +61,7 @@
 		font-size: 0.9em;
 		padding: 8px 0;
 		min-height: 3vh;
-		background: rgb(249, 241, 238);
+
 		box-shadow: 0 -1px 0 rgb(215, 211, 211);
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		width: 100%;
-		margin: auto;
 	}
 </style>

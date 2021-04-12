@@ -1,22 +1,25 @@
 <script>
 	import { session } from '$app/stores';
 	import { goto } from '$app/navigation';
-	export let user;
 </script>
 
 <header>
 	<a href="/">
-		<h2>🏠</h2>
+		<h2 class="masthead">🏠</h2>
 	</a>
 
 	<nav>
+		<a href="/cv" class="nav-link cv-link">CV</a>
 		<div class="auth-nav-container">
-			<span class="nav-link">Manage ▾</span>
-			<nav class="auth-nav">
-				{#if !$session.user}
-					<a href="/accounts/login">Login</a>
-					<a href="/accounts/signup">Signup</a>
-				{:else}
+			{#if !$session.user}
+				<a href="/accounts/login" class="nav-link">Login</a><a
+					href="/accounts/signup"
+					class="nav-link">Signup</a
+				>
+			{/if}
+			{#if $session.user}
+				<span class="nav-link">Manage ▾</span>
+				<nav class="auth-nav">
 					<a href="/accounts/resetpassword">Reset PW</a>
 					<a href="/accounts/profile">Profile</a>
 					<a
@@ -26,9 +29,8 @@
 						}}>Logout</a
 					>
 					<a href="/addpost">AddPost</a>
-				{/if}
-				<a href="/cv">CV</a>
-			</nav>
+				</nav>
+			{/if}
 		</div>
 	</nav>
 </header>
@@ -41,7 +43,7 @@
 		max-width: 1100px;
 		margin: auto;
 	}
-	h2 {
+	.masthead {
 		color: #250d05;
 		text-align: center;
 		transition: 200ms all ease-in-out;
@@ -55,7 +57,7 @@
 		border-radius: 50%;
 		font-size: 1em;
 	}
-	h2::after {
+	.masthead::after {
 		display: block;
 		content: 'dr-anil.com';
 		font-size: 0.5em;
@@ -74,18 +76,23 @@
 		text-decoration: none;
 		color: black;
 	}
+	.nav-link.cv-link {
+		background: green;
+		color: white;
+	}
 	.nav-link {
 		display: inline-block;
 		padding: 2px;
 		border: 1px solid #f5d5cbc4;
-		color: green;
+		color: white;
+		background: rgb(50, 136, 50);
 		border-radius: 20px;
 		text-align: center;
 		transition: 200ms all ease-in-out;
-		margin-left: 4px;
+		margin-left: 2px;
 		cursor: pointer;
 		font-size: 0.9em;
-		width: 95px;
+		width: 75px;
 	}
 	.nav-link:hover {
 		/* color: white; */

@@ -5,7 +5,8 @@
 			return {
 				props: {
 					articles: await res.json()
-				}
+				},
+				maxage: 3600
 			};
 		}
 		return {
@@ -29,24 +30,26 @@
 <main>
 	<div class="cv">
 		<div class="bio">
-			<img src="/anilbh.jpg" alt="Anil Bhattarai" title="Anil Bhattarai" />
 			<header>
 				<h2>Anil Bhattarai</h2>
 				<nav class="links">
-					<a href="https://www.linkedin.com/in/anil-bhattarai-5a699b28/">LinkedIn</a>
-					<a href="https://github.com/anilbhattaraitoronto">GitHub</a>
-					<a href="/cv">CV</a>
+					<a href="/cv" class="cv-link">CV</a>
+					<a rel="external" href="https://www.linkedin.com/in/anil-bhattarai-5a699b28/"
+						>LinkedIn⤤
+					</a>
+					<a rel="external" href="https://github.com/anilbhattaraitoronto">GitHub ⤤</a>
 				</nav>
 			</header>
 
 			<div class="bio-content">
 				<p>
-					A highly diligent, and self-motivated information technology professional who has been
-					designing and building full stack web applications since 2018. Intermediate to advanced
-					level competence in two human languages (French and Spanish) and two computer languages
-					(JavaScript and Python). Key strengths include joyful attitude towards learning, effective
-					communication (written and verbal), and able to deliver projects through timely and
-					efficient processes and effective planning always with consideration of end users.
+					<img src="/anilbh.jpg" alt="Anil Bhattarai" title="Anil Bhattarai" />
+					A highly diligent, and self-motivated information technology professional who has been designing
+					and building full stack web applications since 2018. Intermediate to advanced level competence
+					in two human languages (French and Spanish) and two computer languages (JavaScript and Python).
+					Key strengths include joyful attitude towards learning, effective communication (written and
+					verbal), and able to deliver projects through timely and efficient processes and effective
+					planning always with consideration of end users.
 				</p>
 			</div>
 		</div>
@@ -64,7 +67,11 @@
 					<h3><a href="/blogs/{article.blog_id}_{article.slug}">{article.title}</a></h3>
 					<p>
 						{article.summary.replace(/<[^>]*>/g, '')} ...
-						<a href="/blogs/{article.blog_id}_{article.slug}" class="read-full-link">full</a>
+						<a
+							sveltekit:prefetch
+							href="/blogs/{article.blog_id}_{article.slug}"
+							class="read-full-link">full</a
+						>
 					</p>
 				</div>
 			{/each}
@@ -84,8 +91,8 @@
 	}
 	img {
 		display: block;
-		width: 300px;
-		margin: 8px auto;
+		width: 100%;
+		padding: 32px 32px 32px 0;
 	}
 	header {
 		display: flex;
@@ -102,8 +109,15 @@
 	.links > a {
 		display: inline-block;
 		margin: 0 6px;
-		color: darkgreen;
+		background: rgb(92, 126, 92);
+		color: white;
+		padding: 0 6px;
 	}
+	.links > .cv-link {
+		background: rgb(172, 167, 167);
+		color: red;
+	}
+
 	.bio-content > p {
 		line-height: 1.7;
 		padding: 20px 0;
@@ -114,38 +128,30 @@
 		border-bottom: 1px solid rgb(238, 232, 232);
 		margin: 16px auto;
 	}
-	header > h2 {
-		color: rgb(79, 82, 79);
+	h2 {
+		color: rgb(75, 77, 75);
 		text-transform: uppercase;
-		font-weight: 200;
+
 		word-spacing: 6px;
 		padding: 4px 8px;
 		font-size: 1.2em;
 	}
-	.blogs > h2 {
-		color: rgb(92, 90, 90);
-		text-transform: uppercase;
-		word-spacing: 6px;
-		letter-spacing: 1px;
-		font-weight: 300;
-	}
-	h3 {
-		color: rgb(169, 163, 163);
+
+	h3 > a {
+		color: rgb(96, 93, 93);
 	}
 	a {
 		text-decoration: none;
-		color: rgb(41, 39, 39);
 		transition: 200ms all ease-in;
 	}
 	a:hover {
 		text-decoration: underline;
 	}
 	.read-full-link {
-		color: white;
-		background: green;
+		color: green;
 		padding: 2px 16px;
 		border-radius: 20px;
-		border: 1px solid transparent;
+		border: 1px solid rgba(0, 128, 0, 0.358);
 		font-size: 0.8em;
 	}
 	.read-full-link:hover {
@@ -171,6 +177,10 @@
 		}
 		.blogs {
 			padding: 30px 0;
+		}
+		img {
+			padding: 0 32px 16px 0;
+			width: 320px;
 		}
 	}
 </style>

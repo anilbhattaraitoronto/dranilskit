@@ -5,7 +5,8 @@
 			return {
 				props: {
 					article: await res.json()
-				}
+				},
+				maxage: 3600
 			};
 		}
 		return {
@@ -60,7 +61,7 @@
 			<p><em>Posted:</em> {article.article.posted_date}</p>
 			<p><em>Updated:</em> {article.article.updated_date}</p>
 		</div>
-		{#if $session.user}
+		{#if $session.user && $session.user.is_admin == 1}
 			<details>
 				<summary>Delete the post?</summary>
 

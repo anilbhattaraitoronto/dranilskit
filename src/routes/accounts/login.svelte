@@ -16,7 +16,7 @@
 	let email;
 	let password;
 	function login() {
-		fetch(`/accounts/login.json`, {
+		fetch(`/auth/login.json`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
@@ -59,7 +59,7 @@
 		width: 100%;
 		margin: auto;
 		padding: 20px;
-		background: rgb(242, 232, 227);
+		background: rgb(240, 244, 235);
 	}
 	h2 {
 		text-align: center;
@@ -85,7 +85,7 @@
 		background: white;
 		text-align: left;
 		display: block;
-		border: 1px solid #ff40004f;
+		border: 1px solid #ff400033;
 		width: 100%;
 		padding: 4px;
 		border-radius: 20px;
@@ -94,7 +94,7 @@
 		border-color: #ff3e00;
 	}
 	input[type='submit'] {
-		border: 1px solid #ff40004d;
+		border: 1px solid #f1ab934d;
 		font-size: 1em;
 		text-transform: uppercase;
 		cursor: pointer;
@@ -108,5 +108,13 @@
 	}
 	p {
 		text-align: center;
+	}
+	@media (max-width: 500px) {
+		input {
+			margin-bottom: 12px;
+		}
+		label {
+			margin: -5px 0;
+		}
 	}
 </style>

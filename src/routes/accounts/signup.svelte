@@ -20,7 +20,7 @@
 	async function signup() {
 		if (fullname && email && password && confirmPassword) {
 			if (password === confirmPassword) {
-				await fetch('/accounts/signup.json', {
+				await fetch('/auth/signup.json', {
 					method: 'POST',
 					headers: {
 						'Content-Type': 'application/json'
@@ -82,13 +82,7 @@
 	main {
 		width: 100%;
 		margin: auto;
-
-		background: rgb(242, 232, 227);
-		/* min-height: 66vh;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center; */
+		background: rgb(240, 244, 235);
 	}
 	h2 {
 		text-align: center;
@@ -104,9 +98,9 @@
 	}
 	label {
 		display: block;
-		padding: 3px 0;
 		width: 100%;
 		z-index: 1;
+		color: rgb(107, 111, 103);
 	}
 	input {
 		all: unset;
@@ -114,7 +108,7 @@
 		background: white;
 		text-align: left;
 		display: block;
-		border: 1px solid #ff40004f;
+		border: 1px solid #ff400033;
 		width: 100%;
 		padding: 4px;
 		border-radius: 20px;
@@ -138,5 +132,13 @@
 	}
 	p {
 		text-align: center;
+	}
+	@media (max-width: 500px) {
+		input {
+			margin-bottom: 12px;
+		}
+		label {
+			margin: -5px 0;
+		}
 	}
 </style>
