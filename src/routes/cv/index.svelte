@@ -1,5 +1,5 @@
 <main>
-	<h2>Profile</h2>
+	<h2>profile 😀</h2>
 	<img src="/anilbh.jpg" alt="Anil Bhattarai" title="Anil Bhattarai" />
 	<p>
 		A highly diligent, and self-motivated information technology professional who has been designing
@@ -16,6 +16,12 @@
 		float: left;
 		clear: both;
 		padding-right: 16px;
+	}
+	h2 {
+		color: rgb(120, 117, 117);
+		text-transform: uppercase;
+		font-size: 1.2em;
+		letter-spacing: 1px;
 	}
 	@media (max-width: 600px) {
 		img {

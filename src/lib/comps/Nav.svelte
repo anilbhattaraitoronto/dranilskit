@@ -72,20 +72,13 @@
 		justify-content: center;
 		align-items: center;
 	}
-	a {
-		text-decoration: none;
-		color: black;
-	}
-	.nav-link.cv-link {
-		background: green;
-		color: white;
-	}
+
 	.nav-link {
 		display: inline-block;
 		padding: 2px;
 		border: 1px solid #f5d5cbc4;
-		color: white;
-		background: rgb(50, 136, 50);
+		color: darkgreen;
+		background: white;
 		border-radius: 20px;
 		text-align: center;
 		transition: 200ms all ease-in-out;
@@ -93,6 +86,7 @@
 		cursor: pointer;
 		font-size: 0.9em;
 		width: 75px;
+		text-decoration: none;
 	}
 	.nav-link:hover {
 		/* color: white; */

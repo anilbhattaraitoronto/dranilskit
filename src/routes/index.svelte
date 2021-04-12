@@ -130,11 +130,9 @@
 		margin: 16px auto;
 	}
 	h2 {
-		color: rgb(75, 77, 75);
 		text-transform: uppercase;
-
 		word-spacing: 6px;
-		padding: 4px 8px;
+		padding: 4px 0;
 		font-size: 1.2em;
 	}
 

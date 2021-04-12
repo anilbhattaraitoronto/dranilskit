@@ -3,12 +3,12 @@
 
 	<main>
 		<nav class="cv-menu">
-			<a href="/cv">Profile</a>
-			<a href="/cv/education">Education</a>
-			<a href="/cv/work">Work</a>
-			<a href="/cv/skills">Skills</a>
+			<a sveltekit:prefetch href="/cv">Profile</a>
+			<a sveltekit:prefetch href="/cv/education">Education</a>
+			<a sveltekit:prefetch href="/cv/work">Work</a>
+			<a sveltekit:prefetch href="/cv/skills">Skills</a>
 
-			<a href="/cv/writings">Writings</a>
+			<a sveltekit:prefetch href="/cv/writings">Writings</a>
 		</nav>
 
 		<div class="slot">
@@ -38,7 +38,7 @@
 		flex-direction: column;
 		justify-content: flex-start;
 		text-align: right;
-		padding: 16px 32px;
+		margin-right: 24px;
 	}
 
 	a {
@@ -46,7 +46,8 @@
 		text-decoration: none;
 		text-transform: uppercase;
 		font-size: 0.8em;
-		color: darkgreen;
+		color: rgba(3, 48, 3, 0.844);
+		font-weight: 600;
 	}
 	a:hover {
 		text-decoration: underline;
