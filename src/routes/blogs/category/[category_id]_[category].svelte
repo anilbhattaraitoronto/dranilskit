@@ -32,7 +32,14 @@
 	<div class="blogs">
 		{#each categoryBlogs.categoryBlogs as blog}
 			<div class="blog">
-				<h3>{blog.title}</h3>
+				<h3><a href="/blogs/{blog.blog_id}_{blog.slug}">{blog.title}</a></h3>
+				<p>
+					<em>Posted: </em>
+					{new Date(blog.posted_date).toDateString()}
+					<br />
+					<em>Updated:</em>
+					{new Date(blog.updated_date).toDateString()}
+				</p>
 			</div>
 		{/each}
 	</div>

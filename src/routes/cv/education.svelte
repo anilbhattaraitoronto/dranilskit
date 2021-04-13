@@ -32,4 +32,7 @@
 	];
 </script>
 
+<svelte:head>
+	<title>Education</title>
+</svelte:head>
 <Item {items} {itemTitle} {itemIcon} />

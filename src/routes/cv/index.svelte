@@ -1,3 +1,6 @@
+<svelte:head>
+	<title>CV</title>
+</svelte:head>
 <main>
 	<h2>profile 😀</h2>
 	<img src="/anilbh.jpg" alt="Anil Bhattarai" title="Anil Bhattarai" />

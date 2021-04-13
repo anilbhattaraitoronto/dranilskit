@@ -14,6 +14,10 @@
 	let commSkills = [];
 </script>
 
+<svelte:head>
+	<title>Skills</title>
+</svelte:head>
+
 <Item items={itSkills} itemIcon="💻" itemTitle="information technology" />
 <Item items={resSkills} itemIcon=" ⛏" itemTitle="research skills" />
 <Item items={commSkills} itemIcon="👌🏻" itemTitle="Communication Skills" />

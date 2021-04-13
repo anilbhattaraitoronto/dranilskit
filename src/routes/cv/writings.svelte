@@ -5,4 +5,7 @@
 	let items = [];
 </script>
 
+<svelte:head>
+	<title>Writings</title>
+</svelte:head>
 <Item {items} {itemIcon} {itemTitle} />
