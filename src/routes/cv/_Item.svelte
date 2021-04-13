@@ -26,11 +26,11 @@
 	h2 {
 		text-transform: uppercase;
 		color: rgb(118, 114, 114);
-		font-size: 1.2em;
+		font-size: 1.1em;
 		letter-spacing: 1px;
 	}
 	.item {
-		margin-top: 20px;
+		margin-top: 8px;
 		padding-bottom: 20px;
 		line-height: 1.4;
 	}

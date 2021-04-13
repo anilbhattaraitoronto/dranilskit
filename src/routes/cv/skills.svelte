@@ -2,7 +2,7 @@
 	import Item from './_Item.svelte';
 
 	let itemIcon = '🎸';
-	let devSkills = [
+	let itSkills = [
 		{
 			title: 'Webdev',
 			subtitle: 'Frontend',
@@ -10,8 +10,10 @@
 		}
 	];
 	// research skills
+	let resSkills = [];
+	let commSkills = [];
 </script>
 
-<Item items={devSkills} itemIcon="💻" itemTitle="webdev skills" />
-<Item items={devSkills} itemIcon=" ⛏" itemTitle="research skills" />
-<Item items={devSkills} itemIcon="👌🏻" itemTitle="Communication Skills" />
+<Item items={itSkills} itemIcon="💻" itemTitle="information technology" />
+<Item items={resSkills} itemIcon=" ⛏" itemTitle="research skills" />
+<Item items={commSkills} itemIcon="👌🏻" itemTitle="Communication Skills" />

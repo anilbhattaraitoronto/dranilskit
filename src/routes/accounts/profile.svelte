@@ -14,6 +14,8 @@
 	import { session } from '$app/stores';
 </script>
 
-{#if $session.user}
-	<h2>Welcome {$session.user.fullname}</h2>
-{/if}
+<svelte:head>
+	<title>Welcome {$session.user.fullname}</title>
+</svelte:head>
+
+<h2>Welcome {$session.user.fullname}</h2>

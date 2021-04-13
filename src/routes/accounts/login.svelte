@@ -59,7 +59,8 @@
 		width: 100%;
 		margin: auto;
 		padding: 20px;
-		background: rgb(240, 244, 235);
+		box-shadow: 1px 1px 0 rgb(232, 229, 229);
+		border-bottom-right-radius: 8px;
 	}
 	h2 {
 		text-align: center;

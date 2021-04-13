@@ -29,9 +29,9 @@
 </svelte:head>
 <main>
 	<div class="cv">
+		<img src="/anilbh.jpg" alt="Anil Bhattarai" title="Anil Bhattarai" />
 		<div class="bio">
 			<header>
-				<h2>Anil Bhattarai</h2>
 				<nav class="links">
 					<a href="/cv" class="cv-link">CV</a>
 					<a rel="external" href="https://www.linkedin.com/in/anil-bhattarai-5a699b28/"
@@ -42,14 +42,14 @@
 			</header>
 
 			<div class="bio-content">
+				<h2>Anil Bhattarai</h2>
 				<p>
-					<img src="/anilbh.jpg" alt="Anil Bhattarai" title="Anil Bhattarai" />
-					A highly diligent, and self-motivated information technology professional who has been designing
-					and building full stack web applications since 2018. Intermediate to advanced level competence
-					in two human languages (French and Spanish) and two computer languages (JavaScript and Python).
-					Key strengths include joyful attitude towards learning, effective communication (written and
-					verbal), and able to deliver projects through timely and efficient processes and effective
-					planning always with consideration of end users.
+					A highly diligent, and self-motivated information technology professional who has been
+					designing and building full stack web applications since 2018. Intermediate to advanced
+					level competence in two human languages (French and Spanish) and two computer languages
+					(JavaScript and Python). Key strengths include joyful attitude towards learning, effective
+					communication (written and verbal), and able to deliver projects through timely and
+					efficient processes and effective planning always with consideration of end users.
 				</p>
 			</div>
 		</div>
@@ -60,7 +60,7 @@
 			{#each latestArticles as article}
 				<div class="article">
 					<p class="category-link-container">
-						<a href="/blogs/category/{article.category_id}" class="category-link"
+						<a href="/blogs/category/{article.category_id}_{article.category}" class="category-link"
 							>#{article.category}</a
 						>
 					</p>
@@ -92,27 +92,22 @@
 	img {
 		display: block;
 		width: 100%;
-		padding: 32px 32px 32px 0;
-	}
-	header {
-		display: flex;
-		justify-content: space-between;
-		box-shadow: 1px 1px 0 rgb(235, 231, 231);
-		border-bottom-right-radius: 8px;
+		/* padding: 8px 0; */
 	}
 	.links {
 		display: flex;
-		justify-content: flex-end;
+		justify-content: center;
 		align-items: center;
-		padding: 2px 0;
+		padding: 8px 0;
 	}
 	.links > a {
 		display: inline-block;
-		margin: 0 6px;
+		margin-left: 6px;
 		background: rgb(92, 126, 92);
 		color: white;
 		padding: 0 6px;
 		font-size: 0.8em;
+		text-align: right;
 	}
 	.links > .cv-link {
 		background: rgb(172, 167, 167);
@@ -121,7 +116,7 @@
 
 	.bio-content > p {
 		line-height: 1.7;
-		padding: 20px 0;
+		padding: 8px 0;
 	}
 
 	.article {
@@ -132,7 +127,7 @@
 	h2 {
 		text-transform: uppercase;
 		word-spacing: 6px;
-		padding: 4px 0;
+		/* padding: 4px 0; */
 		font-size: 1.2em;
 	}
 
@@ -179,7 +174,8 @@
 		}
 		img {
 			padding: 0 32px 16px 0;
-			width: 320px;
+			width: 100%;
+			margin: auto;
 		}
 	}
 </style>

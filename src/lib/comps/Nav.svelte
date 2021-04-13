@@ -53,7 +53,7 @@
 		justify-content: center;
 		align-items: center;
 		flex-direction: column;
-		border: 1px solid rgb(245, 216, 205);
+		border: 1px solid rgb(240, 234, 231);
 		border-radius: 50%;
 		font-size: 1em;
 	}
@@ -65,7 +65,7 @@
 		font-weight: 600;
 	}
 	h2:hover {
-		border-color: #f3ab93;
+		border-color: green;
 	}
 	nav {
 		display: flex;
@@ -75,22 +75,23 @@
 
 	.nav-link {
 		display: inline-block;
-		padding: 2px;
+
 		border: 1px solid #f5d5cbc4;
-		color: darkgreen;
+		color: rgb(4, 65, 4);
 		background: white;
 		border-radius: 20px;
 		text-align: center;
 		transition: 200ms all ease-in-out;
 		margin-left: 2px;
 		cursor: pointer;
-		font-size: 0.9em;
+		font-size: 0.8em;
 		width: 75px;
 		text-decoration: none;
+		text-transform: uppercase;
 	}
 	.nav-link:hover {
-		/* color: white; */
-		border-color: #ff3e00;
+		border-color: green;
+		color: green;
 	}
 	.auth-nav-container {
 		position: relative;
