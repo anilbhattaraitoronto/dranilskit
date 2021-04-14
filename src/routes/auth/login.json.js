@@ -16,7 +16,8 @@ export async function post(request) {
                     return {
                 body: {
                     fullname:user.fullname,
-                        email: user.email,
+                            email: user.email,
+                        is_admin:true
                 }
             }
                 } else {

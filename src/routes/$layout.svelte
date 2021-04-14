@@ -40,7 +40,7 @@
 	}
 
 	header {
-		background: rgb(10, 113, 30);
+		background: white;
 		box-shadow: 0 1px 0 rgb(242, 236, 236);
 		padding: 0 4px;
 		position: sticky;

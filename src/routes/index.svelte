@@ -144,16 +144,16 @@
 		text-decoration: underline;
 	}
 	.read-full-link {
-		color: green;
+		color: rgb(255, 196, 0);
 		padding: 2px 16px;
-		border-radius: 20px;
-		border: 1px solid rgba(0, 128, 0, 0.358);
+		background: gray;
+		border: 1px solid transparent;
 		font-size: 0.8em;
 	}
 	.read-full-link:hover {
 		background: white;
-		color: green;
-		border-color: rgba(247, 182, 182, 0.269);
+		color: black;
+		border-color: black;
 	}
 	p {
 		max-width: 100vw;
@@ -165,7 +165,7 @@
 		padding: 0;
 	}
 	.category-link {
-		color: rgb(89, 124, 89);
+		color: rgb(51, 59, 51);
 	}
 	@media (max-width: 650px) {
 		.cv {
