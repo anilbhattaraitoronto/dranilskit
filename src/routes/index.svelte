@@ -151,14 +151,16 @@
 	.read-full-link {
 		color: black;
 		padding: 2px 16px;
-		background: rgb(241, 232, 232);
-		border: 1px solid gray;
+		background: rgb(247, 244, 244);
+		border: 1px solid rgb(152, 147, 147);
 		font-size: 0.8em;
+		letter-spacing: 1px;
 	}
 	.read-full-link:hover {
 		background: white;
 		color: black;
 		border-color: black;
+		font-size: 0.9em;
 	}
 	p {
 		max-width: 100vw;
