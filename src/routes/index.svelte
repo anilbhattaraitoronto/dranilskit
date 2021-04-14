@@ -34,10 +34,19 @@
 			<header>
 				<nav class="links">
 					<a href="/cv" class="cv-link">CV</a>
-					<a rel="external" href="https://www.linkedin.com/in/anil-bhattarai-5a699b28/"
+					<a
+						rel="external"
+						target="_blank"
+						no-referrer
+						href="https://www.linkedin.com/in/anil-bhattarai-5a699b28/"
 						>LinkedIn
 					</a>
-					<a rel="external" href="https://github.com/anilbhattaraitoronto">GitHub</a>
+					<a
+						rel="external"
+						target="_blank"
+						no-referrer
+						href="https://github.com/anilbhattaraitoronto">GitHub</a
+					>
 				</nav>
 			</header>
 
@@ -105,15 +114,11 @@
 	.links > a {
 		display: inline-block;
 		margin-left: 6px;
-		background: rgb(92, 126, 92);
+		background: black;
 		color: white;
 		padding: 0 6px;
 		font-size: 0.8em;
 		text-align: right;
-	}
-	.links > .cv-link {
-		background: rgb(172, 167, 167);
-		color: red;
 	}
 
 	.bio-content > p {
@@ -144,10 +149,10 @@
 		text-decoration: underline;
 	}
 	.read-full-link {
-		color: rgb(255, 196, 0);
+		color: black;
 		padding: 2px 16px;
-		background: gray;
-		border: 1px solid transparent;
+		background: rgb(241, 232, 232);
+		border: 1px solid gray;
 		font-size: 0.8em;
 	}
 	.read-full-link:hover {
