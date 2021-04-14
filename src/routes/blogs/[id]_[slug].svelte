@@ -20,7 +20,7 @@
 	import { goto } from '$app/navigation';
 	import { session } from '$app/stores';
 
-	export let article;
+	export let article = null;
 
 	let post = {
 		title: 'My first article'

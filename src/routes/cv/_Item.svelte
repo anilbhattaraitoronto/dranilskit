@@ -30,15 +30,26 @@
 		letter-spacing: 1px;
 	}
 	.item {
-		margin-top: 8px;
-		padding-bottom: 20px;
-		line-height: 1.4;
+		margin: 12px auto;
+		line-height: 1.2;
+		padding: 4px;
+	}
+	.item:nth-child(even) {
+		background: rgb(241, 247, 242);
+		box-shadow: 1px 1px rgb(240, 235, 235);
+	}
+	h3 {
+		letter-spacing: 1px;
+		color: rgb(61, 58, 58);
+		font-size: 1.1em;
 	}
 	h4 {
-		color: rgb(121, 116, 116);
+		color: rgb(84, 81, 81);
+		font-size: 1em;
 	}
 	ul {
 		list-style: square;
 		padding: 0 16px;
+		font-size: 0.9em;
 	}
 </style>

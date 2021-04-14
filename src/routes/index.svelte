@@ -17,7 +17,7 @@
 </script>
 
 <script>
-	export let articles;
+	export let articles = null;
 	let latestArticles;
 	if (articles) {
 		latestArticles = articles['articles'];
@@ -84,10 +84,12 @@
 <style>
 	main {
 		width: 100%;
+		max-width: 1100px;
 		margin: 0 auto;
 		display: grid;
 		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 		grid-column-gap: 20px;
+		padding: 20px 0;
 	}
 	img {
 		display: block;

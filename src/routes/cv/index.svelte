@@ -16,15 +16,17 @@
 
 <style>
 	img {
-		float: left;
-		clear: both;
-		padding-right: 16px;
+		display: block;
+		width: 100%;
+		max-width: 400px;
+		margin: auto;
 	}
 	h2 {
 		color: rgb(120, 117, 117);
 		text-transform: uppercase;
 		font-size: 1.2em;
 		letter-spacing: 1px;
+		text-align: center;
 	}
 	@media (max-width: 600px) {
 		img {

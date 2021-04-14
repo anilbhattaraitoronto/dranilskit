@@ -1,6 +1,7 @@
 <script>
-	import { session } from '$app/stores';
 	import { goto } from '$app/navigation';
+	import { session } from '$app/stores';
+	export let user;
 </script>
 
 <header>
@@ -11,24 +12,26 @@
 	<nav>
 		<a href="/cv" class="nav-link cv-link">CV</a>
 		<div class="auth-nav-container">
-			{#if !$session.user}
+			{#if !user}
 				<a href="/accounts/login" class="nav-link">Login</a><a
 					href="/accounts/signup"
 					class="nav-link">Signup</a
 				>
 			{/if}
-			{#if $session.user}
+			{#if user}
 				<span class="nav-link">Manage ▾</span>
 				<nav class="auth-nav">
 					<a href="/accounts/resetpassword">Reset PW</a>
 					<a href="/accounts/profile">Profile</a>
+					<a href="/addpost">AddPost</a>
 					<a
 						on:click={() => {
 							$session.user = null;
+							user = null;
+
 							goto('/');
 						}}>Logout</a
 					>
-					<a href="/addpost">AddPost</a>
 				</nav>
 			{/if}
 		</div>
@@ -45,6 +48,7 @@
 	}
 	.masthead {
 		color: #250d05;
+		background: white;
 		text-align: center;
 		transition: 200ms all ease-in-out;
 		height: 60px;

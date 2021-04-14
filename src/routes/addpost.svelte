@@ -2,7 +2,7 @@
 	export async function load({ fetch, session }) {
 		const res = await fetch(`/categories.json`);
 		const user = session.user;
-		if (user) {
+		if (user && user.is_admin) {
 			if (res.ok) {
 				return {
 					props: {
@@ -24,6 +24,7 @@
 
 <script>
 	import { goto } from '$app/navigation';
+	import { session } from '$app/stores';
 	let title;
 	let content;
 	let category_id;
@@ -38,29 +39,33 @@
 	}
 
 	async function addPost() {
-		let formData = new FormData();
-		if (title && content) {
-			formData.append('title', title);
-			formData.append('content', content);
-			formData.append('thumbnail_url', thumbnail_url);
-			formData.append('category_id', category_id);
+		if ($session.user && $session.user.is_admin) {
+			let formData = new FormData();
+			if (title && content) {
+				formData.append('title', title);
+				formData.append('content', content);
+				formData.append('thumbnail_url', thumbnail_url);
+				formData.append('category_id', category_id);
 
-			await fetch(`/addpost.json`, {
-				method: `POST`,
-				body: formData
-			})
-				.then((res) => {
-					if (res.ok) {
-						// delete res.headers['Content-Type'];
-						return res.json();
-					}
+				await fetch(`/addpost.json`, {
+					method: `POST`,
+					body: formData
 				})
-				.then((data) => {
-					goto('/');
-				})
-				.catch((err) => console.log('Error', err));
+					.then((res) => {
+						if (res.ok) {
+							// delete res.headers['Content-Type'];
+							return res.json();
+						}
+					})
+					.then((data) => {
+						goto('/');
+					})
+					.catch((err) => console.log('Error', err));
+			} else {
+				return;
+			}
 		} else {
-			return;
+			return console.log('You are not admin');
 		}
 	}
 </script>

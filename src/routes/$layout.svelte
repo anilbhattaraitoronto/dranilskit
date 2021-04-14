@@ -13,21 +13,18 @@
 </script>
 
 <script>
+	import { session } from '$app/stores';
 	import '../app.css';
 	import Nav from '$lib/comps/Nav.svelte';
-	export let user;
+	// export let user;
 </script>
 
+<header>
+	<Nav user={$session.user} />
+</header>
 <div class="app-wrapper">
-	<header>
-		<Nav {user} />
-	</header>
+	<slot />
 
-	<main class="main-content">
-		<div class="page">
-			<slot />
-		</div>
-	</main>
 	<footer>
 		<p>&copy; Dr Anil Bhattarai. 2021 - Present. All Rights Reserved.</p>
 	</footer>
@@ -37,31 +34,25 @@
 	.app-wrapper {
 		min-height: 100vh;
 		position: relative;
+		padding: 0 20px;
+		max-width: 1100px;
+		margin: auto;
 	}
-	.slot {
-		min-height: 80vh;
-	}
+
 	header {
-		background: rgb(250, 249, 249);
+		background: rgb(10, 113, 30);
 		box-shadow: 0 1px 0 rgb(242, 236, 236);
 		padding: 0 4px;
 		position: sticky;
 		top: 0;
+		z-index: 100;
 	}
-	main {
-		min-height: 86vh;
-		overflow: auto;
-		width: 100%;
-		max-width: 1100px;
-		margin: auto;
-		padding: 0.7em 1em;
-	}
+
 	footer {
 		text-align: center;
 		font-size: 0.9em;
 		padding: 8px 0;
 		min-height: 3vh;
-
 		box-shadow: 0 -1px 0 rgb(215, 211, 211);
 	}
 </style>

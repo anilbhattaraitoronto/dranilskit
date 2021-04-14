@@ -15,7 +15,10 @@
 </script>
 
 <svelte:head>
-	<title>Welcome {$session.user.fullname}</title>
+	{#if $session.user}
+		<title>Welcome {$session.user.fullname}</title>
+	{/if}
 </svelte:head>
-
-<h2>Welcome {$session.user.fullname}</h2>
+{#if $session.user}
+	<h2>Welcome {$session.user.fullname}</h2>
+{/if}

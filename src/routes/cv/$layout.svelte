@@ -4,11 +4,10 @@
 	<main>
 		<nav class="cv-menu">
 			<a sveltekit:prefetch href="/cv">Profile</a>
-			<a sveltekit:prefetch href="/cv/education">Education</a>
-			<a sveltekit:prefetch href="/cv/work">Work</a>
-			<a sveltekit:prefetch href="/cv/skills">Skills</a>
 
-			<a sveltekit:prefetch href="/cv/writings">Writings</a>
+			<a sveltekit:prefetch href="/cv/work">Works</a>
+			<a sveltekit:prefetch href="/cv/skills">Skills</a>
+			<a sveltekit:prefetch href="/cv/education">Education</a>
 		</nav>
 
 		<div class="slot">
@@ -20,7 +19,7 @@
 <style>
 	.page {
 		width: 100%;
-		max-width: 800px;
+		max-width: 700px;
 		margin: auto;
 	}
 	.masthead {
