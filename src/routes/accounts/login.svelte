@@ -15,8 +15,8 @@
 	import { goto } from '$app/navigation';
 	let email;
 	let password;
-	function login() {
-		fetch(`/auth/login.json`, {
+	async function login() {
+		await fetch(`/auth/login.json`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
@@ -24,6 +24,7 @@
 			body: JSON.stringify({ email, password })
 		})
 			.then((res) => {
+				console.log('result is', res);
 				if (res.ok) {
 					return res.json();
 				}
