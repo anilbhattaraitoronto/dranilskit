@@ -1,11 +1,10 @@
 <script>
 	import { goto } from '$app/navigation';
 	import { session } from '$app/stores';
-	export let user;
 </script>
 
 <header>
-	<a href="/">
+	<a sveltekit:prefetch href="/">
 		<h2 class="masthead">🏠</h2>
 	</a>
 

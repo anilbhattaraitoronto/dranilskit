@@ -1,5 +1,6 @@
 <script>
 	import { session } from '$app/stores';
+	import { goto } from '$app/navigation';
 </script>
 
 <h2>Account Management</h2>
@@ -9,12 +10,12 @@
 		<a href="/accounts/resetpassword">Reset PW</a>
 		<a href="/accounts/profile">Profile</a>
 
-		<a
+		<span
 			on:click={() => {
 				$session.user = null;
 
 				goto('.');
-			}}>Logout</a
+			}}>Logout</span
 		>
 	{:else}
 		<a href="/accounts/login">Login</a>
@@ -37,18 +38,20 @@
 		align-items: center;
 		margin: 16px auto;
 	}
-	a {
+	a,
+	span {
 		padding: 0 3px;
 		text-decoration: none;
 		margin: 0 2px;
-
+		cursor: pointer;
 		font-size: 0.8em;
 		letter-spacing: 1px;
 		color: black;
 		transition: 200ms all ease-in-out;
 		border: 1px solid rgb(255, 196, 0);
 	}
-	a:hover {
+	a:hover,
+	span:hover {
 		background: rgb(255, 196, 0);
 	}
 </style>

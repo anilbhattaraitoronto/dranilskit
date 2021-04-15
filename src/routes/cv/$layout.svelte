@@ -3,11 +3,11 @@
 
 	<main>
 		<nav class="cv-menu">
-			<a sveltekit:prefetch href="/cv">Profile</a>
+			<a href="/cv">Profile</a>
 
-			<a sveltekit:prefetch href="/cv/work">Works</a>
-			<a sveltekit:prefetch href="/cv/skills">Skills</a>
-			<a sveltekit:prefetch href="/cv/education">Education</a>
+			<a href="/cv/work">Works</a>
+			<a href="/cv/skills">Skills</a>
+			<a href="/cv/education">Education</a>
 		</nav>
 
 		<div class="slot">

@@ -34,9 +34,6 @@
 	let selectedHeading;
 
 	export let categories;
-	if (categories) {
-		console.log('Categories in addpost are', categories);
-	}
 
 	async function addPost() {
 		if ($session.user && $session.user.is_admin) {
@@ -49,6 +46,9 @@
 
 				await fetch(`/addpost.json`, {
 					method: `POST`,
+					headers: {
+						'x-access-token': $session.user.token
+					},
 					body: formData
 				})
 					.then((res) => {
@@ -218,7 +218,7 @@
 		text-transform: uppercase;
 		letter-spacing: 2px;
 	}
-	[contenteditable] {
+	#editor {
 		border: 1px solid lightgray;
 		min-height: 450px;
 		width: 100%;
