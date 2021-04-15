@@ -1,6 +1,6 @@
 import DB from '$lib/database';
 import bcrypt from 'bcrypt';
-import {sign} from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
 // const saltRounds = 10;
 // const salt = bcrypt.genSaltSync(saltRounds);
 
@@ -14,7 +14,7 @@ export async function post(request) {
             if (user) {
                 const result = bcrypt.compareSync(password, user.password)
                 if (result === true) {
-                    let token = sign({ user_id: user.user_id, is_admin:true }, 'secret', { expiresIn: '1h' })
+                    let token = jwt.sign({ user_id: user.user_id, is_admin:true }, 'secret', { expiresIn: '1h' })
                     console.log(token)
                     return {
                 body: {
