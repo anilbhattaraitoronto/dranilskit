@@ -72,6 +72,7 @@
 						<a href="/blogs/category/{article.category_id}_{article.category}" class="category-link"
 							>#{article.category}</a
 						>
+						| <span>{new Date(article.posted_date).toDateString()}</span>
 					</p>
 					<h3><a href="/blogs/{article.blog_id}_{article.slug}">{article.title}</a></h3>
 					<p>
@@ -96,7 +97,7 @@
 		max-width: 1100px;
 		margin: 0 auto;
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+		grid-template-columns: 2fr 3fr;
 		grid-column-gap: 20px;
 		padding: 20px 0;
 	}
@@ -123,7 +124,8 @@
 
 	.bio-content > p {
 		line-height: 1.7;
-		padding: 8px 0;
+		padding: 8px;
+		background: lightgray;
 	}
 
 	.article {
@@ -131,11 +133,24 @@
 		border-bottom: 1px solid rgb(238, 232, 232);
 		margin: 16px auto;
 	}
+	.category-link-container > span {
+		background: black;
+		color: white;
+		padding: 0 8px;
+		font-size: 0.9em;
+		font-style: italic;
+	}
 	h2 {
 		text-transform: uppercase;
 		word-spacing: 6px;
-		/* padding: 4px 0; */
 		font-size: 1.2em;
+		width: max-content;
+		padding: 0 8px;
+		letter-spacing: 1px;
+	}
+	.blogs > h2 {
+		background: rgb(255, 196, 0);
+		font-weight: 100;
 	}
 
 	h3 > a {
@@ -175,6 +190,9 @@
 		color: rgb(51, 59, 51);
 	}
 	@media (max-width: 650px) {
+		main {
+			grid-template-columns: 1fr;
+		}
 		.cv {
 			border-bottom: 1px solid rgb(225, 221, 221);
 		}

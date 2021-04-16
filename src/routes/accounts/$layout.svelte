@@ -14,7 +14,7 @@
 			on:click={() => {
 				$session.user = null;
 
-				goto('.');
+				goto('/');
 			}}>Logout</span
 		>
 	{:else}

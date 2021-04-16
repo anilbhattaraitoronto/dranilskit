@@ -24,13 +24,11 @@
 			body: JSON.stringify({ email, password })
 		})
 			.then((res) => {
-				console.log('result is', res);
 				if (res.ok) {
 					return res.json();
 				}
 			})
 			.then((userInfo) => {
-				console.log('User info is: ', userInfo);
 				$session.user = userInfo;
 				goto('/accounts/profile');
 			})

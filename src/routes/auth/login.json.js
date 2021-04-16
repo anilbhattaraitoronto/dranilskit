@@ -7,6 +7,7 @@ import jwt from 'jsonwebtoken';
 
 
 export async function post(request) {
+
     const { email, password } = request.body;
     if (email && password) {        
             //check if user with that email already exists
@@ -15,7 +16,7 @@ export async function post(request) {
                 const result = bcrypt.compareSync(password, user.password)
                 if (result === true) {
                     let token = jwt.sign({ user_id: user.user_id, is_admin:true }, 'secret', { expiresIn: '1h' })
-                    console.log(token)
+                    
                     return {
                 body: {
                     fullname:user.fullname,

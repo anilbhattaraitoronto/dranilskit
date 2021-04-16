@@ -10,7 +10,7 @@ export async function get({ params }) {
         categories.category_id = ?
         `
     ).all(category_id)
-    console.log('category is', category_id, categoryBlogs)
+    
     if (categoryBlogs) {
         return {
             body: {
