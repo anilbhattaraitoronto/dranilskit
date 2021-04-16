@@ -15,13 +15,14 @@ export async function post(request) {
             if (user) {
                 const result = bcrypt.compareSync(password, user.password)
                 if (result === true) {
-                    let token = jwt.sign({ user_id: user.user_id, is_admin:true }, 'secret', { expiresIn: '1h' })
+                    let token = jwt.sign({ user_id: user.user_id, is_admin: true }, 'secret', { expiresIn: '1h' })
+                    let admin_status = user.email === 'anilbhattarai@gmail.com'? true: false
                     
                     return {
                 body: {
                     fullname:user.fullname,
                             email: user.email,
-                            is_admin: true,
+                            is_admin: admin_status,
                         token
                 }
             }
