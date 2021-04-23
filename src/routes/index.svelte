@@ -17,6 +17,7 @@
 </script>
 
 <script>
+	import { session } from '$app/stores';
 	export let articles = null;
 	let latestArticles;
 	if (articles) {
@@ -27,6 +28,9 @@
 <svelte:head>
 	<title>Welcome</title>
 </svelte:head>
+{#if $session.message}
+	<p>{$session.message}</p>
+{/if}
 <main>
 	<div class="cv">
 		<img src="/anilbh.jpg" alt="Anil Bhattarai" title="Anil Bhattarai" />
@@ -97,35 +101,38 @@
 		max-width: 1100px;
 		margin: 0 auto;
 		display: grid;
-		grid-template-columns: 2fr 3fr;
+		grid-template-columns: 240px 1fr;
 		grid-column-gap: 20px;
 		padding: 20px 0;
+	}
+	.bio {
+		padding: 8px;
+		background: rgb(252, 251, 251);
+		box-shadow: 1px 1px 0 rgb(240, 237, 237);
 	}
 	img {
 		display: block;
 		width: 100%;
-		/* padding: 8px 0; */
+		height: auto;
+		margin-bottom: 16px;
 	}
 	.links {
 		display: flex;
-		justify-content: center;
+		justify-content: flex-start;
 		align-items: center;
-		padding: 8px 0;
 	}
 	.links > a {
 		display: inline-block;
-		margin-left: 6px;
+		margin-right: 3px;
 		background: black;
 		color: white;
 		padding: 0 6px;
-		font-size: 0.8em;
+		font-size: 1em;
 		text-align: right;
 	}
 
 	.bio-content > p {
-		line-height: 1.7;
-		padding: 8px;
-		background: lightgray;
+		line-height: 1.6;
 	}
 
 	.article {
@@ -143,14 +150,14 @@
 	h2 {
 		text-transform: uppercase;
 		word-spacing: 6px;
-		font-size: 1.2em;
+		font-size: 1.4em;
 		width: max-content;
-		padding: 0 8px;
+		padding: 4px 0;
 		letter-spacing: 1px;
 	}
 	.blogs > h2 {
-		background: rgb(255, 196, 0);
-		font-weight: 100;
+		border-bottom: 1px solid rgb(255, 196, 0);
+		width: 100%;
 	}
 
 	h3 > a {
@@ -192,6 +199,7 @@
 	@media (max-width: 650px) {
 		main {
 			grid-template-columns: 1fr;
+			padding: 8px 0;
 		}
 		.cv {
 			border-bottom: 1px solid rgb(225, 221, 221);
@@ -200,9 +208,12 @@
 			padding: 30px 0;
 		}
 		img {
-			padding: 0 32px 16px 0;
+			padding-bottom: 16px;
 			width: 100%;
 			margin: auto;
+		}
+		.article {
+			margin: 8px auto;
 		}
 	}
 </style>

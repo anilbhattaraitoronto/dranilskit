@@ -21,8 +21,11 @@
 		"bcrypt": "^5.0.1",
 		"better-sqlite3": "^7.1.4",
 		"cookie": "^0.4.1",
-		"jsonwebtoken": "^8.5.1"
+		"jsonwebtoken": "^8.5.1",
+        "node-fetch": "^2.6.1"
 	},
 	"type": "module",
-	"dependencies": {}
+	"dependencies": {
+		
+	}
 }

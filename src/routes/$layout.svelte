@@ -1,4 +1,4 @@
-<!-- <script context="module" ✂prettier:content✂="CglleHBvcnQgYXN5bmMgZnVuY3Rpb24gbG9hZCh7IHNlc3Npb24gfSkgewoJCWNvbnN0IHVzZXIgPSBzZXNzaW9uLnVzZXI7CgkJaWYgKHVzZXIpIHsKCQkJcmV0dXJuIHsKCQkJCXByb3BzOiB7CgkJCQkJdXNlcgoJCQkJfQoJCQl9OwoJCX0KCQlyZXR1cm4ge307Cgl9Cg==" ✂prettier:content✂="e30=" ✂prettier:content✂="e30=">{}</script> -->
+<!-- <script context="module" ✂prettier:content✂="CglleHBvcnQgYXN5bmMgZnVuY3Rpb24gbG9hZCh7IHNlc3Npb24gfSkgewoJCWNvbnN0IHVzZXIgPSBzZXNzaW9uLnVzZXI7CgkJaWYgKHVzZXIpIHsKCQkJcmV0dXJuIHsKCQkJCXByb3BzOiB7CgkJCQkJdXNlcgoJCQkJfQoJCQl9OwoJCX0KCQlyZXR1cm4ge307Cgl9Cg==" ✂prettier:content✂="e30=" ✂prettier:content✂="e30=" ✂prettier:content✂="e30=">{}</script> -->
 <script>
 	import '../app.css';
 	import Nav from '$lib/comps/Nav.svelte';
@@ -40,5 +40,10 @@
 		padding: 8px 0;
 		min-height: 3vh;
 		box-shadow: 0 -1px 0 rgb(215, 211, 211);
+	}
+	@media (max-width: 650px) {
+		.app-wrapper {
+			padding: 0 8px;
+		}
 	}
 </style>

@@ -1,6 +1,8 @@
 import DB from '$lib/database';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
+// import * as api from '$lib/api.js';
+// import { respond } from './_respond.js';
 // const saltRounds = 10;
 // const salt = bcrypt.genSaltSync(saltRounds);
 
@@ -9,8 +11,9 @@ import jwt from 'jsonwebtoken';
 export async function post(request) {
 
     const { email, password } = request.body;
-    if (email && password) {        
-            //check if user with that email already exists
+    if (email && password) {
+        
+            // check if user with that email already exists
             const user = DB.prepare(`SELECT  * FROM users WHERE email =?`).get(email)
             if (user) {
                 const result = bcrypt.compareSync(password, user.password)

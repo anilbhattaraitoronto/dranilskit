@@ -20,5 +20,6 @@
 	{/if}
 </svelte:head>
 {#if $session.user}
+	<p>{$session.message}</p>
 	<h2>Welcome {$session.user.fullname}</h2>
 {/if}

@@ -11,6 +11,7 @@
 </script>
 
 <script>
+	import { session } from '$app/stores';
 	import { goto } from '$app/navigation';
 	let fullname;
 	let email;
@@ -20,7 +21,8 @@
 	async function signup() {
 		if (fullname && email && password && confirmPassword) {
 			if (password === confirmPassword) {
-				await fetch('/auth/signup.json', {
+				///auth/signup.json
+				await fetch('https://meroapi.merohouse.com/api/auth/dranilkit/signup', {
 					method: 'POST',
 					headers: {
 						'Content-Type': 'application/json'
@@ -39,6 +41,7 @@
 					})
 					.then((data) => {
 						console.log(data);
+						$session.message = data.message;
 						goto('/');
 					})
 					.catch((err) => console.log('Error: ', err));

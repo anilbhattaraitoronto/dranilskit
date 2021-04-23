@@ -16,7 +16,8 @@
 	let email;
 	let password;
 	async function login() {
-		await fetch(`/auth/login.json`, {
+		///auth/login.json
+		await fetch(`https://meroapi.merohouse.com/api/auth/dranilkit/login`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
@@ -30,6 +31,8 @@
 			})
 			.then((userInfo) => {
 				$session.user = userInfo;
+				console.log('user info is', userInfo);
+				$session.message = 'Welcome! You have successfully logged in';
 				goto('/accounts/profile');
 			})
 			.catch((err) => console.log('Error: ', err));
