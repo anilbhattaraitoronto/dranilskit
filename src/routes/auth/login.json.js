@@ -15,11 +15,12 @@ export async function post(request) {
                 const result = bcrypt.compareSync(password, user.password)
                 if (result === true) {
                     let token = jwt.sign({ fullname:user.fullname, user_id: user.user_id, is_admin: user.is_admin }, authSecret , { expiresIn: '24h' })
-                    let maxAge = 24*60*60
+                    let maxAge = 24 * 60 * 60
+                    let isSecure = process.env.NODE_ENV === 'production' ? true : false;
                     return {
                         headers: {
                             'set-cookie': 
-                                `jwt=${token}; Path=/; HttpOnly=true; Max-Age=${maxAge}`
+                                `jwt=${token}; Path=/; HttpOnly=true; Max-Age=${maxAge}; Secure:${isSecure}`
                         },
                         body: {
                             user: {
