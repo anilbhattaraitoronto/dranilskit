@@ -4,6 +4,8 @@ node_modules
 /build
 /functions
 dranildb.sqlite
+dranildb.sqlite-shm
+dranildb.sqlite-wal
 README.md
 deploy.sh
 src/lib/secrets.js
