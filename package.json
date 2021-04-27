@@ -1,27 +1,26 @@
 {
-	"name": "dranil",
-	"version": "0.0.1",
-	"scripts": {
-		"dev": "svelte-kit dev",
-		"build": "svelte-kit build",
-		"start": "svelte-kit start",
-		"lint": "prettier --check . && eslint --ignore-path .gitignore .",
-		"format": "prettier --write ."
-	},
-	"devDependencies": {
-		"@sveltejs/adapter-node": "next",
-		"@sveltejs/kit": "next",
-		"bcrypt": "^5.0.1",
-		"better-sqlite3": "^7.1.4",
-		"cookie": "^0.4.1",
-		"eslint": "^7.22.0",
-		"eslint-config-prettier": "^8.1.0",
-		"eslint-plugin-svelte3": "^3.1.0",
-		"googleapis": "^72.0.0",
-		"jsonwebtoken": "^8.5.1",
-		"node-fetch": "^2.6.1",
-		"nodemailer": "^6.5.0"
-	},
-	"type": "module",
-	"dependencies": {}
+  "name": "DRANIL",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "svelte-kit dev",
+    "build": "svelte-kit build",
+    "preview": "svelte-kit preview"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-node": "next",
+    "@sveltejs/kit": "next",
+    "googleapis": "^72.0.0",
+    "nodemailer": "^6.5.0",
+    "svelte": "^3.29.0",
+    "vite": "^2.1.0",
+    "bcrypt": "^5.0.1",
+    "better-sqlite3": "^7.1.5",
+    "jsonwebtoken": "^8.5.1"
+  },
+  "type": "module",
+  "dependencies": {
+    "@fontsource/fira-mono": "^4.2.2",
+    "@lukeed/uuid": "^2.0.0",
+    "cookie": "^0.4.1"
+  }
 }
