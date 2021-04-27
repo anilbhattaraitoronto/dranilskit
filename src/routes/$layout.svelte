@@ -1,8 +1,8 @@
-<!-- <script context="module" ✂prettier:content✂="CglleHBvcnQgYXN5bmMgZnVuY3Rpb24gbG9hZCh7IHNlc3Npb24gfSkgewoJCWNvbnN0IHVzZXIgPSBzZXNzaW9uLnVzZXI7CgkJaWYgKHVzZXIpIHsKCQkJcmV0dXJuIHsKCQkJCXByb3BzOiB7CgkJCQkJdXNlcgoJCQkJfQoJCQl9OwoJCX0KCQlyZXR1cm4ge307Cgl9Cg==" ✂prettier:content✂="e30=" ✂prettier:content✂="e30=" ✂prettier:content✂="e30=">{}</script> -->
 <script>
 	import '../app.css';
 	import Nav from '$lib/comps/Nav.svelte';
-	// export let user;
+
+	import { session } from '$app/stores';
 </script>
 
 <header>

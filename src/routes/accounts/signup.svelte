@@ -1,6 +1,6 @@
 <script context="module">
 	export async function load({ session }) {
-		if (session.user) {
+		if (session.user.user_id) {
 			return {
 				status: 302,
 				redirect: '/'
@@ -21,37 +21,41 @@
 	async function signup() {
 		if (fullname && email && password && confirmPassword) {
 			if (password === confirmPassword) {
+				//check the length of the password
+				if (password.length >= 8) {
+					await fetch('/auth/signup.json', {
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json'
+						},
+						body: JSON.stringify({
+							fullname,
+							email,
+							password,
+							confirmPassword
+						})
+					})
+						.then((res) => {
+							if (res.ok) {
+								return res.json();
+							}
+						})
+						.then((data) => {
+							$session.message = data.message;
+							goto('/');
+						})
+						.catch((err) => {
+							errorMessage = 'Something went wrong';
+						});
+				} else {
+					errorMessage = 'Password is too short. It has to be at least 8 character long';
+				}
 				///auth/signup.json
-				await fetch('https://meroapi.merohouse.com/api/auth/dranilkit/signup', {
-					method: 'POST',
-					headers: {
-						'Content-Type': 'application/json'
-					},
-					body: JSON.stringify({
-						fullname,
-						email,
-						password,
-						confirmPassword
-					})
-				})
-					.then((res) => {
-						if (res.ok) {
-							return res.json();
-						}
-					})
-					.then((data) => {
-						console.log(data);
-						$session.message = data.message;
-						goto('/');
-					})
-					.catch((err) => console.log('Error: ', err));
 			} else {
 				errorMessage = 'Passwords do not match';
-				console.log(errorMessage);
 			}
 		} else {
 			errorMessage = 'All fields are required';
-			console.log(errorMessage);
 		}
 	}
 </script>

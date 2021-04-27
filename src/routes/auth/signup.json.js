@@ -1,7 +1,10 @@
+import {emailSecret, gmailConfig} from '$lib/secrets'
 import DB from '$lib/database'
 import bcrypt from 'bcrypt';
 const saltRounds = 10;
 const salt = bcrypt.genSaltSync(saltRounds);
+import {sendRegistrationActivationGmail} from '$lib/utils/sendEmail'
+
 
 
 
@@ -16,16 +19,18 @@ export async function post(request) {
                 //use bcrypt to hash password
                 //insert hashed password
                 const hashedPassword = bcrypt.hashSync(password, salt);
-                DB.prepare(`INSERT INTO users (fullname, email, password) VALUES(?,?,?)`).run(fullname, email, hashedPassword)
+                const newUserId = DB.prepare(`INSERT INTO users (fullname, email, password) VALUES(?,?,?)`).run(fullname, email, hashedPassword).lastInsertRowid
+                sendRegistrationActivationGmail(gmailConfig, emailSecret, {email, newUserId})
+
             return {
                 body: {
-                    successMessage:`User with ${fullname} added.`
+                    message:`We have emailed you the account activation link.`
                 }
             }
             } else {
                 return {
                     body: {
-                        errorMessage:"User with that email already exists. Please sign up with another email."
+                        message:"User with that email already exists. Please sign up with another email."
                     }
                 }
             }
@@ -34,7 +39,7 @@ export async function post(request) {
         } else {
             return {
                 body: {
-                    errorMessage:"All fields are required"
+                message:"All fields are required"
                 }
             }
         }
@@ -42,7 +47,7 @@ export async function post(request) {
     } else {
         return {
             body: {
-                errorMessage:"All fields are required"
+                message:"All fields are required"
             }
         }
     }

@@ -6,3 +6,4 @@ node_modules
 dranildb.sqlite
 README.md
 deploy.sh
+src/lib/secrets.js

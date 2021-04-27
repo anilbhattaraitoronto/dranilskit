@@ -19,9 +19,12 @@
 <script>
 	import { session } from '$app/stores';
 	export let articles = null;
-	let latestArticles;
-	if (articles) {
-		latestArticles = articles['articles'];
+	import { fly, fade } from 'svelte/transition';
+	import { browser } from '$app/env';
+	if (browser) {
+		setTimeout(() => {
+			$session.message = null;
+		}, 3000);
 	}
 </script>
 
@@ -55,7 +58,7 @@
 			</header>
 
 			<div class="bio-content">
-				<h2>Anil Bhattarai</h2>
+				<h2 in:fly={{ x: -200, duration: 2000 }}>Anil Bhattarai</h2>
 				<p>
 					A highly diligent, and self-motivated information technology professional who has been
 					designing and building full stack web applications since 2018. Intermediate to advanced
@@ -68,9 +71,9 @@
 		</div>
 	</div>
 	<div class="blogs">
-		{#if latestArticles.length > 0}
+		{#if articles && articles.articles.length > 0}
 			<h2>Latest Blogs</h2>
-			{#each latestArticles as article}
+			{#each articles.articles as article}
 				<div class="article">
 					<p class="category-link-container">
 						<a href="/blogs/category/{article.category_id}_{article.category}" class="category-link"

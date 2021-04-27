@@ -1,11 +1,7 @@
 import DB from '$lib/database';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-// import * as api from '$lib/api.js';
-// import { respond } from './_respond.js';
-// const saltRounds = 10;
-// const salt = bcrypt.genSaltSync(saltRounds);
-
+import { authSecret } from '$lib/secrets';
 
 
 export async function post(request) {
@@ -14,25 +10,30 @@ export async function post(request) {
     if (email && password) {
         
             // check if user with that email already exists
-            const user = DB.prepare(`SELECT  * FROM users WHERE email =?`).get(email)
+            const user = DB.prepare(`SELECT  * FROM users WHERE email =? AND is_active = 1`).get(email)
             if (user) {
                 const result = bcrypt.compareSync(password, user.password)
                 if (result === true) {
-                    let token = jwt.sign({ user_id: user.user_id, is_admin: true }, 'secret', { expiresIn: '1h' })
-                    let admin_status = user.email === 'anilbhattarai@gmail.com'? true: false
-                    
+                    let token = jwt.sign({ fullname:user.fullname, user_id: user.user_id, is_admin: user.is_admin }, authSecret , { expiresIn: '24h' })
+                    let maxAge = 24*60*60
                     return {
-                body: {
-                    fullname:user.fullname,
-                            email: user.email,
-                            is_admin: admin_status,
-                        token
-                }
+                        headers: {
+                            'set-cookie': 
+                                `jwt=${token}; Path=/; HttpOnly=true; Max-Age=${maxAge}`
+                        },
+                        body: {
+                            user: {
+                                fullname: user.fullname,
+                                user_id: user.user_id,
+                                is_admin:user.is_admin
+                            },
+                            message:`You have successfully logged in ${user.fullname}`
+                        }
             }
                 } else {
                     return {
                         body: {
-                            errorMessage: `Invalid password. Please try again.`
+                            message: `Invalid password. Please try again.`
                         }
                     }
                 }
@@ -40,7 +41,7 @@ export async function post(request) {
             } else {
                 return {
                     body: {
-                        errorMessage:"User with that email does not exist. Please sign up."
+                        message:"User with that email does not exist or is not active. Please sign up."
                     }
                 }
             }
@@ -49,7 +50,7 @@ export async function post(request) {
         } else {
             return {
                 body: {
-                errorMessage:"All fields are required"
+                message:"All fields are required"
             }
         }
     }

@@ -1,6 +1,6 @@
 <script>
 	import { goto } from '$app/navigation';
-	import { session } from '$app/stores';
+	import { session, page } from '$app/stores';
 </script>
 
 <header>
@@ -9,8 +9,8 @@
 	</a>
 
 	<nav>
-		<a href="/cv" class="nav-link cv-link">CV</a>
-		<a href="/accounts" class="nav-link">Account</a>
+		<a href="/cv" class="nav-link cv-link" class:active={$page.path === '/cv'}>CV</a>
+		<a href="/accounts" class="nav-link" class:active={$page.path === '/accounts'}>Account</a>
 	</nav>
 </header>
 
@@ -21,6 +21,10 @@
 		align-items: center;
 		max-width: 1100px;
 		margin: auto;
+	}
+	nav a.active {
+		background: white;
+		border: 1px solid rgb(255, 196, 0);
 	}
 	.masthead {
 		color: #250d05;

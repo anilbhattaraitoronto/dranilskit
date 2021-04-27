@@ -1,12 +1,27 @@
 <script context="module">
 	export async function load({ fetch, session }) {
-		const res = await fetch(`/categories.json`);
-		const user = session.user;
-		if (user && user.is_admin) {
+		if (session.user !== {}) {
+			const res = await fetch(`/categories.json`);
+
 			if (res.ok) {
+				let categories = await res.json();
+				if (!categories.message) {
+					return {
+						props: {
+							categories: categories
+						}
+					};
+				}
 				return {
 					props: {
-						categories: await res.json()
+						categories: {
+							categories: [
+								{
+									category_id: 1,
+									name: 'Frontend'
+								}
+							]
+						}
 					}
 				};
 			}
@@ -15,6 +30,7 @@
 				error: new Error(`Could not load the data url`)
 			};
 		}
+
 		return {
 			status: 302,
 			redirect: '/'
@@ -34,6 +50,7 @@
 	let selectedHeading;
 
 	export let categories;
+	console.log(categories);
 
 	async function addPost() {
 		if ($session.user && $session.user.is_admin) {
@@ -47,7 +64,7 @@
 				await fetch(`/addpost.json`, {
 					method: `POST`,
 					headers: {
-						'x-access-token': $session.user.token
+						'x-access-token': JSON.stringify($session.user) || {}
 					},
 					body: formData
 				})
@@ -58,7 +75,9 @@
 						}
 					})
 					.then((data) => {
-						goto('/');
+						$session.message = data.message;
+						console.log(data);
+						goto(`/blogs/${data.post_id}_${data.slug}`);
 					})
 					.catch((err) => console.log('Error', err));
 			} else {
@@ -209,27 +228,34 @@
 <style>
 	main {
 		width: 100%;
-		margin: auto;
+		max-width: 700px;
+		margin: 20px auto;
 		padding: 20px;
-		background: rgb(242, 232, 227);
+		box-shadow: 0 0 1px gray;
 	}
 	h2 {
 		text-align: center;
 		text-transform: uppercase;
 		letter-spacing: 2px;
 	}
+
 	#editor {
-		border: 1px solid lightgray;
-		min-height: 450px;
+		border: 1px solid rgb(242, 237, 237);
+		min-height: 350px;
 		width: 100%;
 		margin: 30px auto 20px auto;
 		padding: 8px;
 		background: white;
 	}
+	#editor:focus {
+		border-color: rgb(255, 196, 0);
+		outline: none;
+	}
 	select {
 		border: unset;
 		/* appearance: none; */
-		border-radius: 20px;
+		border-radius: 2px;
+		border: 1px solid lightgray;
 		padding: 4px 8px;
 		font-size: 1em;
 		color: green;
@@ -252,13 +278,13 @@
 		background: white;
 		text-align: left;
 		display: block;
-		border: 1px solid #ff40004f;
+		border: 1px solid lightgray;
 		width: 100%;
 		padding: 4px;
 		border-radius: 20px;
 	}
 	input:focus {
-		border-color: #ff3e00;
+		border-color: rgb(255, 196, 0);
 	}
 	input[type='submit'] {
 		border: 1px solid #ff40004d;
@@ -271,6 +297,6 @@
 	input[type='submit']:hover,
 	input[type='submit']:focus {
 		background: rgb(242, 232, 227);
-		border-color: #ff3e00;
+		border-color: rgb(255, 196, 0);
 	}
 </style>

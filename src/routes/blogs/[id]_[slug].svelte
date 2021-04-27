@@ -19,16 +19,12 @@
 <script>
 	import { goto } from '$app/navigation';
 	import { session } from '$app/stores';
+	import { fly, fade } from 'svelte/transition';
 
 	export let article = null;
 
-	let post = {
-		title: 'My first article'
-	};
-	function deletePost(id) {
-		console.log('article deleted');
-		goto('/');
-		fetch(`/blogs/delete/${id}.json`, {
+	async function deletePost(id) {
+		await fetch(`/blogs/delete/${id}.json`, {
 			method: `DELETE`
 		})
 			.then((res) => {
@@ -37,7 +33,8 @@
 				}
 			})
 			.then((data) => {
-				console.log(data);
+				$session.message = data.message;
+				console.log('deleted the article');
 				goto('/');
 			})
 			.catch((err) => console.log('Error', err));
@@ -50,7 +47,7 @@
 
 {#if article.article}
 	<article>
-		<h2>{article.article.title}</h2>
+		<h2 in:fly={{ y: -80, duration: 1000 }}>{article.article.title}</h2>
 		<img src={article.article.thumbnail_url} alt="" />
 
 		<div class="content">
@@ -64,8 +61,9 @@
 		{#if $session.user && $session.user.is_admin == 1}
 			<details>
 				<summary>Delete the post?</summary>
-
-				<button on:click={() => deletePost(article.article.blog_id)}>Are you sure?</button>
+				<form on:submit|preventDefault={() => deletePost(article.article.blog_id)}>
+					<button>Are you sure?</button>
+				</form>
 			</details>
 		{/if}
 	</article>
