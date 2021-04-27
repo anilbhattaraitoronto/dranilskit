@@ -6,20 +6,26 @@
 				redirect: '/'
 			};
 		}
-		return {};
+		return {
+			props: {
+				user: session.user,
+				message: session.message || ''
+			}
+		};
 	}
 </script>
 
 <script>
-	import { session } from '$app/stores';
+	export let user;
+	export let message;
 </script>
 
 <svelte:head>
-	{#if $session.user}
-		<title>Welcome {$session.user.fullname}</title>
+	{#if user}
+		<title>Welcome {user.fullname}</title>
 	{/if}
 </svelte:head>
-{#if $session.user}
-	<p>{$session.message}</p>
-	<h2>Welcome {$session.user.fullname}</h2>
+{#if user !== null}
+	<p>{message}</p>
+	<h2>Welcome {user.fullname}</h2>
 {/if}

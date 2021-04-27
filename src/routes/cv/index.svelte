@@ -1,9 +1,18 @@
+<script>
+	import { fade, fly } from 'svelte/transition';
+</script>
+
 <svelte:head>
 	<title>CV</title>
 </svelte:head>
 <main>
 	<h2>profile 😀</h2>
-	<img src="/anilbh.jpg" alt="Anil Bhattarai" title="Anil Bhattarai" />
+	<img
+		src="/anilbh.jpg"
+		alt="Anil Bhattarai"
+		title="Anil Bhattarai"
+		in:fly={{ y: -40, duration: 700 }}
+	/>
 	<p>
 		A highly diligent, and self-motivated information technology professional who has been designing
 		and building full stack web applications since 2018. Intermediate to advanced level competence

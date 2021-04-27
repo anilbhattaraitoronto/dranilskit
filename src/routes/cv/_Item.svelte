@@ -2,10 +2,11 @@
 	export let items;
 	export let itemTitle;
 	export let itemIcon;
+	import { fly } from 'svelte/transition';
 </script>
 
 <main>
-	<h2>{itemTitle} {itemIcon}</h2>
+	<h2 in:fly={{ y: -40, duration: 1000 }}>{itemTitle} {itemIcon}</h2>
 	{#each items as item}
 		<article class="item">
 			<h3>{item.title}</h3>

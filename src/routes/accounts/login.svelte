@@ -1,6 +1,6 @@
 <script context="module">
 	export async function load({ session }) {
-		if (session.user) {
+		if (session.user.user_id) {
 			return {
 				status: 302,
 				redirect: '/'
@@ -15,9 +15,9 @@
 	import { goto } from '$app/navigation';
 	let email;
 	let password;
+	let errorMessage;
 	async function login() {
-		///auth/login.json
-		await fetch(`https://meroapi.merohouse.com/api/auth/dranilkit/login`, {
+		await fetch(`/auth/login.json`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
@@ -30,12 +30,14 @@
 				}
 			})
 			.then((userInfo) => {
-				$session.user = userInfo;
-				console.log('user info is', userInfo);
 				$session.message = 'Welcome! You have successfully logged in';
+
+				$session.user = userInfo.user;
 				goto('/accounts/profile');
 			})
-			.catch((err) => console.log('Error: ', err));
+			.catch((err) => {
+				errorMessage = 'Login failed. Please try again.';
+			});
 	}
 </script>
 

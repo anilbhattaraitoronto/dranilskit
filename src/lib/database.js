@@ -7,7 +7,10 @@ CREATE TABLE IF NOT EXISTS users(
     user_id INTEGER NOT NULL PRIMARY KEY,
     fullname TEXT NOT NULL,
     email TEXT NOT NULL,
-    password TEXT NOT NULL
+    password TEXT NOT NULL,
+    is_active INTEGER NOT NULL DEFAULT 0,
+    is_admin INTEGER NOT NULL DEFAULT 0,
+    created_date DATETIME DEFAULT CURRENT_TIMESTAMP
 );
 CREATE TABLE IF NOT EXISTS categories(
     category_id INTEGER NOT NULL PRIMARY KEY,
@@ -25,7 +28,7 @@ CREATE TABLE IF NOT EXISTS posts(
     thumbnail_url TEXT,
     posted_date DATETIME DEFAULT CURRENT_TIMESTAMP,
     updated_date DATETIME DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (category_id) REFERENCES categories(category_id) ON DELETE NO ACTION
+    FOREIGN KEY (category_id) REFERENCES categories(category_id) ON DELETE CASCADE
 );
 
 CREATE TABLE IF NOT EXISTS events(
@@ -36,6 +39,7 @@ CREATE TABLE IF NOT EXISTS events(
     organizer TEXT NOT NULL,
     venue TEXT NOT NULL
 );
+PRAGMA journal_mode=WAL;
 `
 
 DB.exec(schema)
