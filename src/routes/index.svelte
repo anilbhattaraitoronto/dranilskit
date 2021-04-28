@@ -72,11 +72,10 @@
 	</div>
 	<div class="blogs">
 		<div class="jumbo-header">
-			<h2>Welcome</h2>
-			<!-- <img
-				src="https://images.unsplash.com/photo-1523434302089-6f2db28360ff?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80"
-				alt=""
-			/> -->
+			<div class="jumbo-content">
+				<h2>Welcome</h2>
+				<p>Musings on everything: from unfathomably big to incredibly small!</p>
+			</div>
 		</div>
 		{#if articles && articles.articles.length > 0}
 			<h2>Latest Blogs</h2>
@@ -146,13 +145,30 @@
 		line-height: 1.6;
 	}
 	.jumbo-header {
-		height: 350px;
-		background: var(--main-white);
-		background-image: url('https://images.unsplash.com/photo-1523434302089-6f2db28360ff?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80');
+		min-height: 350px;
+		background: var(--main-blue);
+		background-image: url('/jumbo_image.jpg');
 		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		display: flex;
+		flex-direction: column;
+		align-items: start;
+		justify-content: center;
 	}
-	.jumbo-header h2 {
+	.jumbo-content {
+		background: rgba(75, 73, 73, 0.201);
+		width: 100%;
+		margin: auto;
+		padding: 50px 10px;
+	}
+	.jumbo-content h2 {
+		color: var(--main-yellow);
+		font-weight: 600;
+	}
+	.jumbo-content p {
 		color: var(--main-white);
+		font-style: italic;
 	}
 	.article {
 		padding: 8px 0;
