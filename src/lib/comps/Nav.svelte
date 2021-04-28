@@ -24,7 +24,8 @@
 	}
 	nav a.active {
 		background: white;
-		border: 1px solid rgb(255, 196, 0);
+		color: var(--main-blue);
+		border-color: var(--main-blue);
 	}
 	.masthead {
 		color: #250d05;
@@ -59,9 +60,8 @@
 
 	.nav-link {
 		display: inline-block;
-		border: 1px solid transparent;
-		color: black;
-		background: rgb(255, 196, 0);
+		border: 1px solid var(--main-white);
+		color: var(--main-white);
 		text-align: center;
 		transition: 200ms all ease-in-out;
 		margin-left: 2px;
@@ -71,8 +71,9 @@
 		text-decoration: none;
 		text-transform: uppercase;
 	}
-	.nav-link:hover {
+	.nav-link:hover,
+	nav a.active {
 		background: white;
-		border-color: rgb(255, 196, 0);
+		color: var(--main-blue);
 	}
 </style>

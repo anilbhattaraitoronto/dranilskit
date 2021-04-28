@@ -36,7 +36,7 @@
 {/if}
 <main>
 	<div class="cv">
-		<img src="/anilbh.jpg" alt="Anil Bhattarai" title="Anil Bhattarai" />
+		<!-- <img src="/anilbh.jpg" alt="Anil Bhattarai" title="Anil Bhattarai" /> -->
 		<div class="bio">
 			<header>
 				<nav class="links">
@@ -71,6 +71,13 @@
 		</div>
 	</div>
 	<div class="blogs">
+		<div class="jumbo-header">
+			<h2>Welcome</h2>
+			<!-- <img
+				src="https://images.unsplash.com/photo-1523434302089-6f2db28360ff?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80"
+				alt=""
+			/> -->
+		</div>
 		{#if articles && articles.articles.length > 0}
 			<h2>Latest Blogs</h2>
 			{#each articles.articles as article}
@@ -110,13 +117,14 @@
 	}
 	.bio {
 		padding: 8px;
-		background: rgb(252, 251, 251);
-		box-shadow: 1px 1px 0 rgb(240, 237, 237);
+		background: var(--main-white);
+		box-shadow: 1px 1px 0 rgb(239, 235, 244);
 	}
 	img {
 		display: block;
 		width: 100%;
-		height: auto;
+		max-height: 200px;
+		object-fit: cover;
 		margin-bottom: 16px;
 	}
 	.links {
@@ -127,8 +135,8 @@
 	.links > a {
 		display: inline-block;
 		margin-right: 3px;
-		background: black;
-		color: white;
+		box-shadow: 0 0 1px var(--main-blue);
+		color: var(--main-blue);
 		padding: 0 6px;
 		font-size: 1em;
 		text-align: right;
@@ -137,7 +145,15 @@
 	.bio-content > p {
 		line-height: 1.6;
 	}
-
+	.jumbo-header {
+		height: 350px;
+		background: var(--main-white);
+		background-image: url('https://images.unsplash.com/photo-1523434302089-6f2db28360ff?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1489&q=80');
+		background-position: center;
+	}
+	.jumbo-header h2 {
+		color: var(--main-white);
+	}
 	.article {
 		padding: 8px 0;
 		border-bottom: 1px solid rgb(238, 232, 232);
@@ -157,14 +173,15 @@
 		width: max-content;
 		padding: 4px 0;
 		letter-spacing: 1px;
+		font-weight: 500;
 	}
 	.blogs > h2 {
-		border-bottom: 1px solid rgb(255, 196, 0);
+		border-bottom: 1px solid var(--secondary-blue);
 		width: 100%;
 	}
 
 	h3 > a {
-		color: rgb(96, 93, 93);
+		color: rgb(63, 58, 67);
 	}
 	a {
 		text-decoration: none;
@@ -217,6 +234,9 @@
 		}
 		.article {
 			margin: 8px auto;
+		}
+		.jumbo-header {
+			height: 200px;
 		}
 	}
 </style>

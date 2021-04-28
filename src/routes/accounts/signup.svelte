@@ -13,6 +13,7 @@
 <script>
 	import { session } from '$app/stores';
 	import { goto } from '$app/navigation';
+	import { fly } from 'svelte/transition';
 	let fullname;
 	let email;
 	let password;
@@ -64,7 +65,7 @@
 	<title>Signup</title>
 </svelte:head>
 
-<main>
+<main in:fly={{ x: 30, duration: 700, opacity: 1 }}>
 	<div>
 		{#if errorMessage !== ''}
 			<p class="error-message">{errorMessage}</p>
@@ -88,27 +89,34 @@
 <style>
 	main {
 		width: 100%;
+		max-width: 600px;
+		background: var(--main-blue);
 		margin: auto;
-		box-shadow: 1px 1px 0 rgb(232, 229, 229);
+		padding: 20px;
+		box-shadow: 1px 1px 0 rgb(244, 238, 238);
 		border-bottom-right-radius: 8px;
 	}
 	h2 {
 		text-align: center;
 		text-transform: uppercase;
 		letter-spacing: 2px;
+		color: var(--main-white);
 	}
 	form {
 		width: 100%;
-		max-width: 320px;
+		max-width: 350px;
 		margin: auto;
 		padding: 20px;
 		z-index: 1;
 	}
 	label {
 		display: block;
+		padding: 3px 0;
 		width: 100%;
 		z-index: 1;
-		color: rgb(107, 111, 103);
+		color: var(--main-white);
+		letter-spacing: 2px;
+		font-size: 0.9em;
 	}
 	input {
 		all: unset;
@@ -116,17 +124,16 @@
 		background: white;
 		text-align: left;
 		display: block;
-		border: 1px solid #ff400033;
+		border: 1px solid transparent;
 		width: 100%;
-		padding: 4px;
-		border-radius: 20px;
-		z-index: -1;
+		padding: 1px;
+		border-radius: 4px;
 	}
 	input:focus {
 		border-color: #ff3e00;
 	}
 	input[type='submit'] {
-		border: 1px solid #ff40004d;
+		border: 1px solid transparent;
 		font-size: 1em;
 		text-transform: uppercase;
 		cursor: pointer;
@@ -140,6 +147,9 @@
 	}
 	p {
 		text-align: center;
+	}
+	a {
+		color: rgb(247, 227, 17);
 	}
 	@media (max-width: 500px) {
 		input {

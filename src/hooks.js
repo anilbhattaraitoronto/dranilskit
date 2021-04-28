@@ -19,6 +19,7 @@ export function getContext({ headers }) {
 }
 
 export function getSession({ context }) {
+    console.log('context is', context)
     if (context !== {}) {
          return {
         user: {

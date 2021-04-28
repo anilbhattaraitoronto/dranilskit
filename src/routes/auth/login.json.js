@@ -20,7 +20,7 @@ export async function post(request) {
                     return {
                         headers: {
                             'set-cookie': 
-                                `jwt=${token}; Path=/; HttpOnly=true; Max-Age=${maxAge}; Secure=${isSecure}`
+                                `jwt=${token}; Path=/; HttpOnly=true; Max-Age=${maxAge}`
                         },
                         body: {
                             user: {

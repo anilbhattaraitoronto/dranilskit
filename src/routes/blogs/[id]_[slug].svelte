@@ -74,7 +74,7 @@
 		font-family: Arial;
 		width: 100%;
 		max-width: 550px;
-		margin: auto;
+		margin: 40px auto;
 	}
 	h2 {
 		padding: 8px 0;

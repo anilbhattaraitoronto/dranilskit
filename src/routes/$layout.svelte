@@ -26,8 +26,7 @@
 	}
 
 	header {
-		background: white;
-		box-shadow: 0 1px 0 rgb(242, 236, 236);
+		background: var(--main-blue);
 		padding: 0 4px;
 		position: sticky;
 		top: 0;
@@ -40,10 +39,16 @@
 		padding: 8px 0;
 		min-height: 3vh;
 		box-shadow: 0 -1px 0 rgb(215, 211, 211);
+		margin-top: 20px;
 	}
 	@media (max-width: 650px) {
 		.app-wrapper {
 			padding: 0 8px;
+		}
+	}
+	@media (min-width: 1220px) {
+		.app-wrapper {
+			padding: 0;
 		}
 	}
 </style>

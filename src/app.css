@@ -1,3 +1,4 @@
+
 :root {
 	font-family: Arial;
 }
@@ -13,5 +14,9 @@ body{
     margin: auto;
     position: relative;
     line-height: 1.7;
+    --main-blue:#483D8B;
+    --main-white: #f9f8fa;
+    --main-dark:#292554;
+    --secondary-blue:#c4beeb54;
 }
 

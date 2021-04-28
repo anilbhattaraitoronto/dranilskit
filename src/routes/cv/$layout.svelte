@@ -1,13 +1,17 @@
+<script>
+	import { page } from '$app/stores';
+</script>
+
 <div class="page">
 	<h2 class="masthead">My CV</h2>
 
 	<main>
 		<nav class="cv-menu">
-			<a href="/cv">Profile</a>
+			<a href="/cv" class:active={$page.path === '/cv'}>Profile</a>
 
-			<a href="/cv/work">Works</a>
-			<a href="/cv/skills">Skills</a>
-			<a href="/cv/education">Education</a>
+			<a href="/cv/work" class:active={$page.path === '/cv/work'}>Works</a>
+			<a href="/cv/skills" class:active={$page.path === '/cv/skills'}>Skills</a>
+			<a href="/cv/education" class:active={$page.path === '/cv/education'}>Education</a>
 		</nav>
 
 		<div class="slot">
@@ -35,21 +39,34 @@
 	.cv-menu {
 		display: flex;
 		flex-direction: column;
-		justify-content: flex-start;
+		justify-content: baseline;
+		align-items: flex-end;
 		text-align: right;
 		margin-right: 24px;
+		background: var(--main-white);
 	}
 
 	a {
-		padding-bottom: 24px;
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
+		max-width: 100px;
+		padding: 4px;
 		text-decoration: none;
 		text-transform: uppercase;
 		font-size: 0.8em;
-		color: rgba(3, 48, 3, 0.844);
+		color: var(--main-blue);
 		font-weight: 600;
+		border-bottom: 1px solid transparent;
+		transition: 250ms all ease-in-out;
+		letter-spacing: 1px;
+		margin-bottom: 24px;
 	}
 	a:hover {
-		text-decoration: underline;
+		color: purple;
+	}
+	a.active {
+		border-bottom-color: var(--main-blue);
 	}
 	@media (max-width: 600px) {
 		main {

@@ -19,10 +19,10 @@
 	}
 </script>
 
-<h2>Account Management</h2>
+<h2>Account</h2>
 <nav>
 	<!-- <a href="/accounts">Account 🏠</a> -->
-	{#if $session.user && $session.user.user_id}
+	{#if $session.user !== {} && $session.user.user_id}
 		<a href="/accounts/resetpassword" class:active={$page.path === '/accounts/resetpassword'}
 			>Reset PW</a
 		>
@@ -52,9 +52,7 @@
 		align-items: center;
 		margin: 16px auto;
 	}
-	.active {
-		background: rgb(255, 196, 0);
-	}
+
 	a,
 	span {
 		padding: 0 3px;
@@ -63,12 +61,16 @@
 		cursor: pointer;
 		font-size: 0.8em;
 		letter-spacing: 1px;
-		color: black;
+		color: var(--main-blue);
+		text-transform: uppercase;
 		transition: 200ms all ease-in-out;
-		border: 1px solid rgb(255, 196, 0);
+		border-bottom: 1px solid transparent;
 	}
 	a:hover,
 	span:hover {
 		background: rgb(255, 196, 0);
+	}
+	a.active {
+		border-bottom-color: var(--main-blue);
 	}
 </style>

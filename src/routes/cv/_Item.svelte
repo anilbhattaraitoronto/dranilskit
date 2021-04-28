@@ -5,8 +5,8 @@
 	import { fly, fade } from 'svelte/transition';
 </script>
 
-<main>
-	<h2 in:fade={{ duration: 1000 }}>{itemTitle} {itemIcon}</h2>
+<main in:fly={{ x: 5, duration: 500, opacity: 1 }}>
+	<h2>{itemTitle} {itemIcon}</h2>
 	{#each items as item}
 		<article class="item">
 			<h3>{item.title}</h3>
@@ -32,16 +32,17 @@
 	}
 	.item {
 		margin: 12px auto;
-		line-height: 1.2;
+		line-height: 1.5;
 		padding: 4px;
 	}
 	.item:nth-child(even) {
-		background: rgb(241, 247, 242);
-		box-shadow: 1px 1px rgb(240, 235, 235);
+		background: rgb(249, 248, 245);
+		box-shadow: 1px 1px var(--main-white);
 	}
 	h3 {
 		letter-spacing: 1px;
-		color: rgb(61, 58, 58);
+		/* color: rgb(7, 114, 19); */
+		color: var(--main-dark);
 		font-size: 1.1em;
 	}
 	h4 {
