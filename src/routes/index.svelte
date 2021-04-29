@@ -26,6 +26,8 @@
 			$session.message = null;
 		}, 3000);
 	}
+	const languageList = ['HTML', 'CSS', 'JavaScript', 'Python'];
+	const humanLanguageList = ['Nepali', 'English', 'Hindi', 'French', 'Bhojpuri', 'Spanish'];
 </script>
 
 <svelte:head>
@@ -59,14 +61,28 @@
 
 			<div class="bio-content">
 				<h2 in:fly={{ x: -200, duration: 2000 }}>Anil Bhattarai</h2>
-				<p>
-					A highly diligent, and self-motivated information technology professional who has been
-					designing and building full stack web applications since 2018. Intermediate to advanced
-					level competence in two human languages (French and Spanish) and two computer languages
-					(JavaScript and Python). Key strengths include joyful attitude towards learning, effective
-					communication (written and verbal), and able to deliver projects through timely and
-					efficient processes and effective planning always with consideration of end users.
-				</p>
+				<ul>
+					<li>A highly diligent, and self-motivated fullstack developper</li>
+					<li>
+						High competence in:
+						<ul class="language-list">
+							{#each languageList as language}
+								<li>{language}</li>
+							{/each}
+						</ul>
+					</li>
+					<li>High competence in fundamentals of component based UI programming</li>
+					<li>
+						Intermediate to advanced competency in <strong>6 human languages</strong>:
+						<ul class="language-list">
+							{#each humanLanguageList as language}
+								<li>{language}</li>
+							{/each}
+						</ul>
+					</li>
+
+					<li>Joyful attitude towards learning</li>
+				</ul>
 			</div>
 		</div>
 	</div>
@@ -232,6 +248,42 @@
 	.category-link {
 		color: rgb(51, 59, 51);
 	}
+	ul {
+		list-style: none; /* Remove list bullets */
+		padding: 0;
+		margin: 0;
+	}
+
+	li {
+		padding-left: 4px;
+		margin-bottom: 16px;
+		background: white;
+		line-height: 1.4;
+	}
+
+	li::before {
+		content: '✼';
+		padding-right: 4px;
+		color: var(--main-blue);
+		font-weight: 600;
+	}
+	.language-list {
+		font-size: 0.9em;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		padding: 0 6px;
+	}
+	.language-list > li {
+		margin: 2px;
+		background: var(--main-white);
+		color: var(--main-blue);
+		list-style-type: none;
+	}
+	.language-list > li::before {
+		content: '';
+		padding: 0;
+	}
+
 	@media (max-width: 650px) {
 		main {
 			grid-template-columns: 1fr;
