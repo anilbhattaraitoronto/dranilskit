@@ -62,7 +62,7 @@
 			<div class="bio-content">
 				<h2 in:fly={{ x: -200, duration: 2000 }}>Anil Bhattarai</h2>
 				<ul>
-					<li>A highly diligent, and self-motivated fullstack developper</li>
+					<li>A diligent, and self-motivated fullstack developper</li>
 					<li>
 						High competence in:
 						<ul class="language-list">
@@ -71,7 +71,7 @@
 							{/each}
 						</ul>
 					</li>
-					<li>High competence in fundamentals of component based UI programming</li>
+					<li>Good competence in fundamentals of component based UI programming</li>
 					<li>
 						Intermediate to advanced competency in <strong>6 human languages</strong>:
 						<ul class="language-list">
@@ -81,7 +81,7 @@
 						</ul>
 					</li>
 
-					<li>Joyful attitude towards learning</li>
+					<li>Joyful attitude towards everything including learning</li>
 				</ul>
 			</div>
 		</div>
@@ -135,26 +135,24 @@
 		background: var(--main-white);
 		box-shadow: 1px 1px 0 rgb(239, 235, 244);
 	}
-	img {
-		display: block;
-		width: 100%;
-		max-height: 200px;
-		object-fit: cover;
-		margin-bottom: 16px;
-	}
+
 	.links {
 		display: flex;
-		justify-content: flex-start;
+		justify-content: center;
 		align-items: center;
+		background: var(--main-blue);
 	}
 	.links > a {
 		display: inline-block;
 		margin-right: 3px;
-		box-shadow: 0 0 1px var(--main-blue);
-		color: var(--main-blue);
+		box-shadow: 1px 0 0 white;
+		color: var(--main-white);
 		padding: 0 6px;
 		font-size: 1em;
 		text-align: right;
+	}
+	.links > a:hover {
+		color: var(--main-yellow);
 	}
 
 	.bio-content > p {
@@ -259,13 +257,14 @@
 		margin-bottom: 16px;
 		background: white;
 		line-height: 1.4;
+		/* box-shadow: 1px 0 0px var(--main-blue); */
 	}
 
 	li::before {
 		content: '✼';
 		padding-right: 4px;
 		color: var(--main-blue);
-		font-weight: 600;
+		/* font-weight: 600; */
 	}
 	.language-list {
 		font-size: 0.9em;
@@ -274,10 +273,16 @@
 		padding: 0 6px;
 	}
 	.language-list > li {
-		margin: 2px;
+		margin: 2px 2px 2px 0;
 		background: var(--main-white);
 		color: var(--main-blue);
 		list-style-type: none;
+		box-shadow: 1px 0 0 var(--main-dark);
+		cursor: pointer;
+		transition: 250ms all ease-in-out;
+	}
+	.language-list > li:hover {
+		color: var(--main-dark);
 	}
 	.language-list > li::before {
 		content: '';
