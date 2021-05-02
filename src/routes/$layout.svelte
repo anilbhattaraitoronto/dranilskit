@@ -1,14 +1,43 @@
+<script context="module">
+	export async function load({ session }) {
+		if (session.categories) {
+			return {
+				props: {
+					categories: session.categories
+				}
+			};
+		}
+	}
+</script>
+
 <script>
 	import '../app.css';
 	import Nav from '$lib/comps/Nav.svelte';
 
 	import { session } from '$app/stores';
+	export let categories;
+	if ($session.categories) {
+		categories = $session.categories;
+	}
 </script>
 
 <header>
 	<Nav />
 </header>
+
 <div class="app-wrapper">
+	<div class="category-container">
+		{#if categories}
+			<nav class="category-nav">
+				<span class="topic-link topic-link-title">Topics:</span>
+				{#each categories as category}
+					<a href="/blogs/category/{category.category_id}_{category.name}" class="topic-link"
+						>{category.name}</a
+					>
+				{/each}
+			</nav>
+		{/if}
+	</div>
 	<slot />
 
 	<footer>
@@ -23,6 +52,41 @@
 		padding: 0 20px;
 		max-width: 1100px;
 		margin: auto;
+	}
+	.category-nav {
+		padding: 4px 0;
+		background: lightgray;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: flex-starg;
+		align-items: center;
+	}
+	.topic-link.topic-link-title {
+		color: rgb(131, 74, 4);
+		text-transform: uppercase;
+	}
+	.topic-link:nth-child(odd) {
+		text-decoration: none;
+		color: var(--main-blue);
+		padding: 0 2px;
+		margin-right: 8px;
+		margin-bottom: 4px;
+		font-size: 0.9em;
+		border-right: 1px solid white;
+		border-top-right-radius: 4px;
+	}
+	.topic-link:nth-child(even) {
+		text-decoration: none;
+		color: var(--main-black);
+		padding: 0 2px;
+		margin-right: 8px;
+		margin-bottom: 4px;
+		font-size: 0.9em;
+		border-right: 1px solid white;
+		border-top-right-radius: 4px;
+	}
+	.topic-link:hover {
+		text-decoration: underline;
 	}
 
 	header {

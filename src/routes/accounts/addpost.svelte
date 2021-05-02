@@ -1,6 +1,6 @@
 <script context="module">
 	export async function load({ fetch, session }) {
-		if (session.user !== {}) {
+		if (session.user.is_admin === 1) {
 			const res = await fetch(`/categories.json`);
 
 			if (res.ok) {
@@ -15,12 +15,7 @@
 				return {
 					props: {
 						categories: {
-							categories: [
-								{
-									category_id: 1,
-									name: 'Frontend'
-								}
-							]
+							categories: []
 						}
 					}
 				};
@@ -97,11 +92,12 @@
 
 	<label for=""
 		>Category:
-		<select id="" bind:value={category_id}>
+		<select id="" bind:value={category_id} required>
 			{#each categories.categories as category}
 				<option value={category.category_id}>{category.name}</option>
 			{/each}
 		</select>
+		no category? <a href="/accounts/addcategory">Add category</a>
 	</label>
 
 	<label for="title">Title</label>
