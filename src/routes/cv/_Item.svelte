@@ -26,7 +26,7 @@
 	}
 	h2 {
 		text-transform: uppercase;
-		color: rgb(118, 114, 114);
+		color: rgb(255, 255, 255);
 		font-size: 1.1em;
 		letter-spacing: 1px;
 	}
@@ -34,19 +34,17 @@
 		margin: 12px auto;
 		line-height: 1.5;
 		padding: 4px;
+		color: white;
 	}
-	.item:nth-child(even) {
-		background: rgb(249, 248, 245);
-		box-shadow: 1px 1px var(--main-white);
-	}
+
 	h3 {
 		letter-spacing: 1px;
 		/* color: rgb(7, 114, 19); */
-		color: var(--main-dark);
+		color: var(--main-yellow);
 		font-size: 1.1em;
 	}
 	h4 {
-		color: rgb(84, 81, 81);
+		color: rgb(187, 168, 168);
 		font-size: 1em;
 	}
 	ul {

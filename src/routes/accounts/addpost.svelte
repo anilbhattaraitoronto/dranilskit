@@ -228,6 +228,7 @@
 		margin: 20px auto;
 		padding: 20px;
 		box-shadow: 0 0 1px gray;
+		color: white;
 	}
 	h2 {
 		text-align: center;
@@ -242,6 +243,7 @@
 		margin: 30px auto 20px auto;
 		padding: 8px;
 		background: white;
+		color: black;
 	}
 	#editor:focus {
 		border-color: rgb(255, 196, 0);
@@ -277,7 +279,8 @@
 		border: 1px solid lightgray;
 		width: 100%;
 		padding: 4px;
-		border-radius: 20px;
+		border-radius: 2px;
+		color: black;
 	}
 	input:focus {
 		border-color: rgb(255, 196, 0);
@@ -294,5 +297,8 @@
 	input[type='submit']:focus {
 		background: rgb(242, 232, 227);
 		border-color: rgb(255, 196, 0);
+	}
+	label a {
+		color: var(--main-yellow, yellow);
 	}
 </style>

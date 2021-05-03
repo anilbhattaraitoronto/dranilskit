@@ -3,8 +3,6 @@
 </script>
 
 <div class="page">
-	<h2 class="masthead">My CV</h2>
-
 	<main>
 		<nav class="cv-menu">
 			<a href="/cv" class:active={$page.path === '/cv'}>Profile</a>
@@ -43,7 +41,6 @@
 		align-items: flex-end;
 		text-align: right;
 		margin-right: 24px;
-		background: var(--main-white);
 	}
 
 	a {
@@ -55,7 +52,7 @@
 		text-decoration: none;
 		text-transform: uppercase;
 		font-size: 0.8em;
-		color: var(--main-blue);
+		color: var(--main-white, white);
 		font-weight: 600;
 		border-bottom: 1px solid transparent;
 		transition: 250ms all ease-in-out;
@@ -63,10 +60,11 @@
 		margin-bottom: 24px;
 	}
 	a:hover {
-		color: purple;
+		color: var(--main-yellow, yellow);
 	}
 	a.active {
-		border-bottom-color: var(--main-blue);
+		border-bottom-color: var(--main-yellow);
+		color: var(--main-yellow, yellow);
 	}
 	@media (max-width: 600px) {
 		main {

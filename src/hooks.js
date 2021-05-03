@@ -6,40 +6,47 @@ import DB from '$lib/database.js'
 
 export function getContext({ headers }) {
     const categories = DB.prepare(`SELECT * FROM categories`).all()
+    const latestBlogs = DB.prepare(`SELECT * FROM posts, categories ORDER BY posted_date DESC LIMIT 5 `).all()
     const cookies = cookie.parse(headers.cookie || '');
     if (cookies.jwt) {
         const user = jwt.verify(cookies.jwt, authSecret)
         if (user) {
             return {
                 user: user,
-                categories:categories
+                categories: categories,
+                latestBlogs:latestBlogs
             }
         }
         return {
-            categories:categories
+            
+            categories: categories,
+            latestBlogs:latestBlogs
         }
     }
     return {
-        categories:categories
+       
+        categories: categories,
+        latestBlogs:latestBlogs
     }
         
 }
 
 export function getSession({ context }) {
-    console.log('context is', context)
-    if (context) {
+    if (context.user) {
          return {
         user: {
                  fullname: context.user?.fullname,
                  user_id: context.user?.user_id,
                 is_admin: context.user?.is_admin
              },
-             categories:context.categories?context.categories: []
+             categories: context.categories ? context.categories : [],
+             latestBlogs:context.latestBlogs ? context.latestBlogs : []
     }
     }
    
     return {
-        user: null,
-        categories
+        user: {},
+        categories: context.categories,
+        latestBlogs: context.latestBlogs
     }
 }

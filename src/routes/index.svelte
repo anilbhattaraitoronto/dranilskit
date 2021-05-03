@@ -17,15 +17,8 @@
 </script>
 
 <script>
-	import { session } from '$app/stores';
 	export let articles = null;
-	import { fly, fade } from 'svelte/transition';
-	import { browser } from '$app/env';
-	if (browser) {
-		setTimeout(() => {
-			$session.message = null;
-		}, 3000);
-	}
+
 	const languageList = ['HTML', 'CSS', 'JavaScript', 'Python'];
 	const humanLanguageList = ['Nepali', 'English', 'Hindi', 'French', 'Bhojpuri', 'Spanish'];
 </script>
@@ -33,14 +26,13 @@
 <svelte:head>
 	<title>Welcome</title>
 </svelte:head>
-{#if $session.message}
-	<p>{$session.message}</p>
-{/if}
+
 <main>
-	<div class="cv">
-		<!-- <img src="/anilbh.jpg" alt="Anil Bhattarai" title="Anil Bhattarai" /> -->
-		<div class="bio">
-			<header>
+	<div class="bio">
+		<h2>About Me</h2>
+		<div class="bio-content">
+			<div>
+				<img src="/anilbh.jpg" alt="Anil Bhattarai" title="Anil Bhattarai" />
 				<nav class="links">
 					<a href="/cv" class="cv-link">CV</a>
 					<a
@@ -57,44 +49,37 @@
 						href="https://github.com/anilbhattaraitoronto">GitHub</a
 					>
 				</nav>
-			</header>
-
-			<div class="bio-content">
-				<h2 in:fly={{ x: -200, duration: 2000 }}>Anil Bhattarai</h2>
-				<ul>
-					<li>A diligent, and self-motivated fullstack developper</li>
-					<li>
-						High competence in:
-						<ul class="language-list">
-							{#each languageList as language}
-								<li>{language}</li>
-							{/each}
-						</ul>
-					</li>
-					<li>Good competence in fundamentals of component based UI programming</li>
-					<li>
-						Intermediate to advanced competency in <strong>6 human languages</strong>:
-						<ul class="language-list">
-							{#each humanLanguageList as language}
-								<li>{language}</li>
-							{/each}
-						</ul>
-					</li>
-
-					<li>Joyful attitude towards everything including learning</li>
-				</ul>
 			</div>
+
+			<ul>
+				<li>A diligent, and self-motivated fullstack developper</li>
+				<li>
+					High competence in:
+					<ul class="language-list">
+						{#each languageList as language}
+							<li>{language}</li>
+						{/each}
+					</ul>
+				</li>
+				<li>Good competence in fundamentals of component based UI programming</li>
+				<li>
+					Intermediate to advanced competency in <strong>6 human languages</strong>:
+					<ul class="language-list">
+						{#each humanLanguageList as language}
+							<li>{language}</li>
+						{/each}
+					</ul>
+				</li>
+
+				<li>Joyful attitude towards learning</li>
+				<a href="/cv">Read More</a>
+			</ul>
 		</div>
 	</div>
-	<div class="blogs">
-		<div class="jumbo-header">
-			<div class="jumbo-content">
-				<h2>Welcome</h2>
-				<p>Musings on everything: from unfathomably big to incredibly small!</p>
-			</div>
-		</div>
-		{#if articles && articles.articles.length > 0}
-			<h2>Latest Blogs</h2>
+
+	<div class="article-container">
+		<h2>Latest Blogs</h2>
+		{#if articles.articles.length > 0}
 			{#each articles.articles as article}
 				<div class="article">
 					<p class="category-link-container">
@@ -123,71 +108,50 @@
 <style>
 	main {
 		width: 100%;
-		max-width: 1100px;
+		max-width: 750px;
 		margin: 0 auto;
 		display: grid;
-		grid-template-columns: 240px 1fr;
-		grid-column-gap: 20px;
+		grid-template-columns: 1fr;
 		padding: 20px 0;
+		color: white;
 	}
 	.bio {
 		padding: 8px;
-		background: var(--main-white);
-		box-shadow: 1px 1px 0 rgb(239, 235, 244);
 	}
 
 	.links {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		background: var(--main-blue);
 	}
 	.links > a {
 		display: inline-block;
 		margin-right: 3px;
-		box-shadow: 1px 0 0 white;
-		color: var(--main-white);
+		box-shadow: 1px 0 0 rgb(75, 73, 73);
+		color: var(--main-white, yellow);
 		padding: 0 6px;
 		font-size: 1em;
 		text-align: right;
 	}
 	.links > a:hover {
-		color: var(--main-yellow);
+		color: var(--main-yellow, yellow);
 	}
 
-	.bio-content > p {
+	.bio-content {
 		line-height: 1.6;
+		display: grid;
+		grid-template-columns: 1fr 3fr;
+		grid-column-gap: 20px;
 	}
-	.jumbo-header {
-		min-height: 350px;
-		background: var(--main-blue);
-		background-image: url('/jumbo_image.jpg');
-		background-position: center;
-		background-repeat: no-repeat;
-		background-size: cover;
-		display: flex;
-		flex-direction: column;
-		align-items: start;
-		justify-content: center;
-	}
-	.jumbo-content {
-		background: rgba(75, 73, 73, 0.201);
-		width: 100%;
-		margin: auto;
-		padding: 50px 10px;
-	}
-	.jumbo-content h2 {
-		color: var(--main-yellow);
-		font-weight: 600;
-	}
-	.jumbo-content p {
-		color: var(--main-white);
-		font-style: italic;
+
+	.article-container {
+		padding: 8px 0;
+
+		margin: 30px 0;
 	}
 	.article {
-		padding: 8px 0;
-		border-bottom: 1px solid rgb(238, 232, 232);
-		margin: 16px auto;
+		margin-top: 40px;
+		border-bottom: 1px solid rgb(72, 70, 70);
 	}
 	.category-link-container > span {
 		background: black;
@@ -199,19 +163,16 @@
 	h2 {
 		text-transform: uppercase;
 		word-spacing: 6px;
-		font-size: 1.4em;
+		font-size: 1.2em;
 		width: max-content;
 		padding: 4px 0;
 		letter-spacing: 1px;
 		font-weight: 500;
-	}
-	.blogs > h2 {
-		border-bottom: 1px solid var(--secondary-blue);
-		width: 100%;
+		color: var(--main-white, white);
 	}
 
 	h3 > a {
-		color: rgb(63, 58, 67);
+		color: rgb(228, 225, 230);
 	}
 	a {
 		text-decoration: none;
@@ -244,7 +205,7 @@
 		padding: 0;
 	}
 	.category-link {
-		color: rgb(51, 59, 51);
+		color: var(--main-yellow, yellow);
 	}
 	ul {
 		list-style: none; /* Remove list bullets */
@@ -255,15 +216,15 @@
 	li {
 		padding-left: 4px;
 		margin-bottom: 16px;
-		background: white;
+		color: var(--main-yellow, yellow);
+
 		line-height: 1.4;
-		/* box-shadow: 1px 0 0px var(--main-blue); */
 	}
 
 	li::before {
 		content: '✼';
 		padding-right: 4px;
-		color: var(--main-blue);
+		color: var(--main-yellow, yellow);
 		/* font-weight: 600; */
 	}
 	.language-list {
@@ -274,10 +235,8 @@
 	}
 	.language-list > li {
 		margin: 2px 2px 2px 0;
-		background: var(--main-white);
-		color: var(--main-blue);
+		color: var(--main-white, white);
 		list-style-type: none;
-		box-shadow: 1px 0 0 var(--main-dark);
 		cursor: pointer;
 		transition: 250ms all ease-in-out;
 	}
@@ -288,28 +247,23 @@
 		content: '';
 		padding: 0;
 	}
+	ul a {
+		background: var(--main-yellow, yellow);
+		color: black;
+		padding: 6px 16px;
+	}
 
-	@media (max-width: 650px) {
-		main {
+	@media (max-width: 550px) {
+		.bio-content {
 			grid-template-columns: 1fr;
-			padding: 8px 0;
-		}
-		.cv {
-			border-bottom: 1px solid rgb(225, 221, 221);
-		}
-		.blogs {
-			padding: 30px 0;
 		}
 		img {
-			padding-bottom: 16px;
+			padding: 16px 0;
 			width: 100%;
 			margin: auto;
 		}
 		.article {
 			margin: 8px auto;
-		}
-		.jumbo-header {
-			height: 200px;
 		}
 	}
 </style>

@@ -41,15 +41,56 @@
 	}
 </script>
 
-<h2>Add new category</h2>
+<main>
+	<h2>Add new category</h2>
 
-{#if errorMessage !== ''}
-	<p>{errorMessage}</p>
-{/if}
+	{#if errorMessage !== ''}
+		<p>{errorMessage}</p>
+	{/if}
 
-<form on:submit|preventDefault={addCategory}>
-	<label for="categoryname">
-		<input type="text" id="categoryname" bind:value={name} required />
-		<input type="submit" value="Add New Category" />
-	</label>
-</form>
+	<form on:submit|preventDefault={addCategory}>
+		<label for="categoryname">
+			New Category
+			<input type="text" id="categoryname" bind:value={name} required />
+			<input type="submit" value="Add New Category" />
+		</label>
+	</form>
+</main>
+
+<style>
+	main {
+		width: 100%;
+		max-width: 350px;
+		margin: auto;
+		padding: 20px;
+		color: white;
+	}
+
+	label {
+		color: var(--main-yellow, yellow);
+		padding-top: 40px;
+		letter-spacing: 2px;
+	}
+	label,
+	input {
+		display: block;
+	}
+	input {
+		all: unset;
+		display: block;
+		background: white;
+		margin-bottom: 20px;
+		color: black;
+		padding: 0 4px;
+	}
+	input[type='submit'] {
+		color: var(--main-dark, black);
+		padding: 0 16px;
+		cursor: pointer;
+		border: 1px solid transparent;
+		transition: 250ms all ease-in-out;
+	}
+	input[type='submit']:hover {
+		border-color: var(--main-yellow, yellow);
+	}
+</style>

@@ -75,9 +75,11 @@
 		width: 100%;
 		max-width: 550px;
 		margin: 40px auto;
+		color: white;
 	}
 	h2 {
 		padding: 8px 0;
+		color: var(--main-white, white);
 	}
 	img {
 		display: block;
@@ -94,6 +96,7 @@
 		cursor: pointer;
 		margin-bottom: 16px;
 		background: white;
+		color: var(--main-dark, black);
 		text-align: center;
 		display: block;
 		border: 1px solid #ff40004f;
@@ -108,5 +111,8 @@
 	button:hover {
 		background: rgb(242, 232, 227);
 		border-color: #ff3e00;
+	}
+	summary {
+		color: var(--main-yellow, yellow);
 	}
 </style>

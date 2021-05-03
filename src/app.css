@@ -19,5 +19,6 @@ body{
     --main-dark:#292554;
     --secondary-blue:#c4beeb54;
     --main-yellow: rgb(240, 221, 14);
+    background: var(--main-blue);
 }
 

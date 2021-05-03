@@ -61,16 +61,17 @@
 		cursor: pointer;
 		font-size: 0.8em;
 		letter-spacing: 1px;
-		color: var(--main-blue);
+		color: var(--main-white, white);
 		text-transform: uppercase;
 		transition: 200ms all ease-in-out;
 		border-bottom: 1px solid transparent;
 	}
 	a:hover,
 	span:hover {
-		background: rgb(255, 196, 0);
+		color: var(--main-yellow, yellow);
 	}
 	a.active {
-		border-bottom-color: var(--main-blue);
+		border-bottom-color: var(--main-yellow);
+		color: var(--main-yellow, yellow);
 	}
 </style>

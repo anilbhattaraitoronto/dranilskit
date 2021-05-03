@@ -27,15 +27,19 @@
 	img {
 		display: block;
 		width: 100%;
-		max-width: 400px;
-		margin: auto;
+		max-width: 300px;
+		margin: 20px auto;
 	}
 	h2 {
-		color: rgb(120, 117, 117);
+		color: var(--main-white, white);
 		text-transform: uppercase;
 		font-size: 1.2em;
 		letter-spacing: 1px;
 		text-align: center;
+		padding: 20px 0;
+	}
+	p {
+		color: var(--main-white, white);
 	}
 	@media (max-width: 600px) {
 		img {
