@@ -8,20 +8,13 @@
 		<a sveltekit:prefetch href="/">
 			<h2 class="masthead">🏠</h2>
 		</a>
-
-		<nav>
-			<a href="/cv" class="nav-link cv-link" class:active={$page.path === '/cv'}>CV</a>
-			<a href="/accounts" class="nav-link" class:active={$page.path === '/accounts'}>Account</a>
-		</nav>
+		<div>
+			<h1>Anil Bhattarai</h1>
+		</div>
 	</div>
 </div>
 
-<header>
-	<div class="masthead-container">
-		<h1>Anil Bhattarai</h1>
-		<p>Perennially learning</p>
-	</div>
-</header>
+<header />
 
 <style>
 	header {
@@ -47,11 +40,7 @@
 
 		background: var(--main-blue);
 	}
-	nav a.active {
-		background: white;
-		color: var(--main-blue);
-		border-color: var(--main-blue);
-	}
+
 	.masthead {
 		color: #250d05;
 		background: white;
@@ -77,75 +66,24 @@
 	h2:hover {
 		border-color: rgb(255, 196, 0);
 	}
-	nav {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-	}
 
-	.nav-link {
-		display: inline-block;
-		border: 1px solid var(--main-white);
-		background: var(--main-dark);
-		color: var(--main-white);
-		text-align: center;
-		transition: 200ms all ease-in-out;
-		margin-left: 2px;
-		cursor: pointer;
-		font-size: 0.8em;
-		width: 85px;
-		text-decoration: none;
-		text-transform: uppercase;
-	}
-	.nav-link:hover,
-	nav a.active {
-		background: white;
-		color: var(--main-blue);
-	}
-	.masthead-container {
-		max-width: 750px;
-		margin: auto;
-		padding: 60px 0;
-	}
-	.masthead-container h1 {
+	h1 {
 		color: var(--main-yellow);
 		font-weight: 200;
+		padding-right: 16px;
 	}
-	.masthead-container p {
+	h1::after {
+		content: 'Learning never stops';
+		display: block;
+		font-size: 0.4em;
+		letter-spacing: 1px;
+		text-align: right;
+		color: var(--main-white, white);
+		font-style: italic;
+		margin-top: -6px;
+	}
+	p {
 		color: var(--main-white);
-	}
-	.category-nav {
-		padding: 4px 0;
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-		align-items: center;
-	}
-	.topic-link.topic-link-title {
-		color: white;
-		text-transform: uppercase;
-	}
-	.topic-link:nth-child(odd) {
-		text-decoration: none;
-		color: var(--main-white);
-		padding: 0 8px;
-		margin-right: 8px;
-		margin-bottom: 4px;
-		font-size: 0.9em;
-		border-right: 1px solid white;
-		border-top-right-radius: 4px;
-	}
-	.topic-link:nth-child(even) {
-		text-decoration: none;
-		color: var(--main-yellow);
-		padding: 0 8px;
-		margin-right: 8px;
-		margin-bottom: 4px;
-		font-size: 0.9em;
-		border-right: 1px solid white;
-		border-top-right-radius: 4px;
-	}
-	.topic-link:hover {
-		text-decoration: underline;
+		text-align: right;
 	}
 </style>

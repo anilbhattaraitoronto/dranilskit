@@ -1,24 +1,4 @@
-<script context="module">
-	export async function load({ fetch }) {
-		const res = await fetch(`/index.json`);
-		if (res.ok) {
-			return {
-				props: {
-					articles: await res.json()
-				},
-				maxage: 3600
-			};
-		}
-		return {
-			status: res.status,
-			error: new Error(`Could not load the data url`)
-		};
-	}
-</script>
-
 <script>
-	export let articles = null;
-
 	const languageList = ['HTML', 'CSS', 'JavaScript', 'Python'];
 	const humanLanguageList = ['Nepali', 'English', 'Hindi', 'French', 'Bhojpuri', 'Spanish'];
 </script>
@@ -29,28 +9,23 @@
 
 <main>
 	<div class="bio">
-		<h2>About Me</h2>
-		<div class="bio-content">
+		<nav class="links">
+			<h2>About Me</h2>
 			<div>
-				<img src="/anilbh.jpg" alt="Anil Bhattarai" title="Anil Bhattarai" />
-				<nav class="links">
-					<a href="/cv" class="cv-link">CV</a>
-					<a
-						rel="external"
-						target="_blank"
-						no-referrer
-						href="https://www.linkedin.com/in/anil-bhattarai-5a699b28/"
-						>LinkedIn
-					</a>
-					<a
-						rel="external"
-						target="_blank"
-						no-referrer
-						href="https://github.com/anilbhattaraitoronto">GitHub</a
-					>
-				</nav>
+				<a href="/cv" class="cv-link">CV</a>
+				<a
+					rel="external"
+					target="_blank"
+					no-referrer
+					href="https://www.linkedin.com/in/anil-bhattarai-5a699b28/"
+					>LinkedIn
+				</a>
+				<a rel="external" target="_blank" no-referrer href="https://github.com/anilbhattaraitoronto"
+					>GitHub</a
+				>
 			</div>
-
+		</nav>
+		<div class="bio-content">
 			<ul>
 				<li>A diligent, and self-motivated fullstack developper</li>
 				<li>
@@ -72,12 +47,15 @@
 				</li>
 
 				<li>Joyful attitude towards learning</li>
-				<a href="/cv">Read More</a>
+				<a href="/cv" class="full-cv-link">Full CV</a>
 			</ul>
+			<div>
+				<img src="/anilbh.jpg" alt="Anil Bhattarai" title="Anil Bhattarai" />
+			</div>
 		</div>
 	</div>
 
-	<div class="article-container">
+	<!-- <div class="article-container">
 		<h2>Latest Blogs</h2>
 		{#if articles.articles.length > 0}
 			{#each articles.articles as article}
@@ -102,64 +80,50 @@
 		{:else}
 			<p>No article yet but they will come soon....</p>
 		{/if}
-	</div>
+	</div> -->
 </main>
 
 <style>
 	main {
 		width: 100%;
-		max-width: 750px;
+
 		margin: 0 auto;
 		display: grid;
 		grid-template-columns: 1fr;
-		padding: 20px 0;
+		padding: 0;
 		color: white;
 	}
 	.bio {
-		padding: 8px;
+		padding: 0 8px;
 	}
 
 	.links {
 		display: flex;
-		justify-content: center;
+		justify-content: space-around;
 		align-items: center;
+		background: #4219a2;
+		margin-bottom: 16px;
 	}
-	.links > a {
+	.links a {
 		display: inline-block;
 		margin-right: 3px;
-		box-shadow: 1px 0 0 rgb(75, 73, 73);
+		box-shadow: 1px 0 0 rgb(105, 103, 103);
 		color: var(--main-white, yellow);
 		padding: 0 6px;
 		font-size: 1em;
 		text-align: right;
 	}
-	.links > a:hover {
+	.links a:hover {
 		color: var(--main-yellow, yellow);
 	}
 
 	.bio-content {
 		line-height: 1.6;
 		display: grid;
-		grid-template-columns: 1fr 3fr;
+		grid-template-columns: 3fr 1fr;
 		grid-column-gap: 20px;
 	}
 
-	.article-container {
-		padding: 8px 0;
-
-		margin: 30px 0;
-	}
-	.article {
-		margin-top: 40px;
-		border-bottom: 1px solid rgb(72, 70, 70);
-	}
-	.category-link-container > span {
-		background: black;
-		color: white;
-		padding: 0 8px;
-		font-size: 0.9em;
-		font-style: italic;
-	}
 	h2 {
 		text-transform: uppercase;
 		word-spacing: 6px;
@@ -171,9 +135,6 @@
 		color: var(--main-white, white);
 	}
 
-	h3 > a {
-		color: rgb(228, 225, 230);
-	}
 	a {
 		text-decoration: none;
 		transition: 200ms all ease-in;
@@ -181,31 +142,11 @@
 	a:hover {
 		text-decoration: underline;
 	}
-	.read-full-link {
-		color: black;
-		padding: 2px 16px;
-		background: rgb(247, 244, 244);
-		border: 1px solid rgb(152, 147, 147);
-		font-size: 0.8em;
-		letter-spacing: 1px;
-	}
-	.read-full-link:hover {
-		background: white;
-		color: black;
-		border-color: black;
-		font-size: 0.9em;
-	}
+
 	p {
 		max-width: 100vw;
 		margin: 8px auto;
 		line-height: 1.25;
-	}
-	.category-link-container {
-		line-height: 0.2;
-		padding: 0;
-	}
-	.category-link {
-		color: var(--main-yellow, yellow);
 	}
 	ul {
 		list-style: none; /* Remove list bullets */
@@ -247,23 +188,28 @@
 		content: '';
 		padding: 0;
 	}
-	ul a {
+	.full-cv-link {
 		background: var(--main-yellow, yellow);
 		color: black;
-		padding: 6px 16px;
+		padding: 2px 16px;
+		border: 1px solid transparent;
+		border-radius: 4px;
 	}
-
-	@media (max-width: 550px) {
+	.full-cv-link:hover {
+		background: var(--main-blue);
+		color: var(--main-white, white);
+		border-color: var(--main-yellow, yellow);
+	}
+	@media (max-width: 850px) {
 		.bio-content {
 			grid-template-columns: 1fr;
 		}
+	}
+	@media (max-width: 550px) {
 		img {
 			padding: 16px 0;
 			width: 100%;
 			margin: auto;
-		}
-		.article {
-			margin: 8px auto;
 		}
 	}
 </style>

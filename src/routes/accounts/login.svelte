@@ -1,6 +1,6 @@
 <script context="module">
 	export async function load({ session }) {
-		if (session.user.user_id) {
+		if (session.user) {
 			return {
 				status: 302,
 				redirect: '/'
@@ -34,7 +34,7 @@
 				$session.message = 'Welcome! You have successfully logged in';
 
 				$session.user = userInfo.user;
-				goto('/accounts/profile');
+				goto('/');
 			})
 			.catch((err) => {
 				errorMessage = 'Login failed. Please try again.';

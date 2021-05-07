@@ -2,7 +2,7 @@
 	export async function load({ page, fetch }) {
 		console.log(page.params);
 		const res = await fetch(`/blogs/category/${page.params.category_id}.json`);
-		const category = page.params.category;
+		const category = page.params.category_slug;
 		if (res.ok) {
 			let categoryBlogs = await res.json();
 			return {

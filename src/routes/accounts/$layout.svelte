@@ -12,9 +12,9 @@
 				}
 			})
 			.then((data) => {
-				$session.user = {};
+				$session.user = null;
 				$session.message = 'You have logged out';
-				goto('/accounts/login');
+				goto('/');
 			});
 	}
 </script>
@@ -22,7 +22,7 @@
 <h2>Account</h2>
 <nav>
 	<!-- <a href="/accounts">Account 🏠</a> -->
-	{#if $session.user !== {} && $session.user.user_id}
+	{#if $session.user && $session.user.user_id}
 		<a href="/accounts/resetpassword" class:active={$page.path === '/accounts/resetpassword'}
 			>Reset PW</a
 		>
@@ -36,7 +36,7 @@
 			>ForgotPW</a
 		>
 	{/if}
-	{#if $session.user !== {} && $session.user.is_admin == 1}
+	{#if $session.user && $session.user.is_admin === 1}
 		<a href="/accounts/addpost" class:active={$page.path === '/accounts/addpost'}>AddPost</a>
 	{/if}
 </nav>

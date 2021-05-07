@@ -6,10 +6,11 @@ import DB from '$lib/database.js'
 
 export function getContext({ headers }) {
     const categories = DB.prepare(`SELECT * FROM categories`).all()
-    const latestBlogs = DB.prepare(`SELECT * FROM posts, categories ORDER BY posted_date DESC LIMIT 5 `).all()
+    const latestBlogs = DB.prepare(`SELECT * FROM posts, categories WHERE posts.category_id = categories.category_id ORDER BY posted_date DESC LIMIT 5 `).all()
     const cookies = cookie.parse(headers.cookie || '');
     if (cookies.jwt) {
-        const user = jwt.verify(cookies.jwt, authSecret)
+        const { user_id } = jwt.verify(cookies.jwt, authSecret)
+        const user = DB.prepare(`SELECT fullname, user_id, is_admin FROM users WHERE user_id=?`).get(user_id)
         if (user) {
             return {
                 user: user,
@@ -45,7 +46,7 @@ export function getSession({ context }) {
     }
    
     return {
-        user: {},
+        user: null,
         categories: context.categories,
         latestBlogs: context.latestBlogs
     }
