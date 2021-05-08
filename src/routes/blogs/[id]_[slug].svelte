@@ -34,6 +34,7 @@
 			})
 			.then((data) => {
 				$session.message = data.message;
+				$session.latestBlogs = data.latestBlogs;
 				console.log('deleted the article');
 				goto('/');
 			})

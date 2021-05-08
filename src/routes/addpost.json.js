@@ -13,13 +13,15 @@ export async function post(req) {
         const thumbnail_url = formData.get('thumbnail_url')
         const newPostId = DB.prepare(`INSERT INTO posts (title, content, category_id, thumbnail_url) VALUES(?, ?, ?,?)`).run(title, content, category_id, thumbnail_url).lastInsertRowid
         const newBlog = DB.prepare(`SELECT slug FROM posts WHERE blog_id =?`).get(newPostId)
+        const latestBlogs = DB.prepare(`SELECT * FROM posts ORDER BY posted_date DESC LIMIT 10 `).all()
 
         if (newPostId) {
             return {
                 body: {
                     message: `Added new post with id: ${newPostId}`,
                     post_id: newPostId,
-                    slug: newBlog.slug
+                    slug: newBlog.slug,
+                    latestBlogs
                 }
     
             }

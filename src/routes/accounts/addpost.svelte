@@ -71,6 +71,7 @@
 					})
 					.then((data) => {
 						$session.message = data.message;
+						$session.latestBlogs = data.latestBlogs;
 						console.log(data);
 						goto(`/blogs/${data.post_id}_${data.slug}`);
 					})
