@@ -55,7 +55,7 @@
 			<aside class="sidebar-box">
 				<ul class="auth-nav">
 					{#if !$session.user}
-						<li><a href="/accounts/login">Login</a></li>
+						<li><a href="/accounts/login" class="login-link">Login</a></li>
 					{:else}
 						<li><a href="/accounts/resetpassword">Reset Password</a></li>
 						<li><button on:click|preventDefault={logout}>Logout</button></li>
@@ -135,6 +135,9 @@
 	}
 	.sidebar a:hover {
 		color: var(--main-white, white);
+	}
+	li .login-link {
+		color: rgb(110, 107, 107);
 	}
 
 	footer {

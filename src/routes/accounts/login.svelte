@@ -26,27 +26,6 @@
 			$session.message = response.message;
 			goto('/');
 		}
-		// await fetch(`/auth/login.json`, {
-		// 	method: 'POST',
-		// 	headers: {
-		// 		'Content-Type': 'application/json'
-		// 	},
-		// 	body: JSON.stringify({ email, password })
-		// })
-		// 	.then((res) => {
-		// 		if (res.ok) {
-		// 			return res.json();
-		// 		}
-		// 	})
-		// 	.then((userInfo) => {
-		// 		$session.message = 'Welcome! You have successfully logged in';
-
-		// 		$session.user = userInfo.user;
-		// 		goto('/');
-		// 	})
-		// 	.catch((err) => {
-		// 		errorMessage = 'Login failed. Please try again.';
-		// 	});
 	}
 </script>
 
@@ -56,14 +35,12 @@
 
 <main in:fly={{ x: 30, duration: 700, opacity: 1 }}>
 	<h2>Login</h2>
-	<p><a href="/accounts/signup">Need an account?</a></p>
 	<form on:submit|preventDefault={login}>
 		<label for="email">Email</label>
 		<input type="email" id="email" bind:value={email} required />
 		<label for="password">Password </label>
 		<input type="password" id="password" bind:value={password} required />
 		<input type="submit" value="Login" />
-		<p><a href="/accounts/forgotpassword">Forgot PW?</a></p>
 	</form>
 </main>
 
