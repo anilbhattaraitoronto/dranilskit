@@ -236,6 +236,11 @@
 		text-transform: uppercase;
 		letter-spacing: 2px;
 	}
+	.tool-bar {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1px;
+	}
 
 	#editor {
 		border: 1px solid rgb(242, 237, 237);
