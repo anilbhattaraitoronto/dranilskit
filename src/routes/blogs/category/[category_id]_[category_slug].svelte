@@ -1,6 +1,5 @@
 <script context="module">
 	export async function load({ page, fetch }) {
-		console.log(page.params);
 		const res = await fetch(`/blogs/category/${page.params.category_id}.json`);
 		const category = page.params.category_slug;
 		if (res.ok) {
@@ -25,7 +24,7 @@
 </script>
 
 <svelte:head>
-	<title>{category.toUpperCase()}</title>
+	<title>{category.toUpperCase()} | dr-anil.com</title>
 </svelte:head>
 {#if categoryBlogs.categoryBlogs.length > 0}
 	<h2>Blogs about <b>{category.toUpperCase()}</b></h2>
@@ -46,3 +45,23 @@
 {:else}
 	<p>Category Blogs not yet created</p>
 {/if}
+
+<style>
+	h2 {
+		color: var(--main-white, white);
+		font-weight: 200;
+		font-size: 1.2em;
+		text-transform: uppercase;
+	}
+	a {
+		color: var(--main-yellow, yellow);
+		transition: 250ms all ease-in-out;
+	}
+	a:hover {
+		color: var(--main-white, white);
+	}
+	p {
+		color: rgb(155, 153, 153);
+		font-size: 0.9em;
+	}
+</style>

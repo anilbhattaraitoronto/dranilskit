@@ -6,7 +6,7 @@ import DB from '$lib/database.js'
 
 export function getContext({ headers }) {
     const categories = DB.prepare(`SELECT * FROM categories`).all()
-    const latestBlogs = DB.prepare(`SELECT * FROM posts, categories WHERE posts.category_id = categories.category_id ORDER BY posted_date DESC LIMIT 5 `).all()
+    const latestBlogs = DB.prepare(`SELECT * FROM posts ORDER BY posted_date DESC LIMIT 10 `).all()
     const cookies = cookie.parse(headers.cookie || '');
     if (cookies.jwt) {
         const { user_id } = jwt.verify(cookies.jwt, authSecret)

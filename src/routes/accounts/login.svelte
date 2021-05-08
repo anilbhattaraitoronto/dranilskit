@@ -14,31 +14,39 @@
 	import { session } from '$app/stores';
 	import { goto } from '$app/navigation';
 	import { fly } from 'svelte/transition';
+	import { postData } from '$lib/utils/postData.js';
 	let email;
 	let password;
-	let errorMessage;
-	async function login() {
-		await fetch(`/auth/login.json`, {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json'
-			},
-			body: JSON.stringify({ email, password })
-		})
-			.then((res) => {
-				if (res.ok) {
-					return res.json();
-				}
-			})
-			.then((userInfo) => {
-				$session.message = 'Welcome! You have successfully logged in';
+	let errorMessage = null;
+	async function login(event) {
+		const response = await postData(`/auth/login.json`, { email, password });
+		errorMessage = response.errors;
+		if (response.user) {
+			$session.user = response.user;
+			$session.message = response.message;
+			goto('/');
+		}
+		// await fetch(`/auth/login.json`, {
+		// 	method: 'POST',
+		// 	headers: {
+		// 		'Content-Type': 'application/json'
+		// 	},
+		// 	body: JSON.stringify({ email, password })
+		// })
+		// 	.then((res) => {
+		// 		if (res.ok) {
+		// 			return res.json();
+		// 		}
+		// 	})
+		// 	.then((userInfo) => {
+		// 		$session.message = 'Welcome! You have successfully logged in';
 
-				$session.user = userInfo.user;
-				goto('/');
-			})
-			.catch((err) => {
-				errorMessage = 'Login failed. Please try again.';
-			});
+		// 		$session.user = userInfo.user;
+		// 		goto('/');
+		// 	})
+		// 	.catch((err) => {
+		// 		errorMessage = 'Login failed. Please try again.';
+		// 	});
 	}
 </script>
 

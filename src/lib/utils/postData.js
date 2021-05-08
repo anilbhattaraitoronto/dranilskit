@@ -1,5 +1,5 @@
 export function postData(endpoint, data) {
-    return await fetch(endpoint, {
+    return fetch(endpoint, {
         method: 'POST',
         credentials: 'include',
         body: JSON.stringify(data || {}),

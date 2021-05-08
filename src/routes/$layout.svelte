@@ -2,20 +2,18 @@
 	import '../app.css';
 	import Nav from '$lib/comps/Nav.svelte';
 	import { session } from '$app/stores';
-	function logout() {
-		fetch('/auth/logout.json', {
-			method: 'POST'
-		})
-			.then((res) => {
-				if (res.ok) {
-					return res.json();
-				}
-			})
-			.then((data) => {
-				$session.user = null;
-				$session.message = 'You have logged out';
-				goto('/');
-			});
+	import { goto } from '$app/navigation';
+	import { postData } from '$lib/utils/postData.js';
+
+	let errorMessage;
+	async function logout() {
+		const response = await postData('/auth/logout.json', { hello: 'world' });
+		errorMessage = response.errors || '';
+		if (response.ok) {
+			$session.user = null;
+			$session.message = 'You have successfully logged out';
+			goto('/');
+		}
 	}
 </script>
 
@@ -34,7 +32,7 @@
 				{#if $session.latestBlogs.length > 0}
 					{#each $session.latestBlogs as blog}
 						<div class="article">
-							<h3>{blog.title}</h3>
+							<h3><a href="/blogs/{blog.blog_id}_{blog.slug}">{blog.title}</a></h3>
 						</div>
 					{/each}
 				{/if}
