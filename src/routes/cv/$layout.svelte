@@ -51,7 +51,7 @@
 		padding: 4px;
 		text-decoration: none;
 		text-transform: uppercase;
-		font-size: 0.7em;
+		font-size: 0.9em;
 		color: limegreen;
 		font-weight: 400;
 		border-bottom: 1px solid transparent;

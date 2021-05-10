@@ -32,7 +32,9 @@
 				{#if $session.latestBlogs.length > 0}
 					{#each $session.latestBlogs as blog}
 						<div class="article">
-							<h3><a href="/blogs/{blog.blog_id}_{blog.slug}">{blog.title}</a></h3>
+							<h3>
+								<a href="/blogs/{blog.blog_id}_{blog.slug}" class="blog-link">{blog.title}</a>
+							</h3>
 						</div>
 					{/each}
 				{/if}
@@ -132,6 +134,13 @@
 		transition: var(--main-transition);
 		padding: 0;
 		margin-right: 8px;
+	}
+	.sidebar .blog-link {
+		color: limegreen;
+		font-weight: 300;
+	}
+	.sidebar .blog-link:hover {
+		color: rgb(197, 245, 100);
 	}
 	.sidebar a:hover {
 		color: var(--main-white, white);
