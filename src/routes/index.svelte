@@ -1,6 +1,7 @@
 <script>
 	const languageList = ['HTML', 'CSS', 'JavaScript', 'Python'];
 	const humanLanguageList = ['Nepali', 'English', 'Hindi', 'French', 'Bhojpuri', 'Spanish'];
+	$: numOfLang = humanLanguageList.length;
 </script>
 
 <svelte:head>
@@ -38,7 +39,7 @@
 				</li>
 				<li>Good competence in fundamentals of component based UI programming</li>
 				<li>
-					Intermediate to advanced competency in <strong>6 human languages</strong>:
+					Intermediate to advanced competency in <strong>{numOfLang} human languages</strong>:
 					<ul class="language-list">
 						{#each humanLanguageList as language}
 							<li>{language}</li>
