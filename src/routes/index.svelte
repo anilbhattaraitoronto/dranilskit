@@ -49,38 +49,11 @@
 				<li>Joyful attitude towards learning</li>
 				<a href="/cv" class="full-cv-link">Full CV</a>
 			</ul>
-			<div>
+			<div class="bio-image-container">
 				<img src="/anilbh.jpg" alt="Anil Bhattarai" title="Anil Bhattarai" />
 			</div>
 		</div>
 	</div>
-
-	<!-- <div class="article-container">
-		<h2>Latest Blogs</h2>
-		{#if articles.articles.length > 0}
-			{#each articles.articles as article}
-				<div class="article">
-					<p class="category-link-container">
-						<a href="/blogs/category/{article.category_id}_{article.category}" class="category-link"
-							>#{article.category}</a
-						>
-						| <span>{new Date(article.posted_date).toDateString()}</span>
-					</p>
-					<h3><a href="/blogs/{article.blog_id}_{article.slug}">{article.title}</a></h3>
-					<p>
-						{article.summary.replace(/<[^>]*>/g, '')} ...
-						<a
-							sveltekit:prefetch
-							href="/blogs/{article.blog_id}_{article.slug}"
-							class="read-full-link">full</a
-						>
-					</p>
-				</div>
-			{/each}
-		{:else}
-			<p>No article yet but they will come soon....</p>
-		{/if}
-	</div> -->
 </main>
 
 <style>
@@ -99,35 +72,45 @@
 
 	.links {
 		display: flex;
-		justify-content: space-around;
+		justify-content: space-between;
 		align-items: center;
 		background: #4219a2;
-		margin-bottom: 16px;
+		margin-bottom: 2px;
 	}
 	.links a {
 		display: inline-block;
 		margin-right: 3px;
 		box-shadow: 1px 0 0 rgb(105, 103, 103);
-		color: var(--main-white, yellow);
+		color: rgb(41, 213, 41);
 		padding: 0 6px;
 		font-size: 1em;
 		text-align: right;
 	}
 	.links a:hover {
-		color: var(--main-yellow, yellow);
+		color: var(--main-white, white);
 	}
 
 	.bio-content {
 		line-height: 1.6;
-		display: grid;
-		grid-template-columns: 3fr 1fr;
-		grid-column-gap: 20px;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+		background: #4219a2;
+	}
+	.bio-content .bio-image-container {
+		order: 1;
+		width: 100%;
+		max-width: 300px;
+	}
+	.bio-content ul {
+		order: 2;
+		flex-grow: 2;
 	}
 
 	h2 {
 		text-transform: uppercase;
 		word-spacing: 6px;
-		font-size: 1.2em;
+		font-size: 1em;
 		width: max-content;
 		padding: 4px 0;
 		letter-spacing: 1px;
@@ -152,6 +135,7 @@
 		list-style: none; /* Remove list bullets */
 		padding: 0;
 		margin: 0;
+		position: relative;
 	}
 
 	li {
@@ -182,18 +166,24 @@
 		transition: 250ms all ease-in-out;
 	}
 	.language-list > li:hover {
-		color: var(--main-dark);
+		color: limegreen;
 	}
 	.language-list > li::before {
 		content: '';
 		padding: 0;
 	}
 	.full-cv-link {
-		background: var(--main-yellow, yellow);
+		background: var(--main-dark, yellow);
 		color: black;
-		padding: 2px 16px;
+		padding: 0 16px;
 		border: 1px solid transparent;
 		border-radius: 4px;
+		text-align: right;
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		font-size: 0.8em;
+		color: limegreen;
 	}
 	.full-cv-link:hover {
 		background: var(--main-blue);

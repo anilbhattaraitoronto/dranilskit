@@ -63,27 +63,21 @@
 		color: black;
 		font-weight: 600;
 	}
-	h2:hover {
-		border-color: rgb(255, 196, 0);
-	}
 
 	h1 {
 		color: var(--main-yellow);
 		font-weight: 200;
-		padding-right: 16px;
+		padding-right: 12px;
+		font-size: 1.6em;
 	}
 	h1::after {
 		content: 'Learning never stops';
 		display: block;
-		font-size: 0.4em;
+		font-size: 0.5em;
 		letter-spacing: 1px;
 		text-align: right;
 		color: var(--main-white, white);
 		font-style: italic;
 		margin-top: -6px;
-	}
-	p {
-		color: var(--main-white);
-		text-align: right;
 	}
 </style>

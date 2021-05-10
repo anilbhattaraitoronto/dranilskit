@@ -100,7 +100,7 @@
 		display: grid;
 		grid-template-columns: 1fr 230px;
 		grid-column-gap: 12px;
-		margin-top: 150px;
+		margin-top: 120px;
 	}
 
 	h2 {
@@ -152,15 +152,14 @@
 		.app-wrapper {
 			padding: 0 8px;
 		}
+		main {
+			grid-template-columns: 1fr;
+			margin-top: 80px;
+		}
 	}
 	@media (min-width: 1220px) {
 		.app-wrapper {
 			padding: 0;
-		}
-	}
-	@media (max-width: 650px) {
-		main {
-			grid-template-columns: 1fr;
 		}
 	}
 </style>
