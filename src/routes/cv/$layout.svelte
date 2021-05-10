@@ -51,20 +51,20 @@
 		padding: 4px;
 		text-decoration: none;
 		text-transform: uppercase;
-		font-size: 0.8em;
-		color: var(--main-white, white);
-		font-weight: 600;
+		font-size: 0.7em;
+		color: limegreen;
+		font-weight: 400;
 		border-bottom: 1px solid transparent;
 		transition: 250ms all ease-in-out;
 		letter-spacing: 1px;
 		margin-bottom: 24px;
 	}
 	a:hover {
-		color: var(--main-yellow, yellow);
+		color: yellowgreen;
 	}
 	a.active {
-		border-bottom-color: var(--main-yellow);
-		color: var(--main-yellow, yellow);
+		border-bottom-color: yellowgreen;
+		color: yellowgreen;
 	}
 	@media (max-width: 600px) {
 		main {
