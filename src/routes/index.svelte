@@ -49,9 +49,8 @@
 
 				<li>Joyful attitude towards learning</li>
 				<a href="/cv" class="full-cv-link">Full CV</a>
-				<p>
-					<a href="/ab_resume_main.pdf" class="cv-pdf-link" noreferrer target="_blank">CV in PDF</a>
-				</p>
+
+				<a href="/ab_resume_main.pdf" class="cv-pdf-link" noreferrer target="_blank">CV in PDF</a>
 			</ul>
 			<div class="bio-image-container">
 				<img src="/anilbh.jpg" alt="Anil Bhattarai" title="Anil Bhattarai" />
@@ -196,6 +195,7 @@
 		left: 0;
 		background: var(--main-dark, black);
 		border: 1px solid transparent;
+		border-radius: 4px;
 		font-size: 0.8em;
 		padding: 0 16px;
 	}

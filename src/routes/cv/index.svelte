@@ -18,7 +18,8 @@
 		and building full stack web applications since 2018. Key strengths include joyful attitude
 		towards learning, effective communication (written and verbal), and able to deliver projects
 		through timely and efficient processes and effective planning, always with consideration of end
-		users.
+		users. <a href="/ab_resume_main.pdf" class="cv-pdf-link" noreferrer target="_blank">CV in PDF</a
+		>
 	</p>
 </main>
 
@@ -39,6 +40,9 @@
 	}
 	p {
 		color: var(--main-white, white);
+	}
+	.cv-pdf-link {
+		color: limegreen;
 	}
 	@media (max-width: 600px) {
 		img {
