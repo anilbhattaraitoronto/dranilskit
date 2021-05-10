@@ -49,6 +49,9 @@
 
 				<li>Joyful attitude towards learning</li>
 				<a href="/cv" class="full-cv-link">Full CV</a>
+				<p>
+					<a href="/ab_resume_main.pdf" class="cv-pdf-link" noreferrer target="_blank">CV in PDF</a>
+				</p>
 			</ul>
 			<div class="bio-image-container">
 				<img src="/anilbh.jpg" alt="Anil Bhattarai" title="Anil Bhattarai" />
@@ -97,6 +100,7 @@
 		flex-wrap: wrap;
 		gap: 8px;
 		background: #4219a2;
+		margin-bottom: 20px;
 	}
 	.bio-content .bio-image-container {
 		order: 1;
@@ -134,8 +138,8 @@
 	}
 	ul {
 		list-style: none; /* Remove list bullets */
-		padding: 0;
-		margin: 0;
+		padding-bottom: 20px;
+		margin-bottom: 0;
 		position: relative;
 	}
 
@@ -175,7 +179,6 @@
 	}
 	.full-cv-link {
 		background: var(--main-dark, yellow);
-		color: black;
 		padding: 0 16px;
 		border: 1px solid transparent;
 		border-radius: 4px;
@@ -186,7 +189,18 @@
 		font-size: 0.8em;
 		color: limegreen;
 	}
-	.full-cv-link:hover {
+	.cv-pdf-link {
+		color: limegreen;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		background: var(--main-dark, black);
+		border: 1px solid transparent;
+		font-size: 0.8em;
+		padding: 0 16px;
+	}
+	.full-cv-link:hover,
+	.cv-pdf-link:hover {
 		background: var(--main-blue);
 		color: var(--main-white, white);
 		border-color: var(--main-yellow, yellow);
