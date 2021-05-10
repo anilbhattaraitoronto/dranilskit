@@ -59,8 +59,8 @@
 					{#if !$session.user}
 						<li><a href="/accounts/login" class="login-link">Login</a></li>
 					{:else}
-						<li><a href="/accounts/resetpassword">Reset Password</a></li>
-						<li><button on:click|preventDefault={logout}>Logout</button></li>
+						<!-- <li><a href="/accounts/resetpassword">Reset Password</a></li> -->
+						<li><button on:click|preventDefault={logout} class="logout-button">Logout</button></li>
 					{/if}
 				</ul>
 			</aside>
@@ -109,7 +109,7 @@
 		text-transform: uppercase;
 		letter-spacing: 2px;
 		color: var(--main-white);
-		font-size: 1.2em;
+		font-size: 1em;
 		font-weight: 200;
 	}
 	.sidebar-box {
@@ -124,6 +124,7 @@
 		align-items: center;
 	}
 	li {
+		position: relative;
 		list-style-type: none;
 		margin: 2px 0;
 		transition: var(--main-transition);
@@ -147,6 +148,25 @@
 	}
 	li .login-link {
 		color: rgb(110, 107, 107);
+	}
+	.logout-button {
+		all: unset;
+		text-align: right;
+		/* position: absolute;
+		bottom: 3px;
+		right: 3px; */
+		cursor: pointer;
+		background: var(--main-dark);
+		padding: 0 6px;
+		color: var(--main-white, white);
+		border-radius: 4px;
+		border: 1px solid transparent;
+		transition: 250ms all ease-in-out;
+	}
+	.logout-button:hover {
+		background: var(--main-white, white);
+		border-color: var(--main-white, white);
+		color: var(--main-dark, black);
 	}
 
 	footer {
