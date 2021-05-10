@@ -16,6 +16,9 @@
 					<li>{@html detail}</li>
 				{/each}
 			</ul>
+			{#if item.link}
+				<p><a href={item.link} target="_blank" class="work-link">Live Link</a></p>
+			{/if}
 		</article>
 	{/each}
 </main>
@@ -51,5 +54,11 @@
 		list-style: square;
 		padding: 0 16px;
 		font-size: 0.9em;
+	}
+	p a {
+		color: limegreen;
+	}
+	p a:hover {
+		color: rgb(198, 236, 120);
 	}
 </style>

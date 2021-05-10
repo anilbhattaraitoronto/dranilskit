@@ -27,4 +27,7 @@ img{
     max-width: 300px;
     padding: 8px ;
 }
+li a {
+    color: yellow;
+}
 
