@@ -276,11 +276,10 @@
 		font-family: Arial;
 		width: 100%;
 		max-width: 550px;
-		margin: 40px auto;
+		margin: auto;
 		color: white;
 	}
 	h2 {
-		padding: 8px 0;
 		color: var(--main-white, white);
 	}
 	img {
@@ -326,9 +325,9 @@
 		color: white;
 	}
 	h2 {
-		text-align: center;
-		text-transform: uppercase;
 		letter-spacing: 2px;
+		color: limegreen;
+		font-weight: 300;
 	}
 	.tool-bar {
 		display: flex;
@@ -347,6 +346,12 @@
 	#editor:focus {
 		border-color: rgb(255, 196, 0);
 		outline: none;
+	}
+	img {
+		display: block;
+		max-width: 250px;
+		margin: auto;
+		padding: 16px;
 	}
 	select {
 		border: unset;

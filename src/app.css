@@ -21,4 +21,10 @@ body{
     --main-yellow: rgb(240, 221, 14);
     background: var(--main-blue);
 }
+img{
+    display: inline;
+    width: 100%;
+    max-width: 300px;
+    padding: 8px ;
+}
 

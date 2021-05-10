@@ -15,11 +15,10 @@
 	/>
 	<p>
 		A highly diligent, and self-motivated information technology professional who has been designing
-		and building full stack web applications since 2018. Intermediate to advanced level competence
-		in two human languages (French and Spanish) and two computer languages (JavaScript and Python).
-		Key strengths include joyful attitude towards learning, effective communication (written and
-		verbal), and able to deliver projects through timely and efficient processes and effective
-		planning always with consideration of end users.
+		and building full stack web applications since 2018. Key strengths include joyful attitude
+		towards learning, effective communication (written and verbal), and able to deliver projects
+		through timely and efficient processes and effective planning, always with consideration of end
+		users.
 	</p>
 </main>
 
