@@ -149,6 +149,9 @@
 	li .login-link {
 		color: rgb(110, 107, 107);
 	}
+	h3 .blog-link {
+		border-bottom: 1px solid white;
+	}
 	.logout-button {
 		all: unset;
 		text-align: right;
