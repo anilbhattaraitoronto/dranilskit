@@ -31,6 +31,7 @@
 		height: 190px;
 		width: 190px;
 		border-radius: 50%;
+		float: left;
 	}
 	h2 {
 		color: var(--main-white, white);

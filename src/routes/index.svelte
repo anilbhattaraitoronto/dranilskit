@@ -38,10 +38,8 @@
 			</div>
 		</nav>
 		<div class="bio-content">
-			<div class="bio-image-container">
-				<img src="/anilbh.jpg" alt="Anil Bhattarai" title="Anil Bhattarai" />
-			</div>
 			<ul>
+				<img src="/anilbh.jpg" alt="Anil Bhattarai" title="Anil Bhattarai" />
 				<li>A diligent and self-motivated fullstack developper</li>
 				<li>
 					High competence in:
@@ -107,7 +105,7 @@
 	.bio-content {
 		line-height: 1.6;
 		display: grid;
-		grid-template-columns: 220px 1fr;
+		/* grid-template-columns: 220px 1fr; */
 		gap: 8px;
 		/* background: #4219a2; */
 		margin-bottom: 20px;
@@ -122,9 +120,12 @@
 		flex-grow: 2;
 	}
 	img {
+		display: inline;
+		float: left;
 		height: 150px;
 		width: 150px;
 		border-radius: 50%;
+		clear: left;
 	}
 	h2 {
 		text-transform: uppercase;
@@ -227,6 +228,11 @@
 	@media (max-width: 850px) {
 		.bio-content {
 			grid-template-columns: 1fr;
+		}
+		img {
+			display: inline;
+			float: left;
+			clear: both;
 		}
 	}
 </style>
