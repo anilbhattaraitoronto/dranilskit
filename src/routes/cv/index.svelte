@@ -32,7 +32,16 @@
 		width: 140px;
 		border-radius: 50%;
 		float: left;
-		shape-outside: circle();
+		shape-outside: polygon(
+			34.48% 7.46%,
+			60.9% 13px,
+			82.42% 27.15%,
+			87.63% 54.15%,
+			67.31% 81.71%,
+			30.01% 104.73%,
+			7.85% 69.86%,
+			8.36% 30.98%
+		);
 		margin: 24px 16px 16px 0;
 	}
 	h2 {

@@ -38,7 +38,7 @@
 			</div>
 		</nav>
 		<div class="bio-content">
-			<ul>
+			<ul class="profile-list">
 				<img src="/anilbh.jpg" alt="Anil Bhattarai" title="Anil Bhattarai" />
 				<li>A diligent and self-motivated fullstack developper</li>
 				<li>
@@ -126,7 +126,16 @@
 		width: 140px;
 		border-radius: 50%;
 		/* clear: left; */
-		shape-outside: circle();
+		shape-outside: polygon(
+			34.48% 7.46%,
+			60.9% 13px,
+			82.42% 27.15%,
+			87.63% 54.15%,
+			67.31% 81.71%,
+			30.01% 104.73%,
+			7.85% 69.86%,
+			8.36% 30.98%
+		);
 		margin: 8px 16px 16px 0;
 	}
 	h2 {
@@ -153,13 +162,11 @@
 		margin: 8px auto;
 		line-height: 1.25;
 	}
-	ul {
-		list-style: none; /* Remove list bullets */
-		padding-bottom: 20px;
+	.profile-list {
+		list-style: none;
+		padding: 40px 20px 60px 20px;
 		margin-bottom: 0;
 		position: relative;
-		/* background: var(--main-dark); */
-		padding: 8px;
 	}
 
 	li {
@@ -175,7 +182,11 @@
 		padding-right: 4px;
 		color: var(--main-yellow, yellow);
 	}
-
+	.language-list {
+		margin: 20px;
+		padding: 20px;
+		box-shadow: 0 0 1px rgba(255, 255, 255, 0.146);
+	}
 	.language-list > li {
 		margin: 2px 12px 2px 0;
 		color: var(--main-white, white);
