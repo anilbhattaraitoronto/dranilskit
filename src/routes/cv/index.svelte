@@ -7,28 +7,30 @@
 </svelte:head>
 <main>
 	<h2>profile 😀</h2>
-	<img
-		src="/anilbh.jpg"
-		alt="Anil Bhattarai"
-		title="Anil Bhattarai"
-		in:fly={{ y: -40, duration: 700 }}
-	/>
+
 	<p>
+		<img
+			src="/anilbh.jpg"
+			alt="Anil Bhattarai"
+			title="Anil Bhattarai"
+			in:fly={{ y: -40, duration: 700 }}
+		/>
 		A highly diligent, and self-motivated information technology professional who has been designing
-		and building full stack web applications since 2018. Key strengths include joyful attitude
-		towards learning, effective communication (written and verbal), and able to deliver projects
-		through timely and efficient processes and effective planning, always with consideration of end
-		users. <a href="/ab_resume_main.pdf" class="cv-pdf-link" noreferrer target="_blank">CV in PDF</a
-		>
+		and building full stack web applications since 2018. Key strengths include joyful attitude towards
+		learning, effective communication (written and verbal), and able to deliver projects through timely
+		and efficient processes and effective planning, always with consideration of end users.
+		<a href="/ab_resume_main.pdf" class="cv-pdf-link" noreferrer target="_blank">CV in PDF</a>
 	</p>
 </main>
 
 <style>
+	main {
+		margin-bottom: 40px;
+	}
 	img {
-		display: block;
-		width: 100%;
-		max-width: 300px;
-		margin: 20px auto;
+		height: 190px;
+		width: 190px;
+		border-radius: 50%;
 	}
 	h2 {
 		color: var(--main-white, white);
@@ -43,13 +45,5 @@
 	}
 	.cv-pdf-link {
 		color: limegreen;
-	}
-	@media (max-width: 600px) {
-		img {
-			display: block;
-			width: 100%;
-			margin: auto;
-			padding: 16px 16px 16px 0;
-		}
 	}
 </style>

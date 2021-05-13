@@ -1,5 +1,16 @@
 <script>
-	const languageList = ['HTML', 'CSS', 'JavaScript', 'Python'];
+	const languageList = [
+		'HTML',
+		'CSS',
+		'JavaScript',
+		'Python',
+		'Nodejs',
+		'Expressjs',
+		'Django',
+		'Svelte',
+		'Sveltekit',
+		'RDMS (SQL)'
+	];
 	const humanLanguageList = ['Nepali', 'English', 'Hindi', 'French', 'Bhojpuri', 'Spanish'];
 	$: numOfLang = humanLanguageList.length;
 </script>
@@ -27,8 +38,11 @@
 			</div>
 		</nav>
 		<div class="bio-content">
+			<div class="bio-image-container">
+				<img src="/anilbh.jpg" alt="Anil Bhattarai" title="Anil Bhattarai" />
+			</div>
 			<ul>
-				<li>A diligent, and self-motivated fullstack developper</li>
+				<li>A diligent and self-motivated fullstack developper</li>
 				<li>
 					High competence in:
 					<ul class="language-list">
@@ -52,9 +66,6 @@
 
 				<a href="/ab_resume_main.pdf" class="cv-pdf-link" noreferrer target="_blank">CV in PDF</a>
 			</ul>
-			<div class="bio-image-container">
-				<img src="/anilbh.jpg" alt="Anil Bhattarai" title="Anil Bhattarai" />
-			</div>
 		</div>
 	</div>
 </main>
@@ -95,10 +106,10 @@
 
 	.bio-content {
 		line-height: 1.6;
-		display: flex;
-		flex-wrap: wrap;
+		display: grid;
+		grid-template-columns: 220px 1fr;
 		gap: 8px;
-		background: #4219a2;
+		/* background: #4219a2; */
 		margin-bottom: 20px;
 	}
 	.bio-content .bio-image-container {
@@ -110,7 +121,11 @@
 		order: 2;
 		flex-grow: 2;
 	}
-
+	img {
+		height: 150px;
+		width: 150px;
+		border-radius: 50%;
+	}
 	h2 {
 		text-transform: uppercase;
 		word-spacing: 6px;
@@ -140,6 +155,8 @@
 		padding-bottom: 20px;
 		margin-bottom: 0;
 		position: relative;
+		background: var(--main-dark);
+		padding: 8px 8px 32px 8px;
 	}
 
 	li {
@@ -159,8 +176,10 @@
 	.language-list {
 		font-size: 0.9em;
 		display: grid;
-		grid-template-columns: 1fr 1fr;
-		padding: 0 6px;
+		grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+		padding: 8px 6px;
+		margin: 16px 0;
+		box-shadow: 0 0 1px rgb(128, 126, 126);
 	}
 	.language-list > li {
 		margin: 2px 2px 2px 0;
@@ -208,13 +227,6 @@
 	@media (max-width: 850px) {
 		.bio-content {
 			grid-template-columns: 1fr;
-		}
-	}
-	@media (max-width: 550px) {
-		img {
-			padding: 16px 0;
-			width: 100%;
-			margin: auto;
 		}
 	}
 </style>
