@@ -32,9 +32,9 @@
 				{#if $session.latestBlogs.length > 0}
 					{#each $session.latestBlogs as blog}
 						<div class="article">
-							<h3>
+							<div class="blog-link-container">
 								<a href="/blogs/{blog.blog_id}_{blog.slug}" class="blog-link">{blog.title}</a>
-							</h3>
+							</div>
 						</div>
 					{/each}
 				{/if}
@@ -149,8 +149,8 @@
 	li .login-link {
 		color: rgb(110, 107, 107);
 	}
-	h3 .blog-link {
-		border-bottom: 1px solid white;
+	.blog-link-container {
+		border-bottom: 1px solid rgba(255, 255, 255, 0.118);
 	}
 	.logout-button {
 		all: unset;

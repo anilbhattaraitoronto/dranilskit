@@ -28,10 +28,12 @@
 		margin-bottom: 40px;
 	}
 	img {
-		height: 190px;
-		width: 190px;
+		height: 140px;
+		width: 140px;
 		border-radius: 50%;
 		float: left;
+		shape-outside: circle();
+		margin: 24px 16px 16px 0;
 	}
 	h2 {
 		color: var(--main-white, white);
@@ -39,7 +41,7 @@
 		font-size: 1.2em;
 		letter-spacing: 1px;
 		text-align: center;
-		padding: 20px 0;
+		margin-bottom: 20px;
 	}
 	p {
 		color: var(--main-white, white);

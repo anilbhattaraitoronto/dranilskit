@@ -122,10 +122,12 @@
 	img {
 		display: inline;
 		float: left;
-		height: 150px;
-		width: 150px;
+		height: 140px;
+		width: 140px;
 		border-radius: 50%;
-		clear: left;
+		/* clear: left; */
+		shape-outside: circle();
+		margin: 8px 16px 16px 0;
 	}
 	h2 {
 		text-transform: uppercase;
@@ -156,8 +158,8 @@
 		padding-bottom: 20px;
 		margin-bottom: 0;
 		position: relative;
-		background: var(--main-dark);
-		padding: 8px 8px 32px 8px;
+		/* background: var(--main-dark); */
+		padding: 8px;
 	}
 
 	li {
@@ -172,22 +174,19 @@
 		content: '✼';
 		padding-right: 4px;
 		color: var(--main-yellow, yellow);
-		/* font-weight: 600; */
 	}
-	.language-list {
-		font-size: 0.9em;
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-		padding: 8px 6px;
-		margin: 16px 0;
-		box-shadow: 0 0 1px rgb(128, 126, 126);
-	}
+
 	.language-list > li {
-		margin: 2px 2px 2px 0;
+		margin: 2px 12px 2px 0;
 		color: var(--main-white, white);
 		list-style-type: none;
 		cursor: pointer;
 		transition: 250ms all ease-in-out;
+		display: inline-block;
+		background: var(--main-dark);
+		padding: 3px 8px;
+		border-radius: 8px;
+		font-size: 0.85em;
 	}
 	.language-list > li:hover {
 		color: limegreen;
@@ -233,6 +232,7 @@
 			display: inline;
 			float: left;
 			clear: both;
+			shape-outside: circle();
 		}
 	}
 </style>
