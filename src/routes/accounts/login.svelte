@@ -51,7 +51,7 @@
 		background: var(--main-blue);
 		margin: auto;
 		padding: 20px;
-		box-shadow: 1px 1px 0 rgb(244, 238, 238);
+		/* box-shadow: 1px 1px 0 rgb(244, 238, 238); */
 		border-bottom-right-radius: 8px;
 	}
 	h2 {

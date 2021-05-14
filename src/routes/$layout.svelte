@@ -111,6 +111,7 @@
 		color: var(--main-white);
 		font-size: 1em;
 		font-weight: 200;
+		margin-bottom: 12px;
 	}
 	.sidebar-box {
 		padding-bottom: 20px;
@@ -129,12 +130,17 @@
 		margin: 2px 0;
 		transition: var(--main-transition);
 	}
-	.sidebar a {
+	a {
+		text-decoration: none;
+	}
+	.category-link {
 		text-decoration: none;
 		color: var(--main-yellow);
 		transition: var(--main-transition);
-		padding: 0;
+		background: rgb(76, 33, 177);
+		padding: 2px 12px;
 		margin-right: 8px;
+		border-radius: 8px;
 	}
 	.sidebar .blog-link {
 		color: limegreen;

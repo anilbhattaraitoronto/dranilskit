@@ -171,7 +171,7 @@
 
 	li {
 		padding-left: 4px;
-		margin-bottom: 16px;
+		margin-bottom: 36px;
 		color: var(--main-yellow, yellow);
 
 		line-height: 1.4;
@@ -180,11 +180,11 @@
 	li::before {
 		content: '✼';
 		padding-right: 4px;
-		color: var(--main-yellow, yellow);
+		color: rgba(163, 69, 245, 0.199);
 	}
 	.language-list {
-		margin: 20px;
-		padding: 20px;
+		margin: 20px 0;
+		padding: 12px;
 		box-shadow: 0 0 1px rgba(255, 255, 255, 0.146);
 	}
 	.language-list > li {
@@ -194,14 +194,12 @@
 		cursor: pointer;
 		transition: 250ms all ease-in-out;
 		display: inline-block;
-		background: var(--main-dark);
+		background: rgba(0, 0, 0, 0.071);
 		padding: 3px 8px;
 		border-radius: 8px;
 		font-size: 0.85em;
 	}
-	.language-list > li:hover {
-		color: limegreen;
-	}
+
 	.language-list > li::before {
 		content: '';
 		padding: 0;
