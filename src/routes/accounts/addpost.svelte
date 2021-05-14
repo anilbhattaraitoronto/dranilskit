@@ -86,10 +86,14 @@
 </script>
 
 <svelte:head>
-	<title>Add A New Post</title>
+	<title>Add A New Post | dr-anil.com</title>
+	<link
+		rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+	/>
 </svelte:head>
 <main>
-	<h2>Add Post</h2>
+	<h2>Add New Blog</h2>
 
 	<label for=""
 		>Category:
@@ -239,17 +243,23 @@
 	.tool-bar {
 		display: flex;
 		flex-wrap: wrap;
-		gap: 1px;
+		gap: 2px;
 	}
-
+	button {
+		height: 32px;
+		width: 36px;
+		border-radius: 4px;
+		border: unset;
+	}
 	#editor {
 		border: 1px solid rgb(242, 237, 237);
-		min-height: 350px;
+		min-height: 450px;
 		width: 100%;
-		margin: 30px auto 20px auto;
-		padding: 8px;
+		margin: 40px auto 20px auto;
 		background: white;
 		color: black;
+		border-radius: 8px;
+		padding: 20px;
 	}
 	#editor:focus {
 		border-color: rgb(255, 196, 0);
@@ -258,16 +268,18 @@
 	select {
 		border: unset;
 		/* appearance: none; */
-		border-radius: 2px;
+		border-radius: 8px;
 		border: 1px solid lightgray;
 		padding: 4px 8px;
 		font-size: 1em;
 		color: green;
 		text-align: center;
-		width: 80px;
+		width: 90px;
+		height: 32px;
+		font-size: 0.9em;
 	}
 	option {
-		width: 150px;
+		min-width: 150px;
 	}
 	label {
 		display: block;
@@ -282,10 +294,10 @@
 		background: white;
 		text-align: left;
 		display: block;
-		border: 1px solid lightgray;
+		/* border: 1px solid lightgray; */
 		width: 100%;
-		padding: 4px;
-		border-radius: 2px;
+		padding: 2px 4px;
+		border-radius: 8px;
 		color: black;
 	}
 	input:focus {
@@ -298,6 +310,8 @@
 		cursor: pointer;
 		transition: 200ms all ease-in-out;
 		text-align: center;
+		width: 200px;
+		border-radius: 8px;
 	}
 	input[type='submit']:hover,
 	input[type='submit']:focus {
