@@ -39,7 +39,7 @@
 		</nav>
 		<div class="bio-content">
 			<ul class="profile-list">
-				<h2 style="font-weight:600; color: lightgreen;">I am,</h2>
+				<h3 class="profile-list-title">I am,</h3>
 				<img src="/anilbh.jpg" alt="Anil Bhattarai" title="Anil Bhattarai" />
 				<li>A diligent and self-motivated fullstack developper</li>
 				<li>
@@ -149,6 +149,11 @@
 		margin-bottom: 0;
 		position: relative;
 		border-radius: 8px;
+	}
+	.profile-list-title {
+		font-weight: 600;
+		color: lightgreen;
+		font-weight: 400;
 	}
 
 	li {
