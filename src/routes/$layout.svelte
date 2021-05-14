@@ -55,6 +55,10 @@
 				{/if}
 			</aside>
 			<aside class="sidebar-box">
+				<h2>Contact</h2>
+				<a href="mailto:anilbhattarai@gmail.com" class="category-link">anilbhattarai@gmail.com</a>
+			</aside>
+			<aside class="sidebar-box">
 				<ul class="auth-nav">
 					{#if !$session.user}
 						<li><a href="/accounts/login" class="login-link">Login</a></li>
@@ -100,9 +104,9 @@
 	}
 	main {
 		display: grid;
-		grid-template-columns: 1fr 230px;
+		grid-template-columns: 1fr 260px;
 		grid-column-gap: 12px;
-		margin-top: 120px;
+		margin-top: 140px;
 	}
 
 	h2 {
@@ -186,7 +190,7 @@
 		box-shadow: 0 -1px 0 rgb(215, 211, 211);
 		margin-top: 20px;
 	}
-	@media (max-width: 650px) {
+	@media (max-width: 780px) {
 		.app-wrapper {
 			padding: 0 8px;
 		}

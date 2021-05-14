@@ -55,7 +55,8 @@
 	p {
 		color: var(--main-white, white);
 	}
-	.cv-pdf-link {
+	.cv-pdf-link,
+	.contact-link {
 		color: limegreen;
 	}
 </style>

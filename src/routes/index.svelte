@@ -16,7 +16,7 @@
 </script>
 
 <svelte:head>
-	<title>Welcome</title>
+	<title>Welcome | dr-anil.com</title>
 </svelte:head>
 
 <main>
@@ -39,19 +39,24 @@
 		</nav>
 		<div class="bio-content">
 			<ul class="profile-list">
+				<h2 style="font-weight:600; color: lightgreen;">I am,</h2>
 				<img src="/anilbh.jpg" alt="Anil Bhattarai" title="Anil Bhattarai" />
 				<li>A diligent and self-motivated fullstack developper</li>
 				<li>
-					High competence in:
+					Sharp in analytical skills to understand problems and come up the effective and efficient
+					solutions
+				</li>
+				<li>
+					Highly competent in:
 					<ul class="language-list">
 						{#each languageList as language}
 							<li>{language}</li>
 						{/each}
 					</ul>
 				</li>
-				<li>Good competence in fundamentals of component based UI programming</li>
+				<li>Competent in fundamentals of component based UI programming</li>
 				<li>
-					Intermediate to advanced competency in <strong>{numOfLang} human languages</strong>:
+					Able to communicate in <strong>{numOfLang} human languages</strong>:
 					<ul class="language-list">
 						{#each humanLanguageList as language}
 							<li>{language}</li>
@@ -59,7 +64,7 @@
 					</ul>
 				</li>
 
-				<li>Joyful attitude towards learning</li>
+				<li>Always learning</li>
 				<a href="/cv" class="full-cv-link">Full CV</a>
 
 				<a href="/ab_resume_main.pdf" class="cv-pdf-link" noreferrer target="_blank">CV in PDF</a>
@@ -105,20 +110,11 @@
 	.bio-content {
 		line-height: 1.6;
 		display: grid;
-		/* grid-template-columns: 220px 1fr; */
-		gap: 8px;
-		/* background: #4219a2; */
-		margin-bottom: 20px;
+		max-width: 450px;
+		margin: 0 auto 30px auto;
+		background: rgba(137, 77, 232, 0.05);
 	}
-	.bio-content .bio-image-container {
-		order: 1;
-		width: 100%;
-		max-width: 300px;
-	}
-	.bio-content ul {
-		order: 2;
-		flex-grow: 2;
-	}
+
 	img {
 		display: inline;
 		float: left;
@@ -126,16 +122,7 @@
 		width: 140px;
 		border-radius: 50%;
 		/* clear: left; */
-		shape-outside: polygon(
-			34.48% 7.46%,
-			60.9% 13px,
-			82.42% 27.15%,
-			87.63% 54.15%,
-			67.31% 81.71%,
-			30.01% 104.73%,
-			7.85% 69.86%,
-			8.36% 30.98%
-		);
+		shape-outside: circle();
 		margin: 8px 16px 16px 0;
 	}
 	h2 {
@@ -156,36 +143,27 @@
 	a:hover {
 		text-decoration: underline;
 	}
-
-	p {
-		max-width: 100vw;
-		margin: 8px auto;
-		line-height: 1.25;
-	}
 	.profile-list {
 		list-style: none;
-		padding: 40px 20px 60px 20px;
+		padding: 20px 4px 60px 8px;
 		margin-bottom: 0;
 		position: relative;
+		border-radius: 8px;
 	}
 
 	li {
 		padding-left: 4px;
 		margin-bottom: 36px;
 		color: var(--main-yellow, yellow);
-
 		line-height: 1.4;
+		font-family: Arial;
+		word-spacing: 4px;
 	}
 
-	li::before {
-		content: '✼';
-		padding-right: 4px;
-		color: rgba(163, 69, 245, 0.199);
-	}
 	.language-list {
 		margin: 20px 0;
-		padding: 12px;
-		box-shadow: 0 0 1px rgba(255, 255, 255, 0.146);
+		padding: 12px 4px;
+		box-shadow: 0 0 1px rgba(255, 255, 255, 0.132);
 	}
 	.language-list > li {
 		margin: 2px 12px 2px 0;
