@@ -43,7 +43,7 @@
 				<img src="/anilbh.jpg" alt="Anil Bhattarai" title="Anil Bhattarai" />
 				<li>A diligent and self-motivated fullstack developper</li>
 				<li>
-					Sharp in analytical skills to understand problems and come up the effective and efficient
+					Sharp in analytical skills to understand problems and come up with effective and efficient
 					solutions
 				</li>
 				<li>
@@ -108,11 +108,10 @@
 	}
 
 	.bio-content {
-		line-height: 1.6;
 		display: grid;
 		max-width: 620px;
 		margin: 0 auto 30px auto;
-		background: rgba(245, 244, 247, 0.81);
+		background: rgb(245, 244, 247);
 	}
 
 	img {
@@ -123,7 +122,7 @@
 		border-radius: 50%;
 		/* clear: left; */
 		shape-outside: circle();
-		margin: 8px 16px 16px 0;
+		margin: 8px 12px 12px 0;
 	}
 	h2 {
 		text-transform: uppercase;
@@ -151,9 +150,10 @@
 		border-radius: 8px;
 	}
 	.profile-list-title {
-		font-weight: 600;
-		color: rgb(41, 43, 41);
+		font-weight: 700;
+		color: rgb(0, 1, 0);
 		font-weight: 400;
+		text-decoration: underline;
 	}
 
 	li {
@@ -168,7 +168,7 @@
 	.language-list {
 		margin: 8px 0;
 		padding: 8px 4px;
-		background: var(--main-blue);
+		background: rgb(210, 210, 210);
 	}
 	.language-list > li {
 		margin: 2px 8px 2px 0;
@@ -177,7 +177,7 @@
 		cursor: pointer;
 		transition: 250ms all ease-in-out;
 		display: inline-block;
-		background: rgba(0, 0, 0, 0.598);
+		background: var(--main-blue);
 		padding: 3px 8px;
 		font-size: 0.85em;
 	}
@@ -210,7 +210,7 @@
 		color: var(--main-white, white);
 		border-color: var(--main-yellow, yellow);
 	}
-	@media (max-width: 650px) {
+	@media (max-width: 600px) {
 		.bio-content {
 			grid-template-columns: 1fr;
 		}
