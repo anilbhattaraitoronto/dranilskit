@@ -89,7 +89,7 @@
 		min-height: 100vh;
 		position: relative;
 		padding: 0 20px;
-		max-width: 1200px;
+		max-width: 900px;
 		margin: auto;
 		background: var(--main-blue);
 	}
@@ -101,12 +101,13 @@
 		position: relative;
 		width: 100%;
 		margin: auto;
+		max-height: 10vh;
 	}
 	main {
 		display: grid;
 		grid-template-columns: 1fr 260px;
 		grid-column-gap: 12px;
-		margin-top: 140px;
+		margin-top: 10vh;
 	}
 
 	h2 {

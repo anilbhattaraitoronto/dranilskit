@@ -18,7 +18,7 @@
 
 <style>
 	header {
-		max-width: 1100px;
+		max-width: 900px;
 		margin: auto;
 	}
 	.nav-container {
@@ -32,7 +32,7 @@
 	}
 	.nav {
 		width: 100%;
-		max-width: 1200px;
+		max-width: 900px;
 		margin: auto;
 		display: flex;
 		justify-content: space-between;

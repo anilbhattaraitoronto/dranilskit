@@ -9,7 +9,7 @@
 		'Django',
 		'Svelte',
 		'Sveltekit',
-		'RDMS (SQL)'
+		'RDBMS (SQL)'
 	];
 	const humanLanguageList = ['Nepali', 'English', 'Hindi', 'French', 'Bhojpuri', 'Spanish'];
 	$: numOfLang = humanLanguageList.length;
@@ -110,9 +110,9 @@
 	.bio-content {
 		line-height: 1.6;
 		display: grid;
-		max-width: 450px;
+		max-width: 620px;
 		margin: 0 auto 30px auto;
-		background: rgba(137, 77, 232, 0.05);
+		background: rgba(245, 244, 247, 0.81);
 	}
 
 	img {
@@ -152,46 +152,40 @@
 	}
 	.profile-list-title {
 		font-weight: 600;
-		color: lightgreen;
+		color: rgb(41, 43, 41);
 		font-weight: 400;
 	}
 
 	li {
 		padding-left: 4px;
-		margin-bottom: 36px;
-		color: var(--main-yellow, yellow);
-		line-height: 1.4;
+		margin-bottom: 8px;
+		color: var(--main-dark, black);
+		line-height: 1.3;
 		font-family: Arial;
-		word-spacing: 4px;
+		word-spacing: 2px;
 	}
 
 	.language-list {
-		margin: 20px 0;
-		padding: 12px 4px;
-		box-shadow: 0 0 1px rgba(255, 255, 255, 0.132);
+		margin: 8px 0;
+		padding: 8px 4px;
+		background: var(--main-blue);
 	}
 	.language-list > li {
-		margin: 2px 12px 2px 0;
+		margin: 2px 8px 2px 0;
 		color: var(--main-white, white);
 		list-style-type: none;
 		cursor: pointer;
 		transition: 250ms all ease-in-out;
 		display: inline-block;
-		background: rgba(0, 0, 0, 0.071);
+		background: rgba(0, 0, 0, 0.598);
 		padding: 3px 8px;
-		border-radius: 8px;
 		font-size: 0.85em;
 	}
 
-	.language-list > li::before {
-		content: '';
-		padding: 0;
-	}
 	.full-cv-link {
 		background: var(--main-dark, yellow);
 		padding: 0 16px;
 		border: 1px solid transparent;
-		border-radius: 4px;
 		text-align: right;
 		position: absolute;
 		bottom: 0;
@@ -206,7 +200,7 @@
 		left: 0;
 		background: var(--main-dark, black);
 		border: 1px solid transparent;
-		border-radius: 4px;
+		/* border-radius: 4px; */
 		font-size: 0.8em;
 		padding: 0 16px;
 	}
@@ -216,15 +210,9 @@
 		color: var(--main-white, white);
 		border-color: var(--main-yellow, yellow);
 	}
-	@media (max-width: 850px) {
+	@media (max-width: 650px) {
 		.bio-content {
 			grid-template-columns: 1fr;
-		}
-		img {
-			display: inline;
-			float: left;
-			clear: both;
-			shape-outside: circle();
 		}
 	}
 </style>
