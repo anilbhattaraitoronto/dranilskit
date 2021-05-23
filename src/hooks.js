@@ -4,50 +4,38 @@ import { authSecret } from '$lib/secrets'
 import DB from '$lib/database.js'
 
 
-export function getContext({ headers }) {
+export async function handle({ request, render }) {
     const categories = DB.prepare(`SELECT * FROM categories`).all()
     const latestBlogs = DB.prepare(`SELECT * FROM posts ORDER BY posted_date DESC LIMIT 10 `).all()
-    const cookies = cookie.parse(headers.cookie || '');
+    const cookies = cookie.parse(request.headers.cookie || '');
     if (cookies.jwt) {
         const { user_id } = jwt.verify(cookies.jwt, authSecret)
         const user = DB.prepare(`SELECT fullname, user_id, is_admin FROM users WHERE user_id=?`).get(user_id)
         if (user) {
-            return {
-                user: user,
-                categories: categories,
-                latestBlogs:latestBlogs
-            }
-        }
-        return {
-            
-            categories: categories,
-            latestBlogs:latestBlogs
+            request.locals.user = user;
         }
     }
-    return {
-       
-        categories: categories,
-        latestBlogs:latestBlogs
-    }
+        
+        request.locals.categories = categories;
+        request.locals.latestBlogs = latestBlogs;
+        const response = await render(request)
+        
+   
+   return response
         
 }
 
-export function getSession({ context }) {
-    if (context.user) {
+export function getSession(request) {
+    if (request.user) {
          return {
-        user: {
-                 fullname: context.user?.fullname,
-                 user_id: context.user?.user_id,
-                is_admin: context.user?.is_admin
-             },
-             categories: context.categories ? context.categories : [],
-             latestBlogs:context.latestBlogs ? context.latestBlogs : []
+        user: request.locals.user,
+        categories: request.locals.categories ? request.locals.categories : [],
+        latestBlogs:requestt.locals.latestBlogs ? request.locals.latestBlogs : []
     }
     }
    
     return {
-        user: null,
-        categories: context.categories,
-        latestBlogs: context.latestBlogs
+        categories: request.locals.categories ? request.locals.categories : [],
+        latestBlogs:request.locals.latestBlogs ? request.locals.latestBlogs : []
     }
 }
