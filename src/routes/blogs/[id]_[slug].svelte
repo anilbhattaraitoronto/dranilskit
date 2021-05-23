@@ -84,12 +84,16 @@
 
 <svelte:head>
 	<title>{article.article ? article.article.title : ''}</title>
+	<link
+		rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+	/>
 </svelte:head>
 
 {#if article.article}
 	<article>
 		<h2 in:fly={{ y: -80, duration: 1000 }}>{article.article.title}</h2>
-		<img src={article.article.thumbnail_url} alt="" />
+		<img src={article.article.thumbnail_url} alt={article.article.title} />
 
 		<div class="content">
 			<p>
@@ -112,7 +116,6 @@
 								<option value={category.category_id}>{category.name}</option>
 							{/each}
 						</select>
-						no category? <a href="/accounts/addcategory">Add category</a>
 					</label>
 
 					<label for="title">Title</label>
@@ -249,13 +252,6 @@
 					</div>
 					<!-- Toolbar ends -->
 					<div contenteditable="true" id="editor" bind:innerHTML={content} />
-					<!-- <form>
-						<input
-							type="submit"
-							value="Update Post"
-							on:submit|preventDefault={() => updateBlog(article.article.blog_id)}
-						/>
-					</form> -->
 					<button on:click|preventDefault={updateBlog}>Update Blog</button>
 					<p>title is: {title}</p>
 				</main>
@@ -275,47 +271,26 @@
 	article {
 		font-family: Arial;
 		width: 100%;
-		max-width: 550px;
+		max-width: 650px;
 		margin: auto;
 		color: white;
 	}
 	h2 {
-		color: var(--main-white, white);
+		letter-spacing: 2px;
+		color: limegreen;
+		font-weight: 300;
 	}
 	img {
 		display: block;
 		width: 100%;
-		max-width: 550px;
+		max-width: 650px;
 		margin: 20px auto;
 	}
 	p {
 		padding-bottom: 16px;
 		line-height: 1.6;
 	}
-	/* button {
-		all: unset;
-		cursor: pointer;
-		margin-bottom: 16px;
-		background: white;
-		color: var(--main-dark, black);
-		text-align: center;
-		display: block;
-		border: 1px solid #ff40004f;
-		width: 100%;
-		max-width: 150px;
-		padding: 4px;
-		border-radius: 20px;
-		z-index: -1;
-		transition: 200ms all ease-in-out;
-		margin: 20px auto;
-	}
-	button:hover {
-		background: rgb(242, 232, 227);
-		border-color: #ff3e00;
-	}
-	summary {
-		color: var(--main-yellow, yellow);
-	} */
+
 	main {
 		width: 100%;
 		max-width: 700px;
@@ -324,15 +299,17 @@
 		box-shadow: 0 0 1px gray;
 		color: white;
 	}
-	h2 {
-		letter-spacing: 2px;
-		color: limegreen;
-		font-weight: 300;
-	}
 	.tool-bar {
 		display: flex;
 		flex-wrap: wrap;
 		gap: 1px;
+	}
+	.tool-bar button {
+		height: 30px;
+		width: 30px;
+		border-radius: 2px;
+		cursor: pointer;
+		margin-right: 2px;
 	}
 	#editor {
 		border: 1px solid rgb(242, 237, 237);
@@ -347,12 +324,7 @@
 		border-color: rgb(255, 196, 0);
 		outline: none;
 	}
-	img {
-		display: block;
-		max-width: 250px;
-		margin: auto;
-		padding: 16px;
-	}
+
 	select {
 		border: unset;
 		/* appearance: none; */
@@ -363,6 +335,7 @@
 		color: green;
 		text-align: center;
 		width: 80px;
+		margin-right: 2px;
 	}
 	option {
 		width: 150px;
