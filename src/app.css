@@ -30,4 +30,7 @@ img{
 li a {
     color: yellow;
 }
+ol, ul {
+    padding: 0 10px;
+}
 

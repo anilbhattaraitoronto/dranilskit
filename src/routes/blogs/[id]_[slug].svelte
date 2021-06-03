@@ -273,22 +273,22 @@
 		width: 100%;
 		max-width: 650px;
 		margin: auto;
-		color: white;
+		background: white;
+		padding: 20px;
 	}
 	h2 {
-		letter-spacing: 2px;
-		color: limegreen;
-		font-weight: 300;
+		text-align: center;
+		font-weight: 600;
 	}
 	img {
 		display: block;
 		width: 100%;
-		max-width: 650px;
+		max-width: 400px;
 		margin: 20px auto;
 	}
 	p {
 		padding-bottom: 16px;
-		line-height: 1.6;
+		line-height: 1.7;
 	}
 
 	main {
