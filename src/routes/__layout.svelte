@@ -107,7 +107,7 @@
 		display: grid;
 		grid-template-columns: 1fr 260px;
 		grid-column-gap: 12px;
-		margin-top: 12vh;
+		margin-top: 5vh;
 	}
 
 	h2 {
@@ -202,7 +202,7 @@
 		}
 		main {
 			grid-template-columns: 1fr;
-			margin-top: 40px;
+			margin-top: 30px;
 		}
 	}
 	@media (min-width: 1220px) {

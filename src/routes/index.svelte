@@ -109,7 +109,7 @@
 
 	.bio-content {
 		display: grid;
-		max-width: 600px;
+		max-width: 630px;
 		margin: 0 auto;
 		background: rgb(245, 244, 247);
 		padding: 30px;
