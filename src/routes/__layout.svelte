@@ -96,12 +96,12 @@
 
 	header {
 		background: var(--main-blue);
-		padding: 0 4px;
+		padding: 10px 4px;
 		z-index: 100;
 		position: relative;
 		width: 100%;
 		margin: auto;
-		max-height: 10vh;
+		max-height: 15vh;
 	}
 	main {
 		display: grid;
@@ -202,7 +202,7 @@
 		}
 		main {
 			grid-template-columns: 1fr;
-			margin-top: 80px;
+			margin-top: 40px;
 		}
 	}
 	@media (min-width: 1220px) {

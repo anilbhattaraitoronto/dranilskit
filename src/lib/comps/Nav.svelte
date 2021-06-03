@@ -20,6 +20,7 @@
 	header {
 		max-width: 900px;
 		margin: auto;
+		padding: 20px;
 	}
 	.nav-container {
 		background: var(--main-blue);
@@ -29,6 +30,7 @@
 		top: 0;
 		left: 0;
 		right: 0;
+		padding: 10px 0;
 	}
 	.nav {
 		width: 100%;
