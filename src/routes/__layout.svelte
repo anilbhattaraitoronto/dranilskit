@@ -86,7 +86,7 @@
 
 <style>
 	.app-wrapper {
-		min-height: 100vh;
+		min-height: 90vh;
 		position: relative;
 		padding: 0 20px;
 		max-width: 900px;
@@ -107,7 +107,7 @@
 		display: grid;
 		grid-template-columns: 1fr 260px;
 		grid-column-gap: 12px;
-		margin-top: 10vh;
+		margin-top: 12vh;
 	}
 
 	h2 {
@@ -118,9 +118,13 @@
 		font-weight: 200;
 		margin-bottom: 12px;
 	}
+	.sidebar {
+		padding: 0 20px;
+		background: rgb(98, 57, 193);
+	}
 	.sidebar-box {
 		padding-bottom: 20px;
-		margin-bottom: 20px;
+		margin-bottom: 30px;
 		border-bottom: 1px solid rgb(34, 25, 135);
 	}
 	.sidebar-nav {
@@ -186,10 +190,11 @@
 	footer {
 		text-align: center;
 		font-size: 0.9em;
-		padding: 8px 0;
+		padding: 30px 0;
 		min-height: 3vh;
 		box-shadow: 0 -1px 0 rgb(215, 211, 211);
 		margin-top: 20px;
+		color: white;
 	}
 	@media (max-width: 780px) {
 		.app-wrapper {

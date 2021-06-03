@@ -91,8 +91,8 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		background: #4219a2;
-		margin-bottom: 2px;
+		background: rgb(111, 74, 199);
+		margin-bottom: 20px;
 	}
 	.links a {
 		display: inline-block;
@@ -109,9 +109,10 @@
 
 	.bio-content {
 		display: grid;
-		max-width: 620px;
-		margin: 0 auto 30px auto;
+		max-width: 600px;
+		margin: 0 auto;
 		background: rgb(245, 244, 247);
+		padding: 30px;
 	}
 
 	img {
@@ -157,7 +158,7 @@
 	}
 
 	li {
-		padding-left: 4px;
+		padding-bottom: 16px;
 		margin-bottom: 8px;
 		color: var(--main-dark, black);
 		line-height: 1.3;
@@ -168,7 +169,7 @@
 	.language-list {
 		margin: 8px 0;
 		padding: 8px 4px;
-		background: rgb(210, 210, 210);
+		background: rgb(232, 228, 228);
 	}
 	.language-list > li {
 		margin: 2px 8px 2px 0;
