@@ -36,7 +36,7 @@
 
 <main in:fly={{ x: 30, duration: 700, opacity: 1 }}>
 	<h2>Login</h2>
-	<form on:submit|preventDefault={login}>
+	<form on:submit|preventDefault={login} autocomplete="on">
 		<label for="email">Email</label>
 		<input type="email" id="email" bind:value={email} required />
 		<label for="password">Password </label>
