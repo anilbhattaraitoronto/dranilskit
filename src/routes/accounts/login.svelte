@@ -21,9 +21,10 @@
 	async function login(event) {
 		const response = await postData(`/auth/login.json`, { email, password });
 		errorMessage = response.errors;
-		if (response.user) {
+		if (response.successMessage) {
+			console.log('Logged in user is ', response.user);
 			$session.user = response.user;
-			$session.message = response.message;
+			$session.message = response.successMessage;
 			goto('/');
 		}
 	}

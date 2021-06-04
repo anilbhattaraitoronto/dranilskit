@@ -20,7 +20,7 @@ export async function post(request) {
                     return {
                         headers: {
                             'set-cookie': 
-                                `jwt=${token}; Path=/; HttpOnly=true; Max-Age=${maxAge}`
+                                `jwt=${token}; Path=/; HttpOnly=true; Max-Age=${maxAge}; Secure=${isSecure};`
                         },
                         body: {
                             user: {
@@ -28,13 +28,13 @@ export async function post(request) {
                                 user_id: user.user_id,
                                 is_admin:user.is_admin
                             },
-                            message:`You have successfully logged in ${user.fullname}`
+                            successMessage:`You have successfully logged in ${user.fullname}`
                         }
             }
                 } else {
                     return {
                         body: {
-                            message: `Invalid password. Please try again.`
+                            errorMessage: `Invalid password. Please try again.`
                         }
                     }
                 }
@@ -42,7 +42,7 @@ export async function post(request) {
             } else {
                 return {
                     body: {
-                        message:"User with that email does not exist or is not active. Please sign up."
+                        errorMessage:"User with that email does not exist or is not active. Please sign up."
                     }
                 }
             }
@@ -51,7 +51,7 @@ export async function post(request) {
         } else {
             return {
                 body: {
-                message:"All fields are required"
+                errorMessage:"All fields are required"
             }
         }
     }

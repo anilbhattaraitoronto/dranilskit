@@ -7,12 +7,16 @@
 
 	let errorMessage;
 	async function logout() {
-		const response = await postData('/auth/logout.json', { hello: 'world' });
-		errorMessage = response.errors || '';
-		if (response.ok) {
-			$session.user = null;
-			$session.message = 'You have successfully logged out';
-			goto('/');
+		try {
+			const response = await postData('/auth/logout.json', { hello: 'world' });
+			errorMessage = response.errors || '';
+			if (response.ok) {
+				$session.user = null;
+				$session.message = 'You have successfully logged out';
+				goto('/');
+			}
+		} catch (err) {
+			errorMessage = 'Something happened';
 		}
 	}
 </script>

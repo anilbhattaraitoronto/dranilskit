@@ -9,11 +9,8 @@ export async function handle({ request, render }) {
     const latestBlogs = DB.prepare(`SELECT * FROM posts ORDER BY posted_date DESC LIMIT 10 `).all()
     const cookies = cookie.parse(request.headers.cookie || '');
     if (cookies.jwt) {
-        const { user_id } = jwt.verify(cookies.jwt, authSecret)
-        const user = DB.prepare(`SELECT fullname, user_id, is_admin FROM users WHERE user_id=?`).get(user_id)
-        if (user) {
+        const user = jwt.verify(cookies.jwt, authSecret)
             request.locals.user = user;
-        }
     }
         
         request.locals.categories = categories;
@@ -26,11 +23,11 @@ export async function handle({ request, render }) {
 }
 
 export function getSession(request) {
-    if (request.user) {
+    if (request.locals.user) {
          return {
         user: request.locals.user,
         categories: request.locals.categories ? request.locals.categories : [],
-        latestBlogs:requestt.locals.latestBlogs ? request.locals.latestBlogs : []
+        latestBlogs:request.locals.latestBlogs ? request.locals.latestBlogs : []
     }
     }
    
