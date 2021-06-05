@@ -84,7 +84,7 @@
 		display: grid;
 		grid-template-columns: 1fr;
 		padding: 0;
-		color: white;
+		background: white;
 	}
 	.bio {
 		padding: 0 8px;
@@ -125,7 +125,7 @@
 		display: grid;
 		max-width: 630px;
 		margin: 0 auto;
-		background: rgb(245, 244, 247);
+		background: white;
 		padding: 30px;
 	}
 

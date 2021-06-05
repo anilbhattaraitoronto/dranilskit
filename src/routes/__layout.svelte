@@ -122,6 +122,9 @@
 		font-weight: 600;
 		margin-bottom: 12px;
 	}
+	.page {
+		background: white;
+	}
 	.sidebar {
 		padding: 0 20px;
 		background: rgb(98, 57, 193);
