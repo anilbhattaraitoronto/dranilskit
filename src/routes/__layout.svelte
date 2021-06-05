@@ -119,7 +119,7 @@
 		letter-spacing: 2px;
 		color: var(--main-white);
 		font-size: 1em;
-		font-weight: 200;
+		font-weight: 600;
 		margin-bottom: 12px;
 	}
 	.sidebar {
@@ -156,11 +156,12 @@
 		border-radius: 8px;
 	}
 	.sidebar .blog-link {
-		color: limegreen;
+		color: var(--main-yellow, yellow);
 		font-weight: 300;
+		transition: var(--main-transition);
 	}
 	.sidebar .blog-link:hover {
-		color: rgb(197, 245, 100);
+		color: yellow;
 	}
 	.sidebar a:hover {
 		color: var(--main-white, white);
@@ -169,7 +170,9 @@
 		color: rgb(110, 107, 107);
 	}
 	.blog-link-container {
-		border-bottom: 1px solid rgba(255, 255, 255, 0.118);
+		border-bottom: 1px solid rgba(255, 255, 255, 0.461);
+		margin-bottom: 8px;
+		line-height: 1.5;
 	}
 	.logout-button {
 		all: unset;

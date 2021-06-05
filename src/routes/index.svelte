@@ -21,23 +21,26 @@
 
 <main>
 	<div class="bio">
-		<nav class="links">
-			<h2>About Me</h2>
-			<div>
-				<a href="/cv" class="cv-link">CV</a>
-				<a
-					rel="external"
-					target="_blank"
-					no-referrer
-					href="https://www.linkedin.com/in/anil-bhattarai-5a699b28/"
-					>LinkedIn
-				</a>
-				<a rel="external" target="_blank" no-referrer href="https://github.com/anilbhattaraitoronto"
-					>GitHub</a
-				>
-			</div>
-		</nav>
 		<div class="bio-content">
+			<nav class="links">
+				<h2>About Me</h2>
+				<div>
+					<a href="/cv" class="cv-link">CV</a>
+					<a
+						rel="external"
+						target="_blank"
+						no-referrer
+						href="https://www.linkedin.com/in/anil-bhattarai-5a699b28/"
+						>LinkedIn
+					</a>
+					<a
+						rel="external"
+						target="_blank"
+						no-referrer
+						href="https://github.com/anilbhattaraitoronto">GitHub</a
+					>
+				</div>
+			</nav>
 			<ul class="profile-list">
 				<h3 class="profile-list-title">I am,</h3>
 				<img src="/anilbh.jpg" alt="Anil Bhattarai" title="Anil Bhattarai" />
@@ -91,23 +94,34 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		background: rgb(111, 74, 199);
+		/* background: rgb(111, 74, 199); */
 		margin-bottom: 20px;
+		position: absolute;
+		top: 1px;
+		left: 0;
+		right: 0;
+	}
+	.links h2 {
+		color: var(--main-blue);
+		padding-left: 4px;
+		letter-spacing: 0;
+		word-spacing: 3px;
 	}
 	.links a {
 		display: inline-block;
 		margin-right: 3px;
 		box-shadow: 1px 0 0 rgb(105, 103, 103);
-		color: rgb(41, 213, 41);
+		color: var(--main-blue);
 		padding: 0 6px;
 		font-size: 1em;
 		text-align: right;
 	}
 	.links a:hover {
-		color: var(--main-white, white);
+		color: darkblue;
 	}
 
 	.bio-content {
+		position: relative;
 		display: grid;
 		max-width: 630px;
 		margin: 0 auto;
@@ -132,7 +146,7 @@
 		width: max-content;
 		padding: 4px 0;
 		letter-spacing: 1px;
-		font-weight: 500;
+		font-weight: 600;
 		color: var(--main-white, white);
 	}
 
@@ -184,26 +198,26 @@
 	}
 
 	.full-cv-link {
-		background: var(--main-dark, yellow);
-		padding: 0 16px;
+		background: var(--main-dark, black);
+		padding: 8px 16px;
 		border: 1px solid transparent;
 		text-align: right;
 		position: absolute;
-		bottom: 0;
+		bottom: -20px;
 		right: 0;
-		font-size: 0.8em;
+		font-size: 0.9em;
 		color: limegreen;
 	}
 	.cv-pdf-link {
 		color: limegreen;
 		position: absolute;
-		bottom: 0;
+		bottom: -20px;
 		left: 0;
 		background: var(--main-dark, black);
 		border: 1px solid transparent;
 		/* border-radius: 4px; */
-		font-size: 0.8em;
-		padding: 0 16px;
+		font-size: 0.9em;
+		padding: 8px 16px;
 	}
 	.full-cv-link:hover,
 	.cv-pdf-link:hover {
@@ -214,6 +228,7 @@
 	@media (max-width: 600px) {
 		.bio-content {
 			grid-template-columns: 1fr;
+			padding: 30px 8px;
 		}
 	}
 </style>

@@ -9,7 +9,7 @@
 			<h2 class="masthead">🏠</h2>
 		</a>
 		<div>
-			<h1>Anil Bhattarai</h1>
+			<a href="/"><h1>Anil Bhattarai</h1></a>
 		</div>
 	</div>
 </div>
@@ -81,5 +81,9 @@
 		color: var(--main-white, white);
 		font-style: italic;
 		margin-top: -6px;
+		transition: var(--main-transition);
+	}
+	h1:hover {
+		color: yellow;
 	}
 </style>

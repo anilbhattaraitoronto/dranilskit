@@ -19,6 +19,7 @@ body{
     --main-dark:#292554;
     --secondary-blue:#c4beeb54;
     --main-yellow: rgb(240, 221, 14);
+    --main-transition: 250ms all ease-in-out;
     background: var(--main-blue);
 }
 img{
