@@ -127,7 +127,8 @@
 	}
 	.sidebar {
 		padding: 0 20px;
-		background: rgb(98, 57, 193);
+		/* background: rgb(98, 57, 193); */
+		box-shadow: -1px 0 0 rgba(255, 255, 255, 0.214);
 	}
 	.sidebar-box {
 		padding-bottom: 20px;
