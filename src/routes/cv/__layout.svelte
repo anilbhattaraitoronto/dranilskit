@@ -23,6 +23,7 @@
 		width: 100%;
 		max-width: 700px;
 		margin: auto;
+		background: var(--main-blue, rgb(60, 0, 128));
 	}
 	.masthead {
 		text-align: center;

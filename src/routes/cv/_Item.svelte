@@ -47,7 +47,7 @@
 		font-size: 1.1em;
 	}
 	h4 {
-		color: rgb(187, 168, 168);
+		color: rgb(211, 209, 209);
 		font-size: 1em;
 	}
 	ul {
