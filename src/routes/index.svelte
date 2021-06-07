@@ -8,6 +8,7 @@
 		'Svelte',
 		'Sveltekit',
 		'RDBMS (SQL)',
+		'Microsoft Azure',
 		'HTML',
 		'CSS'
 	];
