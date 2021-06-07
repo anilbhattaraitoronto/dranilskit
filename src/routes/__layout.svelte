@@ -80,6 +80,13 @@
 					</ul>
 				</aside>
 			{/if}
+			<aside>
+				<ul>
+					<li>
+						<a href="/cv">CV</a>
+					</li>
+				</ul>
+			</aside>
 		</article>
 	</main>
 

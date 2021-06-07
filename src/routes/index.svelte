@@ -1,15 +1,15 @@
 <script>
 	const languageList = [
-		'HTML',
-		'CSS',
-		'JavaScript',
 		'Python',
+		'Django',
+		'JavaScript',
 		'Nodejs',
 		'Expressjs',
-		'Django',
 		'Svelte',
 		'Sveltekit',
-		'RDBMS (SQL)'
+		'RDBMS (SQL)',
+		'HTML',
+		'CSS'
 	];
 	const humanLanguageList = ['Nepali', 'English', 'Hindi', 'French', 'Bhojpuri', 'Spanish'];
 	$: numOfLang = humanLanguageList.length;
@@ -57,7 +57,7 @@
 						{/each}
 					</ul>
 				</li>
-				<li>Competent in fundamentals of component based UI programming</li>
+				<li>Competent in fundamentals of <strong>component based UI programming</strong></li>
 				<li>
 					Able to communicate in <strong>{numOfLang} human languages</strong>:
 					<ul class="language-list">
