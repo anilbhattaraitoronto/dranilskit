@@ -1,13 +1,14 @@
 <script context="module">
 	export async function load({ page, fetch }) {
 		const res = await fetch(`/blogs/category/${page.params.category_id}.json`);
-		const category = page.params.category_slug;
+		const { category_id, category_slug } = page.params;
 		if (res.ok) {
 			let categoryBlogs = await res.json();
 			return {
 				props: {
 					categoryBlogs: categoryBlogs,
-					category
+					category_id,
+					category_slug
 				}
 			};
 		}
@@ -20,15 +21,16 @@
 
 <script>
 	export let categoryBlogs;
-	export let category;
+	export let category_id;
+	export let category_slug;
 </script>
 
 <svelte:head>
-	<title>{category.toUpperCase()} | dr-anil.com</title>
+	<title>{category_slug.toUpperCase()} | dr-anil.com</title>
 </svelte:head>
 {#if categoryBlogs.categoryBlogs.length > 0}
-	<h2>Blogs about <b>{category.toUpperCase()}</b></h2>
 	<div class="blogs">
+		<h2>Blogs about <b>{category_slug.toUpperCase()}</b></h2>
 		{#each categoryBlogs.categoryBlogs as blog}
 			<div class="blog">
 				<h3><a href="/blogs/{blog.blog_id}_{blog.slug}">{blog.title}</a></h3>
@@ -47,21 +49,28 @@
 {/if}
 
 <style>
+	.blogs {
+		padding: 20px;
+	}
+	.blog {
+		padding: 10px 0;
+		border-bottom: 1px solid lightgray;
+	}
 	h2 {
-		color: var(--main-white, white);
 		font-weight: 200;
 		font-size: 1.2em;
 		text-transform: uppercase;
 	}
+
 	a {
-		color: var(--main-yellow, yellow);
+		color: var(--main-black, black);
 		transition: 250ms all ease-in-out;
 	}
 	a:hover {
-		color: var(--main-white, white);
+		color: var(--main-blue, darkblue);
 	}
 	p {
-		color: rgb(155, 153, 153);
+		color: rgb(96, 94, 94);
 		font-size: 0.9em;
 	}
 </style>
