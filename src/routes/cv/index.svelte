@@ -6,7 +6,7 @@
 	<title>CV</title>
 </svelte:head>
 <main>
-	<h2>profile 😀</h2>
+	<h2>profile</h2>
 
 	<p>
 		<img

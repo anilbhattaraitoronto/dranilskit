@@ -21,7 +21,7 @@
 
 <script>
 	export let categoryBlogs;
-	export let category_id;
+
 	export let category_slug;
 </script>
 
@@ -45,32 +45,40 @@
 		{/each}
 	</div>
 {:else}
-	<p>Category Blogs not yet created</p>
+	<p>Blogs on <span>{category_slug.toUpperCase()} </span> are coming soon ...</p>
 {/if}
 
 <style>
 	.blogs {
-		padding: 20px;
+		padding: 20px 0;
 	}
 	.blog {
-		padding: 10px 0;
-		border-bottom: 1px solid lightgray;
+		padding: 8px 0;
+		/* border-bottom: 1px solid rgb(109, 108, 108); */
+		margin-bottom: 10px;
+		box-shadow: 0 1px 0 rgba(150, 150, 150, 0.146);
 	}
 	h2 {
 		font-weight: 200;
 		font-size: 1.2em;
 		text-transform: uppercase;
+		color: white;
 	}
 
 	a {
-		color: var(--main-black, black);
+		color: var(--main-yellow, yellow);
 		transition: 250ms all ease-in-out;
+		text-decoration: none;
 	}
 	a:hover {
-		color: var(--main-blue, darkblue);
+		color: rgb(204, 200, 200);
+		text-decoration: underline;
 	}
 	p {
-		color: rgb(96, 94, 94);
+		color: rgb(157, 152, 152);
 		font-size: 0.9em;
+	}
+	p > span {
+		color: var(--main-yellow, yellow);
 	}
 </style>
