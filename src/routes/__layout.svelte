@@ -116,7 +116,7 @@
 	}
 	main {
 		display: grid;
-		grid-template-columns: 1fr 260px;
+		grid-template-columns: 1fr 300px;
 		grid-column-gap: 12px;
 		margin-top: 5vh;
 	}
