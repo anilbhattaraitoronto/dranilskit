@@ -148,6 +148,9 @@
 		justify-content: flex-start;
 		align-items: flex-start;
 	}
+	ul {
+		padding: 0;
+	}
 	li {
 		position: relative;
 		list-style-type: none;
